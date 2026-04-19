@@ -115,6 +115,7 @@
       "authors": "Nom P., Collègue A., Directeur D.",
       "venue": "En préparation",
       "url": "",
+      "doi": "",
       "skills": ["s-writing", "s-ephys", "s-python"]
     },
     {
@@ -124,7 +125,61 @@
       "authors": "Nom P., Co-auteur B.",
       "venue": "Journal of Neuroscience Methods",
       "url": "",
+      "doi": "",
       "skills": ["s-imaging", "s-python", "s-ml"]
+    }
+  ],
+
+  "implications": [
+    {
+      "id": "imp-1",
+      "title": "Journée des doctorants de l'école doctorale SVS",
+      "org": "École doctorale Sciences de la Vie et de la Santé, Université de Bordeaux",
+      "role": "Membre du comité d'organisation",
+      "start": "2024-05",
+      "end": "2024-05",
+      "description": "Organisation de la journée annuelle des doctorants : logistique, programme scientifique, communication.",
+      "category": "scientific"
+    },
+    {
+      "id": "imp-2",
+      "title": "Évaluation de manuscrits",
+      "org": "Journal of Neuroscience Methods",
+      "role": "Reviewer",
+      "start": "2024-01",
+      "end": null,
+      "description": "Révision de soumissions scientifiques pour un journal international de neurosciences.",
+      "category": "scientific"
+    },
+    {
+      "id": "imp-3",
+      "title": "Fête de la Science",
+      "org": "Université de Bordeaux — Campus Carreire",
+      "role": "Animateur scientifique",
+      "start": "2023-10",
+      "end": "2023-10",
+      "description": "Animation d'un stand de vulgarisation sur l'électrophysiologie pour le grand public et les scolaires.",
+      "category": "public"
+    },
+    {
+      "id": "imp-4",
+      "title": "Nuit européenne des chercheurs",
+      "org": "Bordeaux",
+      "role": "Conférencier",
+      "start": "2024-09",
+      "end": "2024-09",
+      "description": "Présentation grand public sur les neurosciences et le fonctionnement du cerveau.",
+      "category": "public"
+    },
+    {
+      "id": "imp-5",
+      "title": "Contrat doctoral ministériel",
+      "org": "Ministère de l'Enseignement Supérieur et de la Recherche",
+      "amount": "~1 800 € brut / mois",
+      "start": "2023-09",
+      "end": "2026-08",
+      "description": "Financement principal de la thèse sur 3 ans, obtenu via concours de l'école doctorale.",
+      "category": "funding"
     }
   ],
 

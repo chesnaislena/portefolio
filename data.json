@@ -1,0 +1,135 @@
+{
+  "profile": {
+    "name": "Prénom Nom",
+    "title": "Doctorant·e en Neurosciences",
+    "tagline": "J'étudie comment le cerveau apprend, s'adapte et nous rend singuliers.",
+    "about": "Doctorant·e en neurosciences cognitives, je m'intéresse aux mécanismes cérébraux de l'apprentissage et de la mémoire. Mon travail combine électrophysiologie, imagerie et modélisation computationnelle pour comprendre comment les circuits neuronaux encodent l'expérience. En dehors du labo, j'aime enseigner, vulgariser, et explorer les interfaces entre science et société.",
+    "location": "Bordeaux, France",
+    "email": "prenom.nom@univ.fr",
+    "lab": "Laboratoire de Neurosciences — Université de Bordeaux",
+    "orcid": "0000-0000-0000-0000",
+    "links": {
+      "email": "prenom.nom@univ.fr",
+      "github": "https://github.com/votrepseudo",
+      "linkedin": "https://linkedin.com/in/votreprofil",
+      "scholar": "https://scholar.google.com/citations?user=XXXX",
+      "orcid": "https://orcid.org/0000-0000-0000-0000"
+    }
+  },
+
+  "skills": [
+    { "id": "s-python",      "name": "Python",                   "category": "hard",     "level": "avancé" },
+    { "id": "s-matlab",      "name": "MATLAB",                   "category": "hard",     "level": "avancé" },
+    { "id": "s-r",           "name": "R / statistiques",         "category": "hard",     "level": "intermédiaire" },
+    { "id": "s-ephys",       "name": "Électrophysiologie",       "category": "hard",     "level": "avancé" },
+    { "id": "s-imaging",     "name": "Imagerie calcique",        "category": "hard",     "level": "intermédiaire" },
+    { "id": "s-ml",          "name": "Machine learning",         "category": "hard",     "level": "intermédiaire" },
+    { "id": "s-git",         "name": "Git / versioning",         "category": "hard",     "level": "avancé" },
+    { "id": "s-latex",       "name": "LaTeX",                    "category": "hard",     "level": "avancé" },
+
+    { "id": "s-writing",     "name": "Rédaction scientifique",   "category": "soft",     "level": "avancé" },
+    { "id": "s-teaching",    "name": "Pédagogie",                "category": "soft",     "level": "avancé" },
+    { "id": "s-collab",      "name": "Travail en équipe",        "category": "soft",     "level": "avancé" },
+    { "id": "s-presenting",  "name": "Présentation orale",       "category": "soft",     "level": "avancé" },
+    { "id": "s-project",     "name": "Gestion de projet",        "category": "soft",     "level": "intermédiaire" },
+    { "id": "s-critical",    "name": "Esprit critique",          "category": "soft",     "level": "avancé" },
+
+    { "id": "s-english",     "name": "Anglais (C1)",             "category": "language", "level": "C1" },
+    { "id": "s-french",      "name": "Français (natif)",         "category": "language", "level": "natif" }
+  ],
+
+  "experiences": [
+    {
+      "id": "e-phd",
+      "role": "Doctorant en Neurosciences",
+      "org": "Université de Bordeaux",
+      "location": "Bordeaux, FR",
+      "start": "2023-09",
+      "end": null,
+      "description": "Étude des mécanismes neuronaux de la plasticité synaptique chez le modèle murin. Enregistrements in vivo, analyses Python, encadrement de stagiaires.",
+      "type": "experience",
+      "skills": ["s-python", "s-ephys", "s-imaging", "s-writing", "s-project", "s-critical"]
+    },
+    {
+      "id": "e-ater",
+      "role": "Enseignant·e vacataire",
+      "org": "Université de Bordeaux — L2 Biologie",
+      "location": "Bordeaux, FR",
+      "start": "2023-09",
+      "end": null,
+      "description": "TD et TP de neurophysiologie (32h/an). Conception d'exercices et évaluation.",
+      "type": "experience",
+      "skills": ["s-teaching", "s-presenting", "s-collab"]
+    },
+    {
+      "id": "e-stage-m2",
+      "role": "Stagiaire Master 2",
+      "org": "Institut des Neurosciences",
+      "location": "Paris, FR",
+      "start": "2023-01",
+      "end": "2023-06",
+      "description": "Analyse de données d'imagerie deux-photons sur l'hippocampe. Développement d'un pipeline Python reproductible.",
+      "type": "experience",
+      "skills": ["s-python", "s-imaging", "s-ml", "s-git"]
+    }
+  ],
+
+  "educations": [
+    {
+      "id": "ed-phd",
+      "degree": "Doctorat en Neurosciences",
+      "org": "Université de Bordeaux — École doctorale SVS",
+      "start": "2023-09",
+      "end": null,
+      "description": "Thèse sous la direction du Dr. XXX.",
+      "type": "education",
+      "skills": ["s-writing", "s-critical", "s-project", "s-ephys"]
+    },
+    {
+      "id": "ed-master",
+      "degree": "Master Neurosciences (mention TB)",
+      "org": "Sorbonne Université",
+      "start": "2021-09",
+      "end": "2023-06",
+      "description": "Spécialité : Neurosciences cellulaires et intégratives.",
+      "type": "education",
+      "skills": ["s-python", "s-matlab", "s-r", "s-writing", "s-english"]
+    },
+    {
+      "id": "ed-licence",
+      "degree": "Licence de Biologie",
+      "org": "Université de XXX",
+      "start": "2018-09",
+      "end": "2021-06",
+      "description": "Parcours Biologie cellulaire et physiologie.",
+      "type": "education",
+      "skills": ["s-critical", "s-collab"]
+    }
+  ],
+
+  "publications": [
+    {
+      "id": "p-1",
+      "year": 2025,
+      "title": "Titre d'une publication à venir sur la plasticité hippocampique",
+      "authors": "Nom P., Collègue A., Directeur D.",
+      "venue": "En préparation",
+      "url": "",
+      "skills": ["s-writing", "s-ephys", "s-python"]
+    },
+    {
+      "id": "p-2",
+      "year": 2024,
+      "title": "Article de méthodologie sur l'analyse de données d'imagerie calcique",
+      "authors": "Nom P., Co-auteur B.",
+      "venue": "Journal of Neuroscience Methods",
+      "url": "",
+      "skills": ["s-imaging", "s-python", "s-ml"]
+    }
+  ],
+
+  "meta": {
+    "lastUpdated": "2026-04-19",
+    "version": 1
+  }
+}

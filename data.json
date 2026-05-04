@@ -1,247 +1,302 @@
 {
+  "meta": {
+    "lastUpdated": "2026-05-04",
+    "version": 3,
+    "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
+  },
   "profile": {
-    "name": "Prénom Nom",
-    "title": "Doctorant·e en Neurosciences",
-    "tagline": "J'étudie comment le cerveau apprend, s'adapte et nous rend singuliers.",
-    "about": "Doctorant·e en neurosciences cognitives, je m'intéresse aux mécanismes cérébraux de l'apprentissage et de la mémoire. Mon travail combine électrophysiologie, imagerie et modélisation computationnelle pour comprendre comment les circuits neuronaux encodent l'expérience. En dehors du labo, j'aime enseigner, vulgariser, et explorer les interfaces entre science et société.",
-    "location": "Bordeaux, France",
-    "email": "prenom.nom@univ.fr",
-    "lab": "Laboratoire de Neurosciences — Université de Bordeaux",
-    "orcid": "0000-0000-0000-0000",
+    "name": "Léna Chesnais",
+    "title": "Doctorante en Neurosciences",
+    "tagline": "Étude des liens entre pathologie Tau, récepteurs A2A et symptômes dépressifs dans la maladie d'Alzheimer.",
+    "about": "Doctorante en première année à l'INSERM Lille Neuroscience et Cognition (équipe Lille Neurodegeneration), j'étudie le rôle de la pathologie Tau et des récepteurs adénosinergiques A2A dans les symptômes dépressifs associés à la maladie d'Alzheimer, sous la direction de David Blum (LiLNCog, Lille) et AJ Robison (Michigan State University).\n\nMon parcours conjugue expérimentation animale, biologie moléculaire et histologie. Je m'investis également dans la médiation scientifique et l'encadrement de jeunes chercheurs.",
+    "location": "Lille, France",
+    "email": "lena.chesnais@inserm.fr",
+    "phone": "07 66 74 17 38",
+    "lab": "INSERM — Lille Neuroscience et Cognition (LiLNCog), équipe Lille Neurodegeneration",
+    "orcid": "",
     "links": {
-      "email": "prenom.nom@univ.fr",
-      "github": "https://github.com/votrepseudo",
-      "linkedin": "https://linkedin.com/in/votreprofil",
-      "scholar": "https://scholar.google.com/citations?user=XXXX",
-      "orcid": "https://orcid.org/0000-0000-0000-0000"
+      "email": "mailto:lena.chesnais@inserm.fr",
+      "linkedin": "https://www.linkedin.com/in/léna-chesnais-7a659218a",
+      "github": "",
+      "scholar": "",
+      "orcid": ""
     }
   },
   "skills": [
+    { "id": "s-anim-comportement", "name": "Comportement souris", "category": "hard", "level": "avancé" },
+    { "id": "s-anim-stereotaxie", "name": "Stéréotaxie", "category": "hard", "level": "avancé" },
+    { "id": "s-anim-perfusion", "name": "Perfusion intra-cardiaque", "category": "hard", "level": "avancé" },
+    { "id": "s-anim-prelevement", "name": "Prélèvement de cerveaux", "category": "hard", "level": "avancé" },
+    { "id": "s-anim-dissection", "name": "Dissections", "category": "hard", "level": "avancé" },
+    { "id": "s-lab-dosage", "name": "Dosage protéique", "category": "hard", "level": "avancé" },
+    { "id": "s-lab-westernblot", "name": "Western-blot", "category": "hard", "level": "avancé" },
+    { "id": "s-lab-elisa", "name": "ELISA", "category": "hard", "level": "avancé" },
+    { "id": "s-lab-arn", "name": "Extraction ARN", "category": "hard", "level": "avancé" },
+    { "id": "s-lab-pcr", "name": "RTqPCR et PCR", "category": "hard", "level": "avancé" },
+    { "id": "s-lab-coupe", "name": "Coupe de cerveaux", "category": "hard", "level": "avancé" },
+    { "id": "s-lab-ihc", "name": "Immunohistochimie", "category": "hard", "level": "avancé" },
+    { "id": "s-lab-confocale", "name": "Microscopie confocale", "category": "hard", "level": "avancé" },
+    { "id": "s-soft-ethovision", "name": "Ethovision XT", "category": "hard", "level": "avancé" },
+    { "id": "s-soft-imagej", "name": "ImageJ", "category": "hard", "level": "avancé" },
+    { "id": "s-soft-prism", "name": "GraphPad Prism", "category": "hard", "level": "avancé" },
+    { "id": "s-soft-imaris", "name": "Imaris", "category": "hard", "level": "intermédiaire" },
+    { "id": "s-soft-encadrement", "name": "Encadrement / Mentorat", "category": "soft", "level": "avancé" },
+    { "id": "s-soft-vulgarisation", "name": "Vulgarisation scientifique", "category": "soft", "level": "avancé" },
+    { "id": "s-lang-anglais", "name": "Anglais", "category": "language", "level": "B2" },
+    { "id": "s-lang-francais", "name": "Français", "category": "language", "level": "natif" }
+  ],
+  "cursus": [
     {
-      "id": "s-python",
-      "name": "Python",
-      "category": "hard",
-      "level": "avancé"
+      "id": "edu-doctorat",
+      "type": "education",
+      "title": "Doctorat en Neurosciences",
+      "org": "Université de Lille — École Graduée Biologie Santé de Lille (EGBSL)",
+      "location": "Lille, France",
+      "start": "2025-10",
+      "end": null,
+      "description": "Thèse sous la direction de David Blum (LiLNCog, Lille) et AJ Robison (Michigan State University). Sujet : rôle de la pathologie Tau et des récepteurs adénosinergiques A2A dans les symptômes dépressifs associés à la maladie d'Alzheimer.",
+      "subItems": [],
+      "skills": ["s-anim-comportement", "s-anim-stereotaxie", "s-lab-westernblot", "s-lab-ihc", "s-lab-confocale"]
     },
     {
-      "id": "s-matlab",
-      "name": "MATLAB",
-      "category": "hard",
-      "level": "avancé"
+      "id": "edu-master",
+      "type": "education",
+      "title": "Master Biologie Moléculaire et Cellulaire",
+      "org": "Université de Rennes 1",
+      "location": "Rennes, France",
+      "start": "2020-09",
+      "end": "2022-06",
+      "description": "Mention Bien.",
+      "subItems": [],
+      "skills": []
     },
     {
-      "id": "s-r",
-      "name": "R / statistiques",
-      "category": "hard",
-      "level": "intermédiaire"
-    },
-    {
-      "id": "s-ephys",
-      "name": "Électrophysiologie",
-      "category": "hard",
-      "level": "avancé"
-    },
-    {
-      "id": "s-imaging",
-      "name": "Imagerie calcique",
-      "category": "hard",
-      "level": "intermédiaire"
-    },
-    {
-      "id": "s-ml",
-      "name": "Machine learning",
-      "category": "hard",
-      "level": "intermédiaire"
-    },
-    {
-      "id": "s-git",
-      "name": "Git / versioning",
-      "category": "hard",
-      "level": "avancé"
-    },
-    {
-      "id": "s-latex",
-      "name": "LaTeX",
-      "category": "hard",
-      "level": "avancé"
-    },
-    {
-      "id": "s-writing",
-      "name": "Rédaction scientifique",
-      "category": "soft",
-      "level": "avancé"
-    },
-    {
-      "id": "s-teaching",
-      "name": "Pédagogie",
-      "category": "soft",
-      "level": "avancé"
-    },
-    {
-      "id": "s-collab",
-      "name": "Travail en équipe",
-      "category": "soft",
-      "level": "avancé"
-    },
-    {
-      "id": "s-presenting",
-      "name": "Présentation orale",
-      "category": "soft",
-      "level": "avancé"
-    },
-    {
-      "id": "s-project",
-      "name": "Gestion de projet",
-      "category": "soft",
-      "level": "intermédiaire"
-    },
-    {
-      "id": "s-critical",
-      "name": "Esprit critique",
-      "category": "soft",
-      "level": "avancé"
-    },
-    {
-      "id": "s-english",
-      "name": "Anglais (C1)",
-      "category": "language",
-      "level": "C1"
-    },
-    {
-      "id": "s-french",
-      "name": "Français (natif)",
-      "category": "language",
-      "level": "natif"
+      "id": "edu-licence",
+      "type": "education",
+      "title": "Licence Sciences de la Vie et de la Terre",
+      "org": "Université de la Nouvelle-Calédonie",
+      "location": "Nouméa, Nouvelle-Calédonie",
+      "start": "2018-09",
+      "end": "2020-06",
+      "description": "Mention Bien.",
+      "subItems": [],
+      "skills": []
     }
   ],
   "experiences": [
     {
-      "id": "e-phd",
-      "role": "Doctorant en Neurosciences",
-      "org": "Université de Bordeaux",
-      "location": "Bordeaux, FR",
-      "start": "2023-09",
-      "end": null,
-      "description": "Étude des mécanismes neuronaux de la plasticité synaptique chez le modèle murin. Enregistrements in vivo, analyses Python, encadrement de stagiaires.",
+      "id": "exp-doctorante",
       "type": "experience",
-      "skills": [
-        "s-python",
-        "s-ephys",
-        "s-imaging",
-        "s-writing",
-        "s-project",
-        "s-critical"
-      ]
+      "title": "Doctorante en Neurosciences (1ère année)",
+      "org": "INSERM — Lille Neuroscience et Cognition (LiLNCog), équipe Lille Neurodegeneration",
+      "location": "Lille, France",
+      "start": "2025-10",
+      "end": null,
+      "description": "Étude du rôle de la pathologie Tau et des récepteurs adénosinergiques A2A dans les symptômes dépressifs associés à la maladie d'Alzheimer, sous la direction de David Blum (LiLNCog, Lille) et AJ Robison (Michigan State University). Intégration au programme gradué Precision Health.",
+      "subItems": [
+        {
+          "id": "exp-doctorante-precision",
+          "title": "Programme gradué Precision Health",
+          "location": "Lille, France",
+          "start": "2025-10",
+          "end": null,
+          "summary": "Intégration au programme gradué Precision Health.",
+          "skills": [],
+          "detail": "Programme transdisciplinaire de l'École Graduée centré sur la médecine de précision."
+        }
+      ],
+      "skills": ["s-anim-comportement", "s-anim-stereotaxie", "s-anim-perfusion", "s-anim-prelevement", "s-lab-westernblot", "s-lab-ihc", "s-lab-confocale", "s-soft-ethovision", "s-soft-imagej", "s-soft-prism"]
     },
     {
-      "id": "e-ater",
-      "role": "Enseignant·e vacataire",
-      "org": "Université de Bordeaux — L2 Biologie",
-      "location": "Bordeaux, FR",
-      "start": "2023-09",
-      "end": null,
-      "description": "TD et TP de neurophysiologie (32h/an). Conception d'exercices et évaluation.",
+      "id": "exp-ingenieure",
       "type": "experience",
-      "skills": [
-        "s-teaching",
-        "s-presenting",
-        "s-collab"
-      ]
-    },
-    {
-      "id": "e-stage-m2",
-      "role": "Stagiaire Master 2",
-      "org": "Institut des Neurosciences",
-      "location": "Paris, FR",
+      "title": "Ingénieure d'études (CDD)",
+      "org": "INSERM — Lille Neuroscience et Cognition (LiLNCog), équipe Alzheimer et Tauopathies",
+      "location": "Lille, France",
       "start": "2023-01",
-      "end": "2023-06",
-      "description": "Analyse de données d'imagerie deux-photons sur l'hippocampe. Développement d'un pipeline Python reproductible.",
+      "end": "2025-09",
+      "description": "Étude du rôle de la protéine Tau dans l'homéostasie cérébrale et synaptique : mise au point de tests comportementaux, développement et validation de protocoles, travail avec des souris, formation du nouveau personnel. Sous la responsabilité scientifique de David Blum.",
+      "subItems": [],
+      "skills": ["s-anim-comportement", "s-anim-stereotaxie", "s-anim-perfusion", "s-anim-prelevement", "s-anim-dissection", "s-lab-dosage", "s-lab-westernblot", "s-lab-elisa", "s-lab-arn", "s-lab-pcr", "s-lab-coupe", "s-lab-ihc", "s-lab-confocale", "s-soft-ethovision", "s-soft-imagej", "s-soft-prism", "s-soft-imaris", "s-soft-encadrement"]
+    },
+    {
+      "id": "exp-stage-m2",
       "type": "experience",
-      "skills": [
-        "s-python",
-        "s-imaging",
-        "s-ml",
-        "s-git"
-      ]
+      "title": "Stage de Master 2",
+      "org": "Bioprojet Biotech — Unité de Pharmacologie",
+      "location": "Rennes, France",
+      "start": "2022-01",
+      "end": "2022-06",
+      "description": "Étude par approche pharmacologique in vivo de la contribution du récepteur dopaminergique D3 aux mécanismes d'addiction et de dépendance, sous la tutelle de Marilyne Roussel. Durée : 6 mois.",
+      "subItems": [],
+      "skills": ["s-anim-comportement"]
+    },
+    {
+      "id": "exp-stage-m1",
+      "type": "experience",
+      "title": "Stage de Master 1",
+      "org": "Institut de Recherche en Santé, Environnement et Travail (IRSET)",
+      "location": "Rennes, France",
+      "start": "2021-04",
+      "end": "2021-06",
+      "description": "Impact de l'œstradiol sur la neurogénèse chez le poisson zèbre adulte, sous la tutelle de Colette Vaillant-Capitaine. Durée : 2 mois.",
+      "subItems": [],
+      "skills": []
+    },
+    {
+      "id": "exp-stage-l3",
+      "type": "experience",
+      "title": "Stage de Licence 3",
+      "org": "Institut des Sciences Exactes et Appliquées (ISEA)",
+      "location": "Nouvelle-Calédonie",
+      "start": "2019-04",
+      "end": "2019-05",
+      "description": "Étude de la rhizosphère de deux plantes néo-calédoniennes hyper-accumulatrices de Nickel, sous la tutelle de Valérie Burtet-Sarramegna. Durée : 1,5 mois.",
+      "subItems": [],
+      "skills": []
     }
   ],
-  "educations": [
+  "formations": [
     {
-      "id": "ed-phd",
-      "degree": "Doctorat en Neurosciences",
-      "org": "Université de Bordeaux — École doctorale SVS",
-      "start": "2023-09",
+      "id": "form-chirurgie",
+      "title": "Formation à la chirurgie",
+      "org": "",
+      "location": "",
+      "start": "2024",
+      "end": "2024",
+      "description": "Chirurgie chez la souris, le rat, le lapin et le porc.",
+      "skills": ["s-anim-stereotaxie"]
+    },
+    {
+      "id": "form-experim",
+      "title": "Formation à l'expérimentation animale — Niveau concepteur",
+      "org": "",
+      "location": "",
+      "start": "2021",
+      "end": "2021",
+      "description": "Habilitation à concevoir des protocoles d'expérimentation animale (niveau concepteur).",
+      "skills": ["s-anim-comportement"]
+    }
+  ],
+  "rayonnement": [
+    {
+      "id": "ray-bjc",
+      "category": "collective",
+      "title": "Membre du bureau des jeunes chercheurs",
+      "org": "Société des Neurosciences",
+      "location": "",
+      "start": "2026",
       "end": null,
-      "description": "Thèse sous la direction du Dr. XXX.",
-      "type": "education",
-      "skills": [
-        "s-writing",
-        "s-critical",
-        "s-project",
-        "s-ephys"
-      ]
+      "description": "Membre du bureau des jeunes chercheurs de la Société des Neurosciences.",
+      "skills": []
     },
     {
-      "id": "ed-master",
-      "degree": "Master Neurosciences (mention TB)",
-      "org": "Sorbonne Université",
-      "start": "2021-09",
-      "end": "2023-06",
-      "description": "Spécialité : Neurosciences cellulaires et intégratives.",
-      "type": "education",
-      "skills": [
-        "s-python",
-        "s-matlab",
-        "s-r",
-        "s-writing",
-        "s-english"
-      ]
+      "id": "ray-apprentis",
+      "category": "collective",
+      "title": "Programme « Apprentis chercheurs »",
+      "org": "",
+      "location": "Lille, France",
+      "start": "2026",
+      "end": null,
+      "description": "Encadrement sur 2 mois d'un(e) lycéen(ne) et d'un(e) collégien(ne).",
+      "skills": ["s-soft-encadrement"]
     },
     {
-      "id": "ed-licence",
-      "degree": "Licence de Biologie",
-      "org": "Université de XXX",
-      "start": "2018-09",
-      "end": "2021-06",
-      "description": "Parcours Biologie cellulaire et physiologie.",
-      "type": "education",
-      "skills": [
-        "s-critical",
-        "s-collab"
-      ]
+      "id": "ray-cerveau",
+      "category": "grandpublic",
+      "title": "Atelier — Semaine du cerveau",
+      "org": "Lille Neuroscience et Cognition",
+      "location": "Lille, France",
+      "start": "2026",
+      "end": "2026",
+      "description": "Organisation et présentation d'un atelier durant la Semaine du cerveau, pour scolaires et grand public.",
+      "skills": ["s-soft-vulgarisation"]
+    },
+    {
+      "id": "ray-fetescience",
+      "category": "grandpublic",
+      "title": "Atelier — Fête de la Science",
+      "org": "",
+      "location": "Lille, France",
+      "start": "2024",
+      "end": "2025",
+      "description": "Organisation et présentation d'un atelier durant la Fête de la Science, pour scolaires et grand public.",
+      "skills": ["s-soft-vulgarisation"]
+    },
+    {
+      "id": "ray-declic",
+      "category": "grandpublic",
+      "title": "Programme Déclic",
+      "org": "Lycée Faidherbe",
+      "location": "Lille, France",
+      "start": "2023",
+      "end": "2023",
+      "description": "Intervention dans le cadre du programme Déclic.",
+      "skills": ["s-soft-vulgarisation"]
+    }
+  ],
+  "financements": [
+    {
+      "id": "fin-brainns",
+      "title": "Subvention BRAINNS — investigatrice principale",
+      "org": "BRAINNS / Novartis / Société Française de Neurologie",
+      "year": "2026",
+      "amount": "23 000 €",
+      "description": "Appel à projets ouvert aux doctorants — « The Tau link to depression in Alzheimer Disease ». 23 000 € pour le consommable.",
+      "skills": []
+    },
+    {
+      "id": "fin-fra",
+      "title": "Financement doctoral — Fondation Recherche Alzheimer",
+      "org": "Fondation Recherche Alzheimer",
+      "year": "2025",
+      "amount": "",
+      "description": "Récipiendaire d'un financement doctoral de la Fondation Recherche Alzheimer.",
+      "skills": []
+    },
+    {
+      "id": "fin-egbsl",
+      "title": "Allocation doctorale EGBSL",
+      "org": "École Graduée Biologie Santé de Lille (EGBSL)",
+      "year": "2025",
+      "amount": "",
+      "description": "Réussite au concours des allocations doctorales de l'EGBSL — 8ème sur 89 candidats.",
+      "skills": []
     }
   ],
   "publications": [
     {
-      "id": "p-1",
-      "year": 2025,
-      "title": "Titre d'une publication à venir sur la plasticité hippocampique",
-      "authors": "Nom P., Collègue A., Directeur D.",
-      "venue": "En préparation",
-      "url": "",
-      "skills": [
-        "s-writing",
-        "s-ephys",
-        "s-python"
-      ]
+      "id": "pub-tau22",
+      "title": "Sex-dependent effects of maternal high-fat diet during lactation in the offspring of adult THY-Tau22 mice",
+      "year": "2025",
+      "authors": "Gauvrit T., … Chesnais L., … et al.",
+      "venue": "Brain",
+      "type": "article",
+      "abstract": "",
+      "url": "https://doi.org/10.1093/brain/awaf417",
+      "skills": ["s-anim-comportement", "s-lab-ihc"]
     },
     {
-      "id": "p-2",
-      "year": 2024,
-      "title": "Article de méthodologie sur l'analyse de données d'imagerie calcique",
-      "authors": "Nom P., Co-auteur B.",
-      "venue": "Journal of Neuroscience Methods",
+      "id": "pub-newcal-flora",
+      "title": "New Caledonian Ultramafic Flora: a Remarkable Bacteria and Fungi Hub for Microbial Applications",
+      "year": "2026",
+      "authors": "Dijoux J., Chesnais L., et al.",
+      "venue": "Environmental Microbiology (soumis)",
+      "type": "preprint",
+      "abstract": "",
       "url": "",
-      "skills": [
-        "s-imaging",
-        "s-python",
-        "s-ml"
-      ]
+      "skills": []
+    },
+    {
+      "id": "pub-newcal-meta",
+      "title": "New Caledonian metallophytes: a remarkable bacteria and fungi hub",
+      "year": "2024",
+      "authors": "Dijoux J., … Chesnais L., … et al.",
+      "venue": "Australian Society for Microbiology Annual Scientific Meeting 2024, Brisbane (AU)",
+      "type": "communication",
+      "abstract": "",
+      "url": "https://hal.science/hal-04953318",
+      "skills": []
     }
-  ],
-  "meta": {
-    "lastUpdated": "2026-04-19",
-    "version": 2,
-    "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
-  }
+  ]
 }

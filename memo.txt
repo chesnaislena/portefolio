@@ -1,0 +1,21 @@
+ Phase 1 — Fondations
+  1. Migration de data.json vers le nouveau schéma (rename + ajout collections vides + subItems: [])
+  2. Extraction du JS et du CSS embarqués dans app.js et style.css (mutualisation pour la MPA)
+  3. Création d'un module de header/navigation injecté par JS sur toutes les pages
+
+  Phase 2 — Multi-pages
+  4. Refonte d'index.html en page d'accueil (hero, présentation, accès rapides, graphe)
+  5. Création des pages : cursus.html, experiences.html, formations.html, rayonnement.html, financements.html,
+  travaux.html
+
+  Phase 3 — Admin
+  6. Ajout des onglets manquants (Formations, Rayonnement, Financements)
+  7. UI de gestion des subItems pour cursus/expériences
+  8. Champs abstract + type pour les publications
+
+  Phase 4 — Graphe
+  9. Agrégation depuis toutes les collections + sous-items, formes différenciées (carrés/diamants), couleurs pastel par
+  catégorie
+
+
+  Phase 1 terminée

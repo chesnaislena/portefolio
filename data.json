@@ -16,28 +16,104 @@
       "orcid": "https://orcid.org/0000-0000-0000-0000"
     }
   },
-
   "skills": [
-    { "id": "s-python",      "name": "Python",                   "category": "hard",     "level": "avancé" },
-    { "id": "s-matlab",      "name": "MATLAB",                   "category": "hard",     "level": "avancé" },
-    { "id": "s-r",           "name": "R / statistiques",         "category": "hard",     "level": "intermédiaire" },
-    { "id": "s-ephys",       "name": "Électrophysiologie",       "category": "hard",     "level": "avancé" },
-    { "id": "s-imaging",     "name": "Imagerie calcique",        "category": "hard",     "level": "intermédiaire" },
-    { "id": "s-ml",          "name": "Machine learning",         "category": "hard",     "level": "intermédiaire" },
-    { "id": "s-git",         "name": "Git / versioning",         "category": "hard",     "level": "avancé" },
-    { "id": "s-latex",       "name": "LaTeX",                    "category": "hard",     "level": "avancé" },
-
-    { "id": "s-writing",     "name": "Rédaction scientifique",   "category": "soft",     "level": "avancé" },
-    { "id": "s-teaching",    "name": "Pédagogie",                "category": "soft",     "level": "avancé" },
-    { "id": "s-collab",      "name": "Travail en équipe",        "category": "soft",     "level": "avancé" },
-    { "id": "s-presenting",  "name": "Présentation orale",       "category": "soft",     "level": "avancé" },
-    { "id": "s-project",     "name": "Gestion de projet",        "category": "soft",     "level": "intermédiaire" },
-    { "id": "s-critical",    "name": "Esprit critique",          "category": "soft",     "level": "avancé" },
-
-    { "id": "s-english",     "name": "Anglais (C1)",             "category": "language", "level": "C1" },
-    { "id": "s-french",      "name": "Français (natif)",         "category": "language", "level": "natif" }
+    {
+      "id": "s-python",
+      "name": "Python",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-matlab",
+      "name": "MATLAB",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-r",
+      "name": "R / statistiques",
+      "category": "hard",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-ephys",
+      "name": "Électrophysiologie",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-imaging",
+      "name": "Imagerie calcique",
+      "category": "hard",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-ml",
+      "name": "Machine learning",
+      "category": "hard",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-git",
+      "name": "Git / versioning",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-latex",
+      "name": "LaTeX",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-writing",
+      "name": "Rédaction scientifique",
+      "category": "soft",
+      "level": "avancé"
+    },
+    {
+      "id": "s-teaching",
+      "name": "Pédagogie",
+      "category": "soft",
+      "level": "avancé"
+    },
+    {
+      "id": "s-collab",
+      "name": "Travail en équipe",
+      "category": "soft",
+      "level": "avancé"
+    },
+    {
+      "id": "s-presenting",
+      "name": "Présentation orale",
+      "category": "soft",
+      "level": "avancé"
+    },
+    {
+      "id": "s-project",
+      "name": "Gestion de projet",
+      "category": "soft",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-critical",
+      "name": "Esprit critique",
+      "category": "soft",
+      "level": "avancé"
+    },
+    {
+      "id": "s-english",
+      "name": "Anglais (C1)",
+      "category": "language",
+      "level": "C1"
+    },
+    {
+      "id": "s-french",
+      "name": "Français (natif)",
+      "category": "language",
+      "level": "natif"
+    }
   ],
-
   "experiences": [
     {
       "id": "e-phd",
@@ -48,7 +124,14 @@
       "end": null,
       "description": "Étude des mécanismes neuronaux de la plasticité synaptique chez le modèle murin. Enregistrements in vivo, analyses Python, encadrement de stagiaires.",
       "type": "experience",
-      "skills": ["s-python", "s-ephys", "s-imaging", "s-writing", "s-project", "s-critical"]
+      "skills": [
+        "s-python",
+        "s-ephys",
+        "s-imaging",
+        "s-writing",
+        "s-project",
+        "s-critical"
+      ]
     },
     {
       "id": "e-ater",
@@ -59,7 +142,11 @@
       "end": null,
       "description": "TD et TP de neurophysiologie (32h/an). Conception d'exercices et évaluation.",
       "type": "experience",
-      "skills": ["s-teaching", "s-presenting", "s-collab"]
+      "skills": [
+        "s-teaching",
+        "s-presenting",
+        "s-collab"
+      ]
     },
     {
       "id": "e-stage-m2",
@@ -70,10 +157,14 @@
       "end": "2023-06",
       "description": "Analyse de données d'imagerie deux-photons sur l'hippocampe. Développement d'un pipeline Python reproductible.",
       "type": "experience",
-      "skills": ["s-python", "s-imaging", "s-ml", "s-git"]
+      "skills": [
+        "s-python",
+        "s-imaging",
+        "s-ml",
+        "s-git"
+      ]
     }
   ],
-
   "educations": [
     {
       "id": "ed-phd",
@@ -83,7 +174,12 @@
       "end": null,
       "description": "Thèse sous la direction du Dr. XXX.",
       "type": "education",
-      "skills": ["s-writing", "s-critical", "s-project", "s-ephys"]
+      "skills": [
+        "s-writing",
+        "s-critical",
+        "s-project",
+        "s-ephys"
+      ]
     },
     {
       "id": "ed-master",
@@ -93,7 +189,13 @@
       "end": "2023-06",
       "description": "Spécialité : Neurosciences cellulaires et intégratives.",
       "type": "education",
-      "skills": ["s-python", "s-matlab", "s-r", "s-writing", "s-english"]
+      "skills": [
+        "s-python",
+        "s-matlab",
+        "s-r",
+        "s-writing",
+        "s-english"
+      ]
     },
     {
       "id": "ed-licence",
@@ -103,10 +205,12 @@
       "end": "2021-06",
       "description": "Parcours Biologie cellulaire et physiologie.",
       "type": "education",
-      "skills": ["s-critical", "s-collab"]
+      "skills": [
+        "s-critical",
+        "s-collab"
+      ]
     }
   ],
-
   "publications": [
     {
       "id": "p-1",
@@ -115,7 +219,11 @@
       "authors": "Nom P., Collègue A., Directeur D.",
       "venue": "En préparation",
       "url": "",
-      "skills": ["s-writing", "s-ephys", "s-python"]
+      "skills": [
+        "s-writing",
+        "s-ephys",
+        "s-python"
+      ]
     },
     {
       "id": "p-2",
@@ -124,12 +232,16 @@
       "authors": "Nom P., Co-auteur B.",
       "venue": "Journal of Neuroscience Methods",
       "url": "",
-      "skills": ["s-imaging", "s-python", "s-ml"]
+      "skills": [
+        "s-imaging",
+        "s-python",
+        "s-ml"
+      ]
     }
   ],
-
   "meta": {
     "lastUpdated": "2026-04-19",
-    "version": 1
+    "version": 2,
+    "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   }
 }

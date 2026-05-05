@@ -166,6 +166,7 @@ function mountSkillModal() {
 }
 
 const SKILL_CAT_LABELS = {
+  scientific: "Compétence scientifique",
   hard: "Compétence technique",
   soft: "Compétence transversale",
   language: "Langue",
@@ -355,9 +356,10 @@ function renderAbout() {
 function renderSkills() {
   const grid = $("#skillsGrid");
   const groups = {
-    hard:     { title: "Techniques",   idx: "01", skills: [] },
-    soft:     { title: "Transversales", idx: "02", skills: [] },
-    language: { title: "Langues",      idx: "03", skills: [] },
+    scientific: { title: "Scientifiques",  idx: "01", skills: [] },
+    soft:       { title: "Transversales",  idx: "02", skills: [] },
+    hard:       { title: "Techniques",     idx: "03", skills: [] },
+    language:   { title: "Langues",        idx: "04", skills: [] },
   };
   (DATA.skills || []).forEach(s => { (groups[s.category] || groups.hard).skills.push(s); });
 
@@ -834,9 +836,10 @@ function renderIdentityCard() {
 let graphApi = null;
 
 const SKILL_COLORS = {
-  hard:     "#7fb3d9",
-  soft:     "#c4a8de",
-  language: "#e8c970",
+  scientific: "#87b88c",
+  soft:       "#c4a8de",
+  hard:       "#7fb3d9",
+  language:   "#e8c970",
 };
 
 const ITEM_KIND_COLORS = {
@@ -977,8 +980,9 @@ function renderGraph() {
     .on("zoom", (e) => g.attr("transform", e.transform));
   svg.call(zoom);
 
-  const skillIds = new Set((DATA.skills || []).map(s => s.id));
-  const skillNodes = (DATA.skills || []).map(s => ({
+  const graphSkills = (DATA.skills || []).filter(s => s.category !== "language");
+  const skillIds = new Set(graphSkills.map(s => s.id));
+  const skillNodes = graphSkills.map(s => ({
     id: s.id, label: s.name, type: "skill", category: s.category
   }));
 
@@ -1370,9 +1374,10 @@ function renderEntityForm(key, item) {
         <div class="row">
           <label>Catégorie
             <select name="category">
-              <option value="hard"     ${it.category==="hard"?"selected":""}>Technique (hard)</option>
-              <option value="soft"     ${it.category==="soft"?"selected":""}>Transversale (soft)</option>
-              <option value="language" ${it.category==="language"?"selected":""}>Langue</option>
+              <option value="scientific" ${it.category==="scientific"?"selected":""}>Scientifique</option>
+              <option value="soft"       ${it.category==="soft"      ?"selected":""}>Transversale</option>
+              <option value="hard"       ${it.category==="hard"      ?"selected":""}>Technique</option>
+              <option value="language"   ${it.category==="language"  ?"selected":""}>Langue</option>
             </select>
           </label>
           <label>Niveau <input type="text" name="level" value="${escapeHtml(it.level)}" placeholder="ex. avancé, C1…"></label>

@@ -56,12 +56,18 @@
     <div class="section-label">01 — À propos</div>
     <div class="about-grid">
       <div id="aboutText"></div>
-      <dl class="facts" id="factsList"></dl>
+      <div id="identityCard"></div>
     </div>
   </section>
 
+  <section id="explore" class="wrap">
+    <div class="section-label">02 — Explorer le portfolio</div>
+    <h2 class="section-title">Six entrées pour découvrir le parcours.</h2>
+    <div class="page-cards" id="pageCards"></div>
+  </section>
+
   <section id="skills" class="wrap">
-    <div class="section-label">02 — Compétences</div>
+    <div class="section-label">03 — Compétences</div>
     <h2 class="section-title">Cartographie des compétences.</h2>
     <p class="section-intro">Cliquez sur une compétence ou un nœud du graphe pour voir les expériences, formations et publications qui l'ont mobilisée.</p>
 
@@ -79,30 +85,8 @@
     <div class="skills-grid" id="skillsGrid"></div>
   </section>
 
-  <section id="experience" class="wrap">
-    <div class="section-label">03 — Parcours</div>
-    <h2 class="section-title">Expérience &amp; formation.</h2>
-
-    <div class="timeline-grid">
-      <div class="timeline-col">
-        <h3>Expérience</h3>
-        <div class="timeline" id="experienceList"></div>
-      </div>
-      <div class="timeline-col">
-        <h3>Formation</h3>
-        <div class="timeline" id="educationList"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="publications" class="wrap">
-    <div class="section-label">04 — Recherche</div>
-    <h2 class="section-title">Publications &amp; travaux.</h2>
-    <div class="pubs" id="pubsList"></div>
-  </section>
-
   <section id="contact" class="wrap">
-    <div class="section-label">05 — Contact</div>
+    <div class="section-label">04 — Contact</div>
     <div class="contact-block">
       <div class="contact-big" id="contactBig"></div>
       <div class="contact-links" id="contactLinks"></div>
@@ -118,6 +102,7 @@
 
 <div id="adminUI"></div>
 
+<script>window.__PORTFOLIO_PAGE__ = { active: "home" };</script>
 <script src="app.js"></script>
 </body>
 </html>

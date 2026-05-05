@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Expériences Professionnelles · Portfolio</title>
+<meta name="description" content="Expériences professionnelles — postes de recherche, stages, contrats." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="siteHeader"></header>
+
+<main id="top">
+  <section class="page-head wrap">
+    <div class="section-label">Parcours</div>
+    <h1 class="page-title">Expériences professionnelles.</h1>
+    <p class="page-intro">Postes de recherche, contrats d'ingénierie, stages académiques. Chaque expérience peut contenir des sous-expériences détaillant les projets ou programmes spécifiques menés dans ce cadre.</p>
+  </section>
+
+  <section class="wrap">
+    <div class="entries" id="experiencesList"></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div><span id="footName"></span> — <span id="footYear"></span></div>
+  <div class="admin-hint">↳ triple-clic le cercle pour éditer</div>
+</footer>
+
+<div id="adminUI"></div>
+
+<script>window.__PORTFOLIO_PAGE__ = { active: "experiences" };</script>
+<script src="app.js"></script>
+</body>
+</html>

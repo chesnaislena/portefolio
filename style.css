@@ -434,6 +434,7 @@ footer:hover .admin-hint { opacity: .6; }
   text-transform: uppercase; letter-spacing: .1em; color: var(--muted);
   background: transparent; border: none; border-bottom: 2px solid transparent;
   cursor: pointer; transition: all var(--t-fast); white-space: nowrap;
+  flex-shrink: 0;
 }
 .admin-tab:hover { color: var(--ink); }
 .admin-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
@@ -523,4 +524,205 @@ footer:hover .admin-hint { opacity: .6; }
 .empty-note {
   padding: 40px; text-align: center; color: var(--muted); font-style: italic;
   border: 1px dashed var(--line); border-radius: var(--radius);
+}
+
+/* ============================================================
+   PAGES MPA — EN-TÊTE DE PAGE
+   ============================================================ */
+.page-head { padding: clamp(60px, 9vh, 110px) 0 clamp(20px, 4vh, 40px); }
+.page-title {
+  font-family: "Fraunces", serif; font-size: clamp(2.4rem, 5.6vw, 4.6rem);
+  letter-spacing: -0.02em; line-height: 1.05;
+  font-variation-settings: "opsz" 144;
+  margin-bottom: 24px; max-width: 18ch;
+}
+.page-intro { max-width: 64ch; color: var(--ink-soft); font-size: 1.08rem; }
+
+/* ============================================================
+   ENTRÉES (cursus, expériences, formations, médiation, financements)
+   ============================================================ */
+.entries { display: flex; flex-direction: column; gap: 24px; }
+
+.entry {
+  background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 28px 32px; transition: all var(--t) var(--ease);
+  position: relative; overflow: hidden;
+}
+.entry::before {
+  content: ""; position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+  background: var(--accent); transform: scaleY(0); transform-origin: top;
+  transition: transform var(--t) var(--ease);
+}
+.entry:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.entry:hover::before { transform: scaleY(1); }
+
+.entry-head { display: flex; flex-direction: column; gap: 6px; }
+.entry-date {
+  font-family: "JetBrains Mono", monospace; font-size: .76rem;
+  text-transform: uppercase; letter-spacing: .12em; color: var(--muted);
+}
+.entry-title {
+  font-family: "Fraunces", serif; font-size: 1.5rem; line-height: 1.2;
+  margin: 2px 0 4px; letter-spacing: -0.01em;
+}
+.entry-org { color: var(--accent); font-style: italic; font-size: .98rem; }
+.entry-location, .entry-amount {
+  font-family: "JetBrains Mono", monospace; font-size: .78rem; color: var(--muted);
+  margin-top: 2px;
+}
+.entry-desc { color: var(--ink-soft); font-size: .98rem; max-width: 70ch; margin-top: 10px; }
+.entry .tl-skills { margin-top: 14px; }
+
+.entry-toggle, .subitem-toggle {
+  margin-top: 16px;
+  font-family: "JetBrains Mono", monospace; font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); background: transparent; border: none;
+  padding: 8px 0; cursor: pointer; align-self: flex-start;
+  border-bottom: 1px dashed var(--line);
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+.entry-toggle:hover, .subitem-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+.entry-subitems {
+  margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 16px;
+}
+
+.subitem {
+  background: var(--surface); border-radius: var(--radius-sm);
+  padding: 18px 22px; border-left: 2px solid var(--line);
+  transition: border-color var(--t-fast);
+}
+.subitem:hover { border-left-color: var(--accent); }
+.subitem-head { display: flex; flex-direction: column; gap: 4px; }
+.subitem-date {
+  font-family: "JetBrains Mono", monospace; font-size: .7rem;
+  text-transform: uppercase; letter-spacing: .12em; color: var(--muted);
+}
+.subitem-title {
+  font-family: "Fraunces", serif; font-size: 1.1rem; line-height: 1.25;
+  letter-spacing: -0.01em; margin: 0;
+}
+.subitem-location {
+  font-family: "JetBrains Mono", monospace; font-size: .72rem; color: var(--muted);
+}
+.subitem-summary { color: var(--ink-soft); font-size: .92rem; margin-top: 6px; }
+.subitem-detail {
+  margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line);
+  color: var(--ink-soft); font-size: .94rem;
+}
+.subitem-detail p { margin-bottom: 8px; }
+
+@media (max-width: 600px) {
+  .entry { padding: 22px; }
+  .entry-title { font-size: 1.25rem; }
+}
+
+/* ============================================================
+   PAGE D'ACCUEIL — CARTES VERS LES AUTRES PAGES
+   ============================================================ */
+.page-cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.page-card {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center;
+  background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px 26px; transition: all var(--t) var(--ease);
+  position: relative; overflow: hidden;
+}
+.page-card::after {
+  content: "→"; position: absolute; top: 50%; right: 22px;
+  transform: translateY(-50%) translateX(-6px); opacity: 0;
+  color: var(--accent); font-size: 1.3rem;
+  transition: all var(--t) var(--ease);
+}
+.page-card:hover {
+  border-color: var(--accent); box-shadow: var(--shadow); transform: translateY(-3px);
+}
+.page-card:hover::after { opacity: 1; transform: translateY(-50%) translateX(0); }
+.page-card:hover .page-card-count { opacity: 0; }
+.page-card-idx {
+  font-family: "JetBrains Mono", monospace; font-size: .8rem;
+  color: var(--muted); padding-top: 4px; align-self: start;
+}
+.page-card-body h3 {
+  font-family: "Fraunces", serif; font-size: 1.2rem; margin-bottom: 4px;
+  color: var(--ink); font-style: italic;
+}
+.page-card-body p { color: var(--ink-soft); font-size: .88rem; line-height: 1.45; }
+.page-card-count {
+  font-family: "JetBrains Mono", monospace; font-size: .75rem;
+  color: var(--muted); padding: 4px 10px;
+  border: 1px solid var(--line); border-radius: 999px;
+  transition: opacity var(--t) var(--ease);
+}
+
+/* ============================================================
+   PAGE MÉDIATION — DEUX COLONNES
+   ============================================================ */
+.mediation-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+@media (max-width: 900px) { .mediation-grid { grid-template-columns: 1fr; gap: 40px; } }
+.mediation-col .col-title {
+  font-family: "JetBrains Mono", monospace; font-size: .82rem;
+  text-transform: uppercase; letter-spacing: .14em; color: var(--muted);
+  margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--line);
+}
+
+/* ============================================================
+   PAGE TRAVAUX — PUBLICATIONS DÉTAILLÉES
+   ============================================================ */
+.travaux-item {
+  background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 28px 32px; transition: all var(--t) var(--ease);
+  display: flex; flex-direction: column; gap: 6px;
+  position: relative; overflow: hidden;
+}
+.travaux-item::before {
+  content: ""; position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+  background: var(--accent-2); transform: scaleY(0); transform-origin: top;
+  transition: transform var(--t) var(--ease);
+}
+.travaux-item:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.travaux-item:hover::before { transform: scaleY(1); }
+
+.travaux-meta { display: flex; gap: 12px; align-items: baseline; }
+.travaux-year {
+  font-family: "Fraunces", serif; font-style: italic;
+  font-size: 1.4rem; color: var(--accent);
+}
+.travaux-type {
+  font-family: "JetBrains Mono", monospace; font-size: .7rem;
+  text-transform: uppercase; letter-spacing: .12em;
+  color: var(--accent-2); border: 1px solid color-mix(in oklab, var(--accent-2) 40%, transparent);
+  padding: 2px 8px; border-radius: 999px;
+}
+.travaux-title {
+  font-family: "Fraunces", serif; font-size: 1.3rem; line-height: 1.25;
+  margin: 4px 0 2px; letter-spacing: -0.01em;
+}
+.travaux-authors { font-size: .9rem; color: var(--muted); }
+.travaux-venue {
+  font-family: "JetBrains Mono", monospace; font-size: .76rem;
+  color: var(--ink-soft); text-transform: uppercase; letter-spacing: .08em;
+}
+.travaux-abstract {
+  color: var(--ink-soft); font-size: .94rem; margin: 8px 0;
+}
+.travaux-link {
+  align-self: flex-start; margin-top: 12px;
+  font-family: "JetBrains Mono", monospace; font-size: .76rem;
+  color: var(--ink-soft); border: 1px solid var(--line);
+  padding: 7px 14px; border-radius: 999px;
+  transition: all var(--t-fast) var(--ease);
+}
+.travaux-link:hover { border-color: var(--accent); color: var(--accent); }
+.travaux-item .tl-skills { margin-top: 10px; }
+
+@media (max-width: 600px) {
+  .travaux-item { padding: 22px; }
+  .travaux-title { font-size: 1.15rem; }
 }

@@ -6,16 +6,18 @@
 const CONFIG = {
   defaultPassword: "admin",
   dataUrl: "./data.json",
+  draftKey: "portfolio:draft",
 };
 
-/* Liens par défaut = ancres locales sur la page d'accueil.
-   Les pages MPA (Phase 2) passeront leurs propres liens à mountHeader(). */
+/* Navigation MPA partagée. Chaque page passe { active: "<id>" } à bootApp. */
 const DEFAULT_NAV_LINKS = [
-  { href: "#about",        label: "À propos",     id: "about" },
-  { href: "#skills",       label: "Compétences",  id: "skills" },
-  { href: "#experience",   label: "Parcours",     id: "experience" },
-  { href: "#publications", label: "Publications", id: "publications" },
-  { href: "#contact",      label: "Contact",      id: "contact" },
+  { href: "index.html",        label: "Accueil",                  id: "home" },
+  { href: "cursus.html",       label: "Cursus",                   id: "cursus" },
+  { href: "experiences.html",  label: "Expériences",              id: "experiences" },
+  { href: "formations.html",   label: "Formations",               id: "formations" },
+  { href: "mediation.html",    label: "Médiation et Engagements", id: "mediation" },
+  { href: "financements.html", label: "Financements",             id: "financements" },
+  { href: "travaux.html",      label: "Travaux",                  id: "travaux" },
 ];
 
 /* ---------- ÉTAT GLOBAL ---------- */
@@ -26,6 +28,7 @@ let activeSkill = null;
 let activeItem = null;
 let currentTab = "profile";
 let editingEntity = null;
+let editingSubItem = null;
 
 /* ---------- UTILS ---------- */
 const $  = (s, r=document) => r.querySelector(s);
@@ -117,7 +120,10 @@ function mountAdminUI() {
           <button class="admin-tab" data-tab="skills">Compétences</button>
           <button class="admin-tab" data-tab="cursus">Cursus</button>
           <button class="admin-tab" data-tab="experiences">Expériences</button>
-          <button class="admin-tab" data-tab="publications">Publications</button>
+          <button class="admin-tab" data-tab="formations">Formations</button>
+          <button class="admin-tab" data-tab="mediation">Médiation</button>
+          <button class="admin-tab" data-tab="financements">Financements</button>
+          <button class="admin-tab" data-tab="publications">Travaux</button>
           <button class="admin-tab" data-tab="sync">Synchronisation</button>
         </div>
         <div class="admin-body" id="adminBody"></div>
@@ -135,16 +141,45 @@ function mountAdminUI() {
    CHARGEMENT DES DONNÉES
    ============================================================== */
 async function loadData() {
-  try {
-    const res = await fetch(CONFIG.dataUrl + "?t=" + Date.now());
-    if (!res.ok) throw new Error("fetch failed");
-    DATA = await res.json();
-  } catch (e) {
-    console.warn("Impossible de charger data.json, utilisation des données par défaut.", e);
-    DATA = getDefaultData();
+  let usedDraft = false;
+  const draft = readDraft();
+  if (draft) {
+    DATA = draft;
+    usedDraft = true;
+  } else {
+    try {
+      const res = await fetch(CONFIG.dataUrl + "?t=" + Date.now());
+      if (!res.ok) throw new Error("fetch failed");
+      DATA = await res.json();
+    } catch (e) {
+      console.warn("Impossible de charger data.json, utilisation des données par défaut.", e);
+      DATA = getDefaultData();
+    }
   }
   ORIGINAL_DATA_HASH = await sha256(JSON.stringify(DATA));
   renderAll();
+  if (usedDraft) setStatus("", "brouillon local restauré");
+}
+
+function readDraft() {
+  try {
+    const raw = localStorage.getItem(CONFIG.draftKey);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || !parsed.profile) return null;
+    return parsed;
+  } catch (e) {
+    return null;
+  }
+}
+
+function writeDraft() {
+  try { localStorage.setItem(CONFIG.draftKey, JSON.stringify(DATA)); }
+  catch (e) { console.warn("Impossible d'enregistrer le brouillon local", e); }
+}
+
+function clearDraft() {
+  try { localStorage.removeItem(CONFIG.draftKey); } catch (e) {}
 }
 
 function getDefaultData() {
@@ -171,6 +206,14 @@ function renderAll() {
   if ($("#experienceList") || $("#educationList")) renderTimeline();
   if ($("#pubsList"))       renderPublications();
   if ($("#contactBig"))     renderContact();
+  if ($("#cursusList"))         renderCursusPage();
+  if ($("#experiencesList"))    renderExperiencesPage();
+  if ($("#formationsList"))     renderFormationsPage();
+  if ($("#mediationCollective") || $("#mediationGrandPublic")) renderMediationPage();
+  if ($("#financementsList"))   renderFinancementsPage();
+  if ($("#travauxList"))        renderTravauxPage();
+  if ($("#pageCards"))          renderPageCards();
+  if ($("#identityCard"))       renderIdentityCard();
   setTimeout(revealOnScroll, 100);
 }
 
@@ -412,6 +455,260 @@ function applyHighlight({ skillIds, itemIds }) {
 }
 
 /* ==============================================================
+   PAGES MPA — RENDU
+   ============================================================== */
+
+/* Helpers communs : ligne de skills + détail repliable */
+function renderSkillChips(ids = []) {
+  if (!ids.length) return "";
+  return `<div class="tl-skills">${
+    ids.map(sid => {
+      const sk = (DATA.skills || []).find(s => s.id === sid);
+      return sk ? `<span class="chip">${escapeHtml(sk.name)}</span>` : "";
+    }).join("")
+  }</div>`;
+}
+
+function periodLabel(start, end) {
+  if (!start && !end) return "";
+  if (!end) return `Depuis ${fmtDate(start)}`;
+  if (start === end) return fmtDate(start);
+  return `${fmtDate(start)} — ${fmtDate(end)}`;
+}
+
+/* Rendu d'un sous-item (exp / cursus) avec détail repliable */
+function renderSubItem(si) {
+  const hasDetail = !!(si.detail || (si.skills || []).length);
+  return `
+    <article class="subitem">
+      <div class="subitem-head">
+        <div class="subitem-date">${escapeHtml(periodLabel(si.start, si.end))}</div>
+        <h4 class="subitem-title">${escapeHtml(si.title || "")}</h4>
+        ${si.location ? `<div class="subitem-location">📍 ${escapeHtml(si.location)}</div>` : ""}
+        ${si.summary ? `<p class="subitem-summary">${escapeHtml(si.summary)}</p>` : ""}
+      </div>
+      ${hasDetail ? `
+        <button class="subitem-toggle" type="button" data-detail="${escapeHtml(si.id)}">↓ Détails</button>
+        <div class="subitem-detail" data-subitem-detail="${escapeHtml(si.id)}" hidden>
+          ${si.detail ? `<p>${escapeHtml(si.detail).replace(/\n/g, "<br>")}</p>` : ""}
+          ${renderSkillChips(si.skills)}
+        </div>
+      ` : ""}
+    </article>`;
+}
+
+/* Rendu d'une entrée principale avec sous-items dépliables */
+function renderEntryWithSubItems(item) {
+  const name = item.title || item.role || item.degree || "";
+  const subItems = item.subItems || [];
+  return `
+    <article class="entry" data-item-id="${escapeHtml(item.id)}">
+      <header class="entry-head">
+        <div class="entry-date">${escapeHtml(periodLabel(item.start, item.end))}</div>
+        <h2 class="entry-title">${escapeHtml(name)}</h2>
+        ${item.org ? `<div class="entry-org">${escapeHtml(item.org)}</div>` : ""}
+        ${item.location ? `<div class="entry-location">📍 ${escapeHtml(item.location)}</div>` : ""}
+        ${item.description ? `<p class="entry-desc">${escapeHtml(item.description)}</p>` : ""}
+        ${renderSkillChips(item.skills)}
+      </header>
+      ${subItems.length ? `
+        <button class="entry-toggle" type="button" data-expand="${escapeHtml(item.id)}" data-count="${subItems.length}">
+          ↓ Voir les ${subItems.length} sous-expérience${subItems.length > 1 ? "s" : ""}
+        </button>
+        <div class="entry-subitems" data-subitems="${escapeHtml(item.id)}" hidden>
+          ${subItems.map(renderSubItem).join("")}
+        </div>
+      ` : ""}
+    </article>`;
+}
+
+function bindEntryToggles(root) {
+  root.querySelectorAll("[data-expand]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.expand;
+      const target = root.querySelector(`[data-subitems="${CSS.escape(id)}"]`);
+      if (!target) return;
+      const wasHidden = target.hasAttribute("hidden");
+      const n = parseInt(btn.dataset.count, 10) || 0;
+      if (wasHidden) {
+        target.removeAttribute("hidden");
+        btn.textContent = `↑ Masquer les sous-expérience${n > 1 ? "s" : ""}`;
+      } else {
+        target.setAttribute("hidden", "");
+        btn.textContent = `↓ Voir les ${n} sous-expérience${n > 1 ? "s" : ""}`;
+      }
+    });
+  });
+  root.querySelectorAll("[data-detail]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.detail;
+      const target = root.querySelector(`[data-subitem-detail="${CSS.escape(id)}"]`);
+      if (!target) return;
+      const wasHidden = target.hasAttribute("hidden");
+      if (wasHidden) {
+        target.removeAttribute("hidden");
+        btn.textContent = "↑ Masquer";
+      } else {
+        target.setAttribute("hidden", "");
+        btn.textContent = "↓ Détails";
+      }
+    });
+  });
+}
+
+function renderItemListWithSubItems(key, container) {
+  const items = (DATA[key] || []).slice().sort((a, b) => (b.start || "").localeCompare(a.start || ""));
+  if (!items.length) {
+    container.innerHTML = `<div class="empty-note">Rien à afficher pour le moment.</div>`;
+    return;
+  }
+  container.innerHTML = items.map(renderEntryWithSubItems).join("");
+  bindEntryToggles(container);
+}
+
+function renderCursusPage() {
+  renderItemListWithSubItems("cursus", $("#cursusList"));
+}
+
+function renderExperiencesPage() {
+  renderItemListWithSubItems("experiences", $("#experiencesList"));
+}
+
+/* Rendu simple d'une entrée plate (formations, financements, rayonnement) */
+function renderFlatEntry(it, dateField = "start") {
+  const dateStr = dateField === "year"
+    ? escapeHtml(String(it.year || ""))
+    : escapeHtml(periodLabel(it.start, it.end));
+  return `
+    <article class="entry">
+      ${dateStr ? `<div class="entry-date">${dateStr}</div>` : ""}
+      <h3 class="entry-title">${escapeHtml(it.title || "")}</h3>
+      ${it.org ? `<div class="entry-org">${escapeHtml(it.org)}</div>` : ""}
+      ${it.location ? `<div class="entry-location">📍 ${escapeHtml(it.location)}</div>` : ""}
+      ${it.amount ? `<div class="entry-amount">💶 ${escapeHtml(it.amount)}</div>` : ""}
+      ${it.description ? `<p class="entry-desc">${escapeHtml(it.description)}</p>` : ""}
+      ${renderSkillChips(it.skills)}
+    </article>`;
+}
+
+function renderFormationsPage() {
+  const container = $("#formationsList");
+  const items = (DATA.formations || []).slice().sort((a, b) => (b.start || "").localeCompare(a.start || ""));
+  container.innerHTML = items.length
+    ? items.map(it => renderFlatEntry(it, "start")).join("")
+    : `<div class="empty-note">Aucune formation à afficher.</div>`;
+}
+
+function renderMediationPage() {
+  const items = DATA.rayonnement || [];
+  const collective  = items.filter(it => it.category === "collective")
+                           .sort((a, b) => (b.start || "").localeCompare(a.start || ""));
+  const grandpublic = items.filter(it => it.category === "grandpublic")
+                           .sort((a, b) => (b.start || "").localeCompare(a.start || ""));
+
+  if ($("#mediationCollective")) {
+    $("#mediationCollective").innerHTML = collective.length
+      ? collective.map(it => renderFlatEntry(it, "start")).join("")
+      : `<div class="empty-note">Aucune implication collective à afficher.</div>`;
+  }
+  if ($("#mediationGrandPublic")) {
+    $("#mediationGrandPublic").innerHTML = grandpublic.length
+      ? grandpublic.map(it => renderFlatEntry(it, "start")).join("")
+      : `<div class="empty-note">Aucune action grand public à afficher.</div>`;
+  }
+}
+
+function renderFinancementsPage() {
+  const container = $("#financementsList");
+  const items = (DATA.financements || []).slice()
+    .sort((a, b) => String(b.year || "").localeCompare(String(a.year || "")));
+  container.innerHTML = items.length
+    ? items.map(it => renderFlatEntry(it, "year")).join("")
+    : `<div class="empty-note">Aucun financement à afficher.</div>`;
+}
+
+function renderTravauxPage() {
+  const container = $("#travauxList");
+  const pubs = (DATA.publications || []).slice().sort((a, b) => (b.year || 0) - (a.year || 0));
+  if (!pubs.length) {
+    container.innerHTML = `<div class="empty-note">Pas encore de publication.</div>`;
+    return;
+  }
+  const typeLabels = {
+    article: "Article",
+    abstract: "Abstract",
+    communication: "Communication",
+    preprint: "Preprint",
+  };
+  container.innerHTML = pubs.map(p => {
+    const hasAbstract = !!(p.abstract && p.abstract.trim());
+    return `
+      <article class="travaux-item" data-item-id="${escapeHtml(p.id)}">
+        <div class="travaux-meta">
+          <span class="travaux-year">${escapeHtml(String(p.year || ""))}</span>
+          ${p.type ? `<span class="travaux-type">${escapeHtml(typeLabels[p.type] || p.type)}</span>` : ""}
+        </div>
+        <h2 class="travaux-title">${escapeHtml(p.title || "")}</h2>
+        ${p.authors ? `<div class="travaux-authors">${escapeHtml(p.authors)}</div>` : ""}
+        ${p.venue ? `<div class="travaux-venue">${escapeHtml(p.venue)}</div>` : ""}
+        ${hasAbstract ? `
+          <button class="subitem-toggle" type="button" data-detail="abs-${escapeHtml(p.id)}">↓ Lire l'abstract</button>
+          <div class="subitem-detail" data-subitem-detail="abs-${escapeHtml(p.id)}" hidden>
+            <p>${escapeHtml(p.abstract).replace(/\n/g, "<br>")}</p>
+          </div>
+        ` : ""}
+        ${renderSkillChips(p.skills)}
+        ${p.url ? `<a href="${escapeHtml(p.url)}" target="_blank" rel="noopener" class="travaux-link">Lire ↗</a>` : ""}
+      </article>`;
+  }).join("");
+  bindEntryToggles(container);
+}
+
+/* Page d'accueil — cartes vers les autres pages */
+function renderPageCards() {
+  const container = $("#pageCards");
+  const cards = [
+    { href: "cursus.html",       label: "Cursus",                   desc: "Parcours universitaire — diplômes obtenus.",                count: (DATA.cursus       || []).length },
+    { href: "experiences.html",  label: "Expériences",              desc: "Postes de recherche, stages, expériences professionnelles.", count: (DATA.experiences  || []).length },
+    { href: "formations.html",   label: "Formations",               desc: "Formations courtes, certifications, écoles thématiques.",    count: (DATA.formations   || []).length },
+    { href: "mediation.html",    label: "Médiation et Engagements", desc: "Implications collectives et actions grand public.",          count: (DATA.rayonnement  || []).length },
+    { href: "financements.html", label: "Financements",             desc: "Bourses, prix, appels à projets obtenus.",                   count: (DATA.financements || []).length },
+    { href: "travaux.html",      label: "Travaux",                  desc: "Publications, abstracts, communications.",                   count: (DATA.publications || []).length },
+  ];
+  container.innerHTML = cards.map((c, i) => `
+    <a class="page-card" href="${escapeHtml(c.href)}">
+      <div class="page-card-idx">${String(i + 1).padStart(2, "0")}</div>
+      <div class="page-card-body">
+        <h3>${escapeHtml(c.label)}</h3>
+        <p>${escapeHtml(c.desc)}</p>
+      </div>
+      <div class="page-card-count">${c.count}</div>
+    </a>
+  `).join("");
+}
+
+/* Carte d'identité (homepage) */
+function renderIdentityCard() {
+  const container = $("#identityCard");
+  const p = DATA.profile || {};
+  const facts = [
+    ["Nom", p.name],
+    ["Poste", p.title],
+    ["Laboratoire", p.lab],
+    ["Lieu", p.location],
+    ["Email", p.email ? `<a href="mailto:${escapeHtml(p.email)}">${escapeHtml(p.email)}</a>` : ""],
+    p.orcid ? ["ORCID", `<a href="${escapeHtml(p.links?.orcid || '#')}" target="_blank" rel="noopener">${escapeHtml(p.orcid)}</a>`] : null,
+    p.links?.linkedin ? ["LinkedIn", `<a href="${escapeHtml(p.links.linkedin)}" target="_blank" rel="noopener">Profil LinkedIn ↗</a>`] : null,
+  ].filter(Boolean).filter(([_, v]) => v);
+
+  container.innerHTML = `
+    <dl class="facts">
+      ${facts.map(([k, v]) => `<div class="fact"><dt>${k}</dt><dd>${v}</dd></div>`).join("")}
+    </dl>
+  `;
+}
+
+/* ==============================================================
    GRAPHE D3 — RÉSEAU DE COMPÉTENCES
    ============================================================== */
 let graphApi = null;
@@ -634,6 +931,9 @@ function renderAdminTab() {
     case "skills":       body.innerHTML = renderEntityList("skills", "Compétence");      bindEntityList("skills"); break;
     case "experiences":  body.innerHTML = renderEntityList("experiences", "Expérience"); bindEntityList("experiences"); break;
     case "cursus":       body.innerHTML = renderEntityList("cursus", "Cursus");          bindEntityList("cursus"); break;
+    case "formations":   body.innerHTML = renderEntityList("formations", "Formation");   bindEntityList("formations"); break;
+    case "mediation":    body.innerHTML = renderEntityList("rayonnement", "Action");     bindEntityList("rayonnement"); break;
+    case "financements": body.innerHTML = renderEntityList("financements", "Financement"); bindEntityList("financements"); break;
     case "publications": body.innerHTML = renderEntityList("publications", "Publication"); bindEntityList("publications"); break;
     case "sync":         body.innerHTML = renderSyncForm(); bindSyncForm(); break;
   }
@@ -700,8 +1000,11 @@ function renderEntityList(key, label) {
   const items = DATA[key] || [];
   const describe = (it) => {
     if (key === "skills")       return { t: it.name, s: `${it.category} · ${it.level || ""}` };
-    if (key === "experiences")  return { t: it.title || it.role   || "(sans titre)", s: `${it.org || ""} — ${fmtDate(it.start)}` };
-    if (key === "cursus")       return { t: it.title || it.degree || "(sans titre)", s: `${it.org || ""} — ${fmtDate(it.start)}` };
+    if (key === "experiences")  return { t: it.title || it.role   || "(sans titre)", s: `${it.org || ""} — ${fmtDate(it.start)}${(it.subItems||[]).length ? ` · ${(it.subItems||[]).length} sous-exp.` : ""}` };
+    if (key === "cursus")       return { t: it.title || it.degree || "(sans titre)", s: `${it.org || ""} — ${fmtDate(it.start)}${(it.subItems||[]).length ? ` · ${(it.subItems||[]).length} sous-exp.` : ""}` };
+    if (key === "formations")   return { t: it.title || "(sans titre)", s: `${it.org || ""} — ${fmtDate(it.start)}` };
+    if (key === "rayonnement")  return { t: it.title || "(sans titre)", s: `${it.category === "collective" ? "Collectif scientifique" : "Grand public"} — ${fmtDate(it.start)}` };
+    if (key === "financements") return { t: it.title || "(sans titre)", s: `${it.org || ""}${it.year ? " — " + it.year : ""}${it.amount ? " — " + it.amount : ""}` };
     if (key === "publications") return { t: it.title || "(sans titre)", s: `${it.year || ""} — ${it.venue || ""}` };
     return { t: "?", s: "" };
   };
@@ -805,6 +1108,79 @@ function renderEntityForm(key, item) {
         </div>
         <label>Lieu <input type="text" name="location" value="${escapeHtml(it.location)}"></label>
         <label>Description <textarea name="description">${escapeHtml(it.description)}</textarea></label>
+        <label>Compétences liées (agrégées sur l'item principal)
+          <div class="checkbox-grid">${skillOptions || "<span style='color:var(--muted); font-size:.8rem'>Ajoutez d'abord des compétences.</span>"}</div>
+        </label>
+        <div style="display:flex; gap:8px; justify-content:flex-end">
+          ${item ? `<button class="btn" id="cancelEdit">Annuler</button>` : ""}
+          <button class="btn primary" id="saveEntity">${item ? "Mettre à jour" : "Ajouter"}</button>
+        </div>
+      </div>
+      ${item ? renderSubItemsAdmin(key, item) : `<p class="hint" style="margin-top:16px">💡 Enregistrez d'abord cette entrée pour pouvoir y ajouter des sous-expériences.</p>`}
+    `;
+  }
+
+  if (key === "formations") {
+    return `
+      <div class="admin-form">
+        <h3>${item ? "Modifier la formation" : "Nouvelle formation"}</h3>
+        <label>Titre <input type="text" name="title" value="${escapeHtml(it.title)}" required></label>
+        <label>Organisme <input type="text" name="org" value="${escapeHtml(it.org)}"></label>
+        <div class="row">
+          <label>Début (AAAA-MM) <input type="text" name="start" value="${escapeHtml(it.start)}" placeholder="2024-06"></label>
+          <label>Fin (AAAA-MM) <input type="text" name="end" value="${escapeHtml(it.end)}" placeholder="2024-06"></label>
+        </div>
+        <label>Lieu <input type="text" name="location" value="${escapeHtml(it.location)}" placeholder="ou « En ligne »"></label>
+        <label>Description <textarea name="description">${escapeHtml(it.description)}</textarea></label>
+        <label>Compétences liées
+          <div class="checkbox-grid">${skillOptions || "<span style='color:var(--muted); font-size:.8rem'>Ajoutez d'abord des compétences.</span>"}</div>
+        </label>
+        <div style="display:flex; gap:8px; justify-content:flex-end">
+          ${item ? `<button class="btn" id="cancelEdit">Annuler</button>` : ""}
+          <button class="btn primary" id="saveEntity">${item ? "Mettre à jour" : "Ajouter"}</button>
+        </div>
+      </div>`;
+  }
+
+  if (key === "rayonnement") {
+    return `
+      <div class="admin-form">
+        <h3>${item ? "Modifier l'action" : "Nouvelle action"}</h3>
+        <label>Catégorie
+          <select name="category">
+            <option value="collective"  ${it.category==="collective"  ? "selected" : ""}>Implication collective scientifique</option>
+            <option value="grandpublic" ${it.category==="grandpublic" ? "selected" : ""}>Action grand public / Médiation</option>
+          </select>
+        </label>
+        <label>Titre / Rôle <input type="text" name="title" value="${escapeHtml(it.title)}" required></label>
+        <label>Structure ou événement <input type="text" name="org" value="${escapeHtml(it.org)}"></label>
+        <div class="row">
+          <label>Début (AAAA-MM) <input type="text" name="start" value="${escapeHtml(it.start)}"></label>
+          <label>Fin (AAAA-MM, vide = en cours) <input type="text" name="end" value="${escapeHtml(it.end)}"></label>
+        </div>
+        <label>Lieu <input type="text" name="location" value="${escapeHtml(it.location)}"></label>
+        <label>Description <textarea name="description">${escapeHtml(it.description)}</textarea></label>
+        <label>Compétences liées
+          <div class="checkbox-grid">${skillOptions || "<span style='color:var(--muted); font-size:.8rem'>Ajoutez d'abord des compétences.</span>"}</div>
+        </label>
+        <div style="display:flex; gap:8px; justify-content:flex-end">
+          ${item ? `<button class="btn" id="cancelEdit">Annuler</button>` : ""}
+          <button class="btn primary" id="saveEntity">${item ? "Mettre à jour" : "Ajouter"}</button>
+        </div>
+      </div>`;
+  }
+
+  if (key === "financements") {
+    return `
+      <div class="admin-form">
+        <h3>${item ? "Modifier le financement" : "Nouveau financement"}</h3>
+        <label>Titre / Nom (bourse, prix, appel à projet) <input type="text" name="title" value="${escapeHtml(it.title)}" required></label>
+        <label>Organisme financeur <input type="text" name="org" value="${escapeHtml(it.org)}"></label>
+        <div class="row">
+          <label>Année <input type="number" name="year" value="${escapeHtml(it.year)}" min="1900" max="2100"></label>
+          <label>Montant (optionnel) <input type="text" name="amount" value="${escapeHtml(it.amount)}" placeholder="3 000 €"></label>
+        </div>
+        <label>Description <textarea name="description">${escapeHtml(it.description)}</textarea></label>
         <label>Compétences liées
           <div class="checkbox-grid">${skillOptions || "<span style='color:var(--muted); font-size:.8rem'>Ajoutez d'abord des compétences.</span>"}</div>
         </label>
@@ -816,16 +1192,26 @@ function renderEntityForm(key, item) {
   }
 
   if (key === "publications") {
+    const t = it.type || "article";
     return `
       <div class="admin-form">
         <h3>${item ? "Modifier la publication" : "Nouvelle publication"}</h3>
         <label>Titre <input type="text" name="title" value="${escapeHtml(it.title)}" required></label>
         <div class="row">
           <label>Année <input type="number" name="year" value="${escapeHtml(it.year)}" min="1900" max="2100"></label>
-          <label>Revue / Venue <input type="text" name="venue" value="${escapeHtml(it.venue)}"></label>
+          <label>Type
+            <select name="type">
+              <option value="article"        ${t==="article"      ?"selected":""}>Article</option>
+              <option value="abstract"       ${t==="abstract"     ?"selected":""}>Abstract</option>
+              <option value="communication"  ${t==="communication"?"selected":""}>Communication</option>
+              <option value="preprint"       ${t==="preprint"     ?"selected":""}>Preprint</option>
+            </select>
+          </label>
         </div>
+        <label>Revue / Conférence (Venue) <input type="text" name="venue" value="${escapeHtml(it.venue)}"></label>
         <label>Auteurs <input type="text" name="authors" value="${escapeHtml(it.authors)}" placeholder="Nom P., Co-auteur A."></label>
         <label>URL (DOI, PDF…) <input type="url" name="url" value="${escapeHtml(it.url)}"></label>
+        <label>Abstract / Résumé <textarea name="abstract" rows="6">${escapeHtml(it.abstract)}</textarea></label>
         <label>Compétences liées
           <div class="checkbox-grid">${skillOptions || "<span style='color:var(--muted); font-size:.8rem'>Ajoutez d'abord des compétences.</span>"}</div>
         </label>
@@ -838,17 +1224,145 @@ function renderEntityForm(key, item) {
   return "";
 }
 
+/* ---------- Sous-items (cursus / experiences) ---------- */
+function renderSubItemsAdmin(parentKey, parent) {
+  const subItems = parent.subItems || [];
+  return `
+    <div class="subitems-admin" style="margin-top:24px; padding-top:20px; border-top:1px dashed var(--line)">
+      <h3>Sous-expériences <span style="color:var(--muted); font-weight:400">(${subItems.length})</span></h3>
+      <p class="hint">Détaillez les activités, missions ou stages réalisés au sein de cette entrée principale.</p>
+      ${subItems.length ? `
+        <div class="admin-list">
+          ${subItems.map(si => `
+            <div class="admin-item" data-subid="${escapeHtml(si.id)}">
+              <div class="admin-item-info">
+                <div class="t">${escapeHtml(si.title || "(sans titre)")}</div>
+                <div class="s">${escapeHtml(periodLabel(si.start, si.end))}${si.location ? " · " + escapeHtml(si.location) : ""}</div>
+              </div>
+              <div class="actions">
+                <button class="btn small" data-act="edit-sub">Éditer</button>
+                <button class="btn small danger" data-act="delete-sub">✕</button>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      ` : `<div class="empty-note">Aucune sous-expérience pour le moment.</div>`}
+      <div style="display:flex; gap:8px; margin-top:12px">
+        <button class="btn primary" id="addSubItem">+ Ajouter une sous-expérience</button>
+      </div>
+      <div id="subItemForm"></div>
+    </div>
+  `;
+}
+
+function renderSubItemForm(subItem) {
+  const si = subItem || {};
+  const skillOptions = (DATA.skills || []).map(s =>
+    `<label><input type="checkbox" name="sub-skill" value="${s.id}" ${(si.skills||[]).includes(s.id) ? "checked" : ""}> ${escapeHtml(s.name)}</label>`
+  ).join("");
+  return `
+    <div class="admin-form" style="margin-top:16px">
+      <h3>${subItem ? "Modifier la sous-expérience" : "Nouvelle sous-expérience"}</h3>
+      <label>Titre <input type="text" name="sub-title" value="${escapeHtml(si.title)}" required></label>
+      <label>Lieu <input type="text" name="sub-location" value="${escapeHtml(si.location)}"></label>
+      <div class="row">
+        <label>Début (AAAA-MM) <input type="text" name="sub-start" value="${escapeHtml(si.start)}"></label>
+        <label>Fin (AAAA-MM, vide = en cours) <input type="text" name="sub-end" value="${escapeHtml(si.end)}"></label>
+      </div>
+      <label>Résumé court (2–3 phrases, affiché dans la liste) <textarea name="sub-summary" rows="2">${escapeHtml(si.summary)}</textarea></label>
+      <label>Détail (affiché au clic, peut être long) <textarea name="sub-detail" rows="6">${escapeHtml(si.detail)}</textarea></label>
+      <label>Compétences mobilisées
+        <div class="checkbox-grid">${skillOptions || "<span style='color:var(--muted); font-size:.8rem'>Ajoutez d'abord des compétences.</span>"}</div>
+      </label>
+      <div style="display:flex; gap:8px; justify-content:flex-end">
+        <button class="btn" id="cancelSubItem">Annuler</button>
+        <button class="btn primary" id="saveSubItem">${subItem ? "Mettre à jour" : "Ajouter"}</button>
+      </div>
+    </div>
+  `;
+}
+
+function bindSubItemsAdmin(parentKey, parent) {
+  $$(".subitems-admin .admin-item").forEach(el => {
+    el.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-act]");
+      const subId = el.dataset.subid;
+      const sub = (parent.subItems || []).find(s => s.id === subId);
+      if (!sub) return;
+      if (btn?.dataset.act === "delete-sub") {
+        if (confirm("Supprimer cette sous-expérience ?")) {
+          parent.subItems = (parent.subItems || []).filter(s => s.id !== subId);
+          editingSubItem = null;
+          markDirty();
+          renderAll();
+          $("#entityForm").innerHTML = renderEntityForm(parentKey, parent);
+          bindEntityForm(parentKey);
+          toast("Sous-expérience supprimée");
+        }
+      } else if (btn?.dataset.act === "edit-sub") {
+        editingSubItem = sub;
+        $("#subItemForm").innerHTML = renderSubItemForm(sub);
+        bindSubItemForm(parentKey, parent);
+        $("#subItemForm").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+
+  $("#addSubItem")?.addEventListener("click", () => {
+    editingSubItem = null;
+    $("#subItemForm").innerHTML = renderSubItemForm(null);
+    bindSubItemForm(parentKey, parent);
+    $("#subItemForm").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
+function bindSubItemForm(parentKey, parent) {
+  $("#cancelSubItem")?.addEventListener("click", () => {
+    editingSubItem = null;
+    $("#subItemForm").innerHTML = "";
+  });
+
+  $("#saveSubItem")?.addEventListener("click", () => {
+    const f = $("#subItemForm");
+    const obj = editingSubItem ? { ...editingSubItem } : { id: uid("sub") };
+    obj.title    = f.querySelector('[name="sub-title"]').value.trim();
+    obj.location = f.querySelector('[name="sub-location"]').value.trim();
+    obj.start    = f.querySelector('[name="sub-start"]').value.trim();
+    obj.end      = f.querySelector('[name="sub-end"]').value.trim() || null;
+    obj.summary  = f.querySelector('[name="sub-summary"]').value.trim();
+    obj.detail   = f.querySelector('[name="sub-detail"]').value.trim();
+    obj.skills   = [...f.querySelectorAll('input[name="sub-skill"]:checked')].map(x => x.value);
+    if (!obj.title) { toast("Titre requis", "error"); return; }
+
+    parent.subItems = parent.subItems || [];
+    if (editingSubItem) {
+      const idx = parent.subItems.findIndex(s => s.id === editingSubItem.id);
+      parent.subItems[idx] = obj;
+    } else {
+      parent.subItems.push(obj);
+    }
+    editingSubItem = null;
+    markDirty();
+    renderAll();
+    $("#entityForm").innerHTML = renderEntityForm(parentKey, parent);
+    bindEntityForm(parentKey);
+    toast("Sous-expérience enregistrée localement");
+  });
+}
+
 function bindEntityForm(key) {
   const form = $("#entityForm");
   if (!form) return;
 
   $("#cancelEdit")?.addEventListener("click", () => {
     editingEntity = null;
+    editingSubItem = null;
     $("#entityForm").innerHTML = "";
   });
 
   $("#saveEntity")?.addEventListener("click", () => {
-    const obj = editingEntity ? { ...editingEntity } : { id: uid(key.slice(0,1)) };
+    const idPrefix = key === "rayonnement" ? "ray" : key.slice(0, 3);
+    const obj = editingEntity ? { ...editingEntity } : { id: uid(idPrefix) };
 
     if (key === "skills") {
       obj.name = form.querySelector('[name="name"]').value.trim();
@@ -868,12 +1382,44 @@ function bindEntityForm(key) {
       obj.skills = [...form.querySelectorAll('input[name="skill"]:checked')].map(x => x.value);
       if (!obj.title) { toast("Titre requis", "error"); return; }
     }
+    if (key === "formations") {
+      obj.title = form.querySelector('[name="title"]').value.trim();
+      obj.org = form.querySelector('[name="org"]').value.trim();
+      obj.start = form.querySelector('[name="start"]').value.trim();
+      obj.end = form.querySelector('[name="end"]').value.trim() || null;
+      obj.location = form.querySelector('[name="location"]').value.trim();
+      obj.description = form.querySelector('[name="description"]').value.trim();
+      obj.skills = [...form.querySelectorAll('input[name="skill"]:checked')].map(x => x.value);
+      if (!obj.title) { toast("Titre requis", "error"); return; }
+    }
+    if (key === "rayonnement") {
+      obj.category = form.querySelector('[name="category"]').value;
+      obj.title = form.querySelector('[name="title"]').value.trim();
+      obj.org = form.querySelector('[name="org"]').value.trim();
+      obj.start = form.querySelector('[name="start"]').value.trim();
+      obj.end = form.querySelector('[name="end"]').value.trim() || null;
+      obj.location = form.querySelector('[name="location"]').value.trim();
+      obj.description = form.querySelector('[name="description"]').value.trim();
+      obj.skills = [...form.querySelectorAll('input[name="skill"]:checked')].map(x => x.value);
+      if (!obj.title) { toast("Titre requis", "error"); return; }
+    }
+    if (key === "financements") {
+      obj.title = form.querySelector('[name="title"]').value.trim();
+      obj.org = form.querySelector('[name="org"]').value.trim();
+      obj.year = form.querySelector('[name="year"]').value.trim();
+      obj.amount = form.querySelector('[name="amount"]').value.trim();
+      obj.description = form.querySelector('[name="description"]').value.trim();
+      obj.skills = [...form.querySelectorAll('input[name="skill"]:checked')].map(x => x.value);
+      if (!obj.title) { toast("Titre requis", "error"); return; }
+    }
     if (key === "publications") {
       obj.title = form.querySelector('[name="title"]').value.trim();
       obj.year = parseInt(form.querySelector('[name="year"]').value) || null;
+      obj.type = form.querySelector('[name="type"]').value;
       obj.venue = form.querySelector('[name="venue"]').value.trim();
       obj.authors = form.querySelector('[name="authors"]').value.trim();
       obj.url = form.querySelector('[name="url"]').value.trim();
+      obj.abstract = form.querySelector('[name="abstract"]').value.trim();
       obj.skills = [...form.querySelectorAll('input[name="skill"]:checked')].map(x => x.value);
       if (!obj.title) { toast("Titre requis", "error"); return; }
     }
@@ -886,11 +1432,16 @@ function bindEntityForm(key) {
       DATA[key].push(obj);
     }
     editingEntity = null;
+    editingSubItem = null;
     renderAll();
     renderAdminTab();
     markDirty();
     toast(`Enregistré localement — n'oubliez pas de « Enregistrer sur GitHub »`);
   });
+
+  if ((key === "experiences" || key === "cursus") && editingEntity) {
+    bindSubItemsAdmin(key, editingEntity);
+  }
 }
 
 /* ---------- Onglet Sync (GitHub + mot de passe) ---------- */
@@ -927,9 +1478,11 @@ function renderSyncForm() {
       </div>
     </div>
 
-    <h3 style="margin-top:32px">Zone de danger</h3>
+    <h3 style="margin-top:32px">Brouillon local</h3>
+    <p class="hint">Toute modification non poussée sur GitHub est conservée dans le navigateur (et restaurée à la navigation entre les pages). Annuler le brouillon recharge le <code>data.json</code> du serveur.</p>
     <div style="display:flex; gap:8px; flex-wrap:wrap">
       <button class="btn" id="importJson">Importer JSON</button>
+      <button class="btn danger" id="discardDraft">Annuler le brouillon local</button>
       <input type="file" id="importFile" accept=".json" style="display:none">
     </div>
   `;
@@ -974,6 +1527,15 @@ function bindSyncForm() {
     toast("Mot de passe mis à jour (enregistrez sur GitHub pour le rendre permanent)");
   });
 
+  $("#discardDraft").addEventListener("click", async () => {
+    if (!confirm("Annuler toutes les modifications locales non poussées ?")) return;
+    clearDraft();
+    await loadData();
+    renderAdminTab();
+    setStatus("", "brouillon supprimé");
+    toast("Brouillon annulé — données rechargées depuis le serveur");
+  });
+
   $("#importJson").addEventListener("click", () => $("#importFile").click());
   $("#importFile").addEventListener("change", (e) => {
     const file = e.target.files[0];
@@ -1015,7 +1577,10 @@ function setStatus(cls, txt) {
   el.textContent = txt;
 }
 
-function markDirty() { setStatus("", "modifications non sauvegardées"); }
+function markDirty() {
+  writeDraft();
+  setStatus("", "brouillon local — non poussé sur GitHub");
+}
 
 async function saveToGithub() {
   const cfg = readGhConfig();
@@ -1061,6 +1626,7 @@ async function saveToGithub() {
       throw new Error(err.message || `HTTP ${putRes.status}`);
     }
     ORIGINAL_DATA_HASH = await sha256(JSON.stringify(DATA));
+    clearDraft();
     setStatus("saved", `sauvegardé v${DATA.meta.version}`);
     toast("Enregistré sur GitHub ✓ (le site se mettra à jour dans 1-2 min)");
   } catch (e) {

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Publications &amp; Travaux · Portfolio</title>
+<meta name="description" content="Publications, abstracts, communications et autres travaux scientifiques." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="siteHeader"></header>
+
+<main id="top">
+  <section class="page-head wrap">
+    <div class="section-label">Recherche</div>
+    <h1 class="page-title">Publications et travaux.</h1>
+    <p class="page-intro">Articles, preprints, abstracts et communications scientifiques. Cliquez sur « Lire l'abstract » pour déplier les résumés disponibles.</p>
+  </section>
+
+  <section class="wrap">
+    <div class="entries" id="travauxList"></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div><span id="footName"></span> — <span id="footYear"></span></div>
+  <div class="admin-hint">↳ triple-clic le cercle pour éditer</div>
+</footer>
+
+<div id="adminUI"></div>
+
+<script>window.__PORTFOLIO_PAGE__ = { active: "travaux" };</script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -169,7 +169,6 @@ const SKILL_CAT_LABELS = {
   scientific: "Compétence scientifique",
   hard: "Compétence technique",
   soft: "Compétence transversale",
-  language: "Langue",
 };
 
 function openSkillModal(skillId) {
@@ -359,9 +358,11 @@ function renderSkills() {
     scientific: { title: "Scientifiques",  idx: "01", skills: [] },
     soft:       { title: "Transversales",  idx: "02", skills: [] },
     hard:       { title: "Techniques",     idx: "03", skills: [] },
-    language:   { title: "Langues",        idx: "04", skills: [] },
   };
-  (DATA.skills || []).forEach(s => { (groups[s.category] || groups.hard).skills.push(s); });
+  (DATA.skills || []).forEach(s => {
+    if (s.category === "language") return;
+    (groups[s.category] || groups.hard).skills.push(s);
+  });
 
   grid.innerHTML = Object.entries(groups)
     .filter(([_, g]) => g.skills.length)
@@ -559,12 +560,13 @@ function applyHighlight({ skillIds, itemIds }) {
 /* Helpers communs : ligne de skills + détail repliable */
 function renderSkillChips(ids = []) {
   if (!ids.length) return "";
-  return `<div class="tl-skills">${
-    ids.map(sid => {
-      const sk = (DATA.skills || []).find(s => s.id === sid);
-      return sk ? `<button type="button" class="chip skill-chip" data-skill-id="${escapeHtml(sid)}">${escapeHtml(sk.name)}</button>` : "";
-    }).join("")
-  }</div>`;
+  const chips = ids.map(sid => {
+    const sk = (DATA.skills || []).find(s => s.id === sid);
+    if (!sk || sk.category === "language") return "";
+    return `<button type="button" class="chip skill-chip" data-skill-id="${escapeHtml(sid)}">${escapeHtml(sk.name)}</button>`;
+  }).filter(Boolean);
+  if (!chips.length) return "";
+  return `<div class="tl-skills">${chips.join("")}</div>`;
 }
 
 function periodLabel(start, end) {
@@ -839,7 +841,6 @@ const SKILL_COLORS = {
   scientific: "#87b88c",
   soft:       "#c4a8de",
   hard:       "#7fb3d9",
-  language:   "#e8c970",
 };
 
 const ITEM_KIND_COLORS = {
@@ -1377,7 +1378,6 @@ function renderEntityForm(key, item) {
               <option value="scientific" ${it.category==="scientific"?"selected":""}>Scientifique</option>
               <option value="soft"       ${it.category==="soft"      ?"selected":""}>Transversale</option>
               <option value="hard"       ${it.category==="hard"      ?"selected":""}>Technique</option>
-              <option value="language"   ${it.category==="language"  ?"selected":""}>Langue</option>
             </select>
           </label>
           <label>Niveau <input type="text" name="level" value="${escapeHtml(it.level)}" placeholder="ex. avancé, C1…"></label>

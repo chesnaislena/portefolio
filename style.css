@@ -223,7 +223,12 @@ html[data-theme="dark"] .theme-toggle .moon { display: block; }
   backdrop-filter: blur(6px);
 }
 .graph-legend-item { display: flex; align-items: center; gap: 8px; }
-.graph-legend-item .sw { width: 10px; height: 10px; border-radius: 50%; }
+.graph-legend-item .sw { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.graph-legend-item .sw.box {
+  border-radius: 2px; background: var(--bg-elev);
+  border: 2px solid var(--ink); width: 11px; height: 11px;
+}
+.graph-legend hr { border: none; border-top: 1px dashed var(--line); margin: 4px 0; width: 100%; }
 
 .graph-hint {
   position: absolute; bottom: 14px; right: 18px;
@@ -232,14 +237,14 @@ html[data-theme="dark"] .theme-toggle .moon { display: block; }
 }
 
 /* Style des éléments du graphe */
-.node circle { transition: all var(--t) var(--ease); cursor: pointer; }
+.node .node-shape { transition: all var(--t) var(--ease); cursor: pointer; }
 .node text {
   font-family: "Inter Tight", sans-serif; font-size: 11px;
   pointer-events: none; user-select: none;
   fill: var(--ink); transition: all var(--t) var(--ease);
 }
-.node.dim circle, .node.dim text { opacity: .18; }
-.node.highlighted circle { stroke-width: 3; }
+.node.dim .node-shape, .node.dim text { opacity: .18; }
+.node.highlighted .node-shape { stroke-width: 3; }
 .link { stroke-opacity: .28; transition: stroke-opacity var(--t) var(--ease), stroke-width var(--t) var(--ease); }
 .link.dim { stroke-opacity: .05; }
 .link.highlighted { stroke-opacity: .9; stroke-width: 2; }
@@ -266,16 +271,25 @@ html[data-theme="dark"] .theme-toggle .moon { display: block; }
 .skill-card li {
   padding: 8px 0; border-bottom: 1px dashed var(--line);
   font-size: .92rem; color: var(--ink-soft);
-  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  display: flex; flex-direction: column; gap: 4px;
   cursor: pointer; transition: color var(--t-fast) var(--ease), padding-left var(--t-fast);
 }
 .skill-card li:last-child { border-bottom: none; }
 .skill-card li:hover { color: var(--accent); padding-left: 4px; }
 .skill-card li.highlighted { color: var(--accent); font-weight: 600; }
+.skill-card li .skill-line {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+}
+.skill-card li .skill-name { flex: 1; min-width: 0; }
 .skill-card li .level {
   font-family: "JetBrains Mono", monospace; font-size: .68rem; color: var(--muted);
-  text-transform: uppercase; letter-spacing: .1em;
+  text-transform: uppercase; letter-spacing: .1em; flex-shrink: 0;
 }
+.skill-card li .skill-desc {
+  font-size: .78rem; color: var(--muted); line-height: 1.45;
+  font-style: italic;
+}
+.skill-card li:hover .skill-desc { color: var(--ink-soft); }
 
 /* ============================================================
    TIMELINE — EXPÉRIENCE & FORMATION
@@ -588,6 +602,7 @@ footer:hover .admin-hint { opacity: .6; }
   margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line);
   display: flex; flex-direction: column; gap: 16px;
 }
+[hidden] { display: none !important; }
 
 .subitem {
   background: var(--surface); border-radius: var(--radius-sm);

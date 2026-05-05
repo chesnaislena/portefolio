@@ -274,8 +274,11 @@ function renderSkills() {
         <ul>
           ${g.skills.map(s => `
             <li data-skill-id="${s.id}" tabindex="0">
-              <span>${escapeHtml(s.name)}</span>
-              <span class="level">${escapeHtml(s.level || "")}</span>
+              <div class="skill-line">
+                <span class="skill-name">${escapeHtml(s.name)}</span>
+                <span class="level">${escapeHtml(s.level || "")}</span>
+              </div>
+              ${s.description ? `<div class="skill-desc">${escapeHtml(s.description)}</div>` : ""}
             </li>`).join("")}
         </ul>
       </div>
@@ -403,11 +406,9 @@ function selectSkill(skillId) {
   activeSkill = skillId;
   activeItem = null;
 
-  const relatedItems = [
-    ...(DATA.experiences  || []).filter(e => (e.skills || []).includes(skillId)),
-    ...(DATA.cursus       || []).filter(e => (e.skills || []).includes(skillId)),
-    ...(DATA.publications || []).filter(p => (p.skills || []).includes(skillId)),
-  ].map(x => x.id);
+  const relatedItems = getAllItems()
+    .filter(it => aggregatedItemSkills(it).includes(skillId))
+    .map(x => x.id);
 
   applyHighlight({ skillIds: [skillId], itemIds: relatedItems });
 
@@ -423,12 +424,12 @@ function selectItem(itemId) {
   activeItem = itemId;
   activeSkill = null;
 
-  const all = [...(DATA.experiences||[]), ...(DATA.cursus||[]), ...(DATA.publications||[])];
-  const item = all.find(x => x.id === itemId);
+  const item = getAllItems().find(x => x.id === itemId);
   if (!item) return;
 
-  applyHighlight({ skillIds: item.skills || [], itemIds: [itemId] });
-  toast(`${item.title || item.role || item.degree || ""} — ${(item.skills || []).length} compétence(s)`);
+  const skills = aggregatedItemSkills(item);
+  applyHighlight({ skillIds: skills, itemIds: [itemId] });
+  toast(`${item.title || item.role || item.degree || ""} — ${skills.length} compétence(s)`);
 }
 
 function clearSelection() {
@@ -513,7 +514,7 @@ function renderEntryWithSubItems(item) {
       </header>
       ${subItems.length ? `
         <button class="entry-toggle" type="button" data-expand="${escapeHtml(item.id)}" data-count="${subItems.length}">
-          ↓ Voir les ${subItems.length} sous-expérience${subItems.length > 1 ? "s" : ""}
+          ↓ ${subItems.length > 1 ? `Voir les ${subItems.length} sous-expériences` : "Voir la sous-expérience"}
         </button>
         <div class="entry-subitems" data-subitems="${escapeHtml(item.id)}" hidden>
           ${subItems.map(renderSubItem).join("")}
@@ -532,10 +533,10 @@ function bindEntryToggles(root) {
       const n = parseInt(btn.dataset.count, 10) || 0;
       if (wasHidden) {
         target.removeAttribute("hidden");
-        btn.textContent = `↑ Masquer les sous-expérience${n > 1 ? "s" : ""}`;
+        btn.textContent = n > 1 ? `↑ Masquer les sous-expériences` : `↑ Masquer la sous-expérience`;
       } else {
         target.setAttribute("hidden", "");
-        btn.textContent = `↓ Voir les ${n} sous-expérience${n > 1 ? "s" : ""}`;
+        btn.textContent = n > 1 ? `↓ Voir les ${n} sous-expériences` : `↓ Voir la sous-expérience`;
       }
     });
   });
@@ -713,6 +714,55 @@ function renderIdentityCard() {
    ============================================================== */
 let graphApi = null;
 
+const SKILL_COLORS = {
+  hard:     "#7fb3d9",
+  soft:     "#c4a8de",
+  language: "#e8c970",
+};
+
+const ITEM_KIND_COLORS = {
+  cursus:      "#5b8fb9",
+  experience:  "#d4894e",
+  formation:   "#6fa86f",
+  rayonnement: "#c47a9c",
+  financement: "#c2a04a",
+  publication: "#8a72b8",
+};
+
+const ITEM_KIND_LABELS = {
+  cursus:      "Cursus",
+  experience:  "Expérience",
+  formation:   "Formation",
+  rayonnement: "Médiation",
+  financement: "Financement",
+  publication: "Travail",
+};
+
+function skillColor(category) {
+  return SKILL_COLORS[category] || SKILL_COLORS.hard;
+}
+
+function itemColor(kind) {
+  return ITEM_KIND_COLORS[kind] || "var(--ink)";
+}
+
+function aggregatedItemSkills(item) {
+  const set = new Set(item.skills || []);
+  (item.subItems || []).forEach(si => (si.skills || []).forEach(sid => set.add(sid)));
+  return [...set];
+}
+
+function getAllItems() {
+  return [
+    ...(DATA.cursus       || []).map(it => ({ ...it, _kind: "cursus" })),
+    ...(DATA.experiences  || []).map(it => ({ ...it, _kind: "experience" })),
+    ...(DATA.formations   || []).map(it => ({ ...it, _kind: "formation" })),
+    ...(DATA.rayonnement  || []).map(it => ({ ...it, _kind: "rayonnement" })),
+    ...(DATA.financements || []).map(it => ({ ...it, _kind: "financement" })),
+    ...(DATA.publications || []).map(it => ({ ...it, _kind: "publication" })),
+  ];
+}
+
 function renderGraph() {
   if (typeof d3 === "undefined") return;
   const svg = d3.select("#skillsGraph");
@@ -729,23 +779,33 @@ function renderGraph() {
     .on("zoom", (e) => g.attr("transform", e.transform));
   svg.call(zoom);
 
+  const skillIds = new Set((DATA.skills || []).map(s => s.id));
   const skillNodes = (DATA.skills || []).map(s => ({
     id: s.id, label: s.name, type: "skill", category: s.category
   }));
-  const itemNodes = [
-    ...(DATA.experiences || []).map(e => ({ id: e.id, label: e.title || "?", type: "item", kind: "experience" })),
-    ...(DATA.cursus      || []).map(e => ({ id: e.id, label: e.title || "?", type: "item", kind: "education" })),
-    ...(DATA.publications|| []).map(p => ({ id: p.id, label: p.title || "?", type: "item", kind: "publication" })),
-  ];
-  const nodes = [...skillNodes, ...itemNodes];
 
+  const itemNodes = [];
   const links = [];
-  const addLinks = (arr) => (arr || []).forEach(item =>
-    (item.skills || []).forEach(sid => {
-      if (nodes.find(n => n.id === sid)) links.push({ source: item.id, target: sid });
-    })
-  );
-  addLinks(DATA.experiences); addLinks(DATA.cursus); addLinks(DATA.publications);
+  const addItem = (item, kind) => {
+    if (!item || !item.id) return;
+    itemNodes.push({
+      id: item.id,
+      label: item.title || item.name || "?",
+      type: "item",
+      kind,
+    });
+    aggregatedItemSkills(item).forEach(sid => {
+      if (skillIds.has(sid)) links.push({ source: item.id, target: sid });
+    });
+  };
+  (DATA.cursus       || []).forEach(it => addItem(it, "cursus"));
+  (DATA.experiences  || []).forEach(it => addItem(it, "experience"));
+  (DATA.formations   || []).forEach(it => addItem(it, "formation"));
+  (DATA.rayonnement  || []).forEach(it => addItem(it, "rayonnement"));
+  (DATA.financements || []).forEach(it => addItem(it, "financement"));
+  (DATA.publications || []).forEach(it => addItem(it, "publication"));
+
+  const nodes = [...skillNodes, ...itemNodes];
 
   if (!nodes.length) {
     g.append("text").attr("x", w/2).attr("y", h/2).attr("text-anchor", "middle")
@@ -754,18 +814,11 @@ function renderGraph() {
     return;
   }
 
-  const colorFor = (n) => {
-    if (n.type === "item") return "var(--ink)";
-    if (n.category === "hard") return "var(--accent)";
-    if (n.category === "soft") return "var(--accent-2)";
-    if (n.category === "language") return "#2a9d5c";
-    return "var(--accent)";
-  };
-  const radiusFor = (n) => n.type === "item" ? 10 : 8;
+  const radiusFor = (n) => n.type === "item" ? 11 : 9;
 
   const sim = d3.forceSimulation(nodes)
-    .force("link",   d3.forceLink(links).id(d => d.id).distance(80).strength(.4))
-    .force("charge", d3.forceManyBody().strength(-180))
+    .force("link",   d3.forceLink(links).id(d => d.id).distance(85).strength(.4))
+    .force("charge", d3.forceManyBody().strength(-200))
     .force("center", d3.forceCenter(w/2, h/2))
     .force("collide",d3.forceCollide().radius(d => radiusFor(d) + 14));
 
@@ -784,11 +837,30 @@ function renderGraph() {
       .on("end",   (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; })
     );
 
-  node.append("circle")
-    .attr("r", d => radiusFor(d))
-    .attr("fill", d => d.type === "item" ? "var(--bg-elev)" : colorFor(d))
-    .attr("stroke", d => d.type === "item" ? colorFor({ type: "skill", category: "hard" }) : "none")
-    .attr("stroke-width", d => d.type === "item" ? 2 : 0);
+  const ITEM_SIDE = 18;
+  node.each(function(d) {
+    const sel = d3.select(this);
+    if (d.type === "skill") {
+      sel.append("circle")
+        .attr("class", "node-shape")
+        .attr("r", radiusFor(d))
+        .attr("fill", skillColor(d.category))
+        .attr("stroke", "var(--line)")
+        .attr("stroke-width", 1);
+    } else {
+      sel.append("rect")
+        .attr("class", "node-shape")
+        .attr("x", -ITEM_SIDE / 2)
+        .attr("y", -ITEM_SIDE / 2)
+        .attr("width", ITEM_SIDE)
+        .attr("height", ITEM_SIDE)
+        .attr("rx", 4)
+        .attr("ry", 4)
+        .attr("fill", "var(--bg-elev)")
+        .attr("stroke", itemColor(d.kind))
+        .attr("stroke-width", 2);
+    }
+  });
 
   node.append("text")
     .attr("dx", d => radiusFor(d) + 6)
@@ -817,10 +889,9 @@ function renderGraph() {
           .classed("highlighted", d => sel.has(d.id));
       link.classed("dim", l => hasSelection && !sel.has(l.source.id) && !sel.has(l.target.id))
           .classed("highlighted", l => sel.has(l.source.id) && sel.has(l.target.id));
-      node.select("circle").attr("stroke", d => {
-        if (sel.has(d.id)) return "var(--accent)";
-        return d.type === "item" ? colorFor({ type: "skill", category: "hard" }) : "none";
-      });
+      node.select(".node-shape")
+        .attr("stroke", d => sel.has(d.id) ? "var(--accent)" : (d.type === "skill" ? "var(--line)" : itemColor(d.kind)))
+        .attr("stroke-width", d => sel.has(d.id) ? 3 : (d.type === "skill" ? 1 : 2));
     }
   };
 }
@@ -1086,6 +1157,7 @@ function renderEntityForm(key, item) {
           </label>
           <label>Niveau <input type="text" name="level" value="${escapeHtml(it.level)}" placeholder="ex. avancé, C1…"></label>
         </div>
+        <label>Description (optionnel — affichée au survol / clic) <textarea name="description" rows="3">${escapeHtml(it.description)}</textarea></label>
         <div style="display:flex; gap:8px; justify-content:flex-end">
           ${item ? `<button class="btn" id="cancelEdit">Annuler</button>` : ""}
           <button class="btn primary" id="saveEntity">${item ? "Mettre à jour" : "Ajouter"}</button>
@@ -1368,6 +1440,7 @@ function bindEntityForm(key) {
       obj.name = form.querySelector('[name="name"]').value.trim();
       obj.category = form.querySelector('[name="category"]').value;
       obj.level = form.querySelector('[name="level"]').value.trim();
+      obj.description = form.querySelector('[name="description"]').value.trim();
       if (!obj.name) { toast("Nom requis", "error"); return; }
     }
     if (key === "experiences" || key === "cursus") {

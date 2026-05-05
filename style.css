@@ -608,6 +608,57 @@ footer:hover .admin-hint { opacity: .6; }
 }
 [hidden] { display: none !important; }
 
+.entry-links {
+  margin-top: 22px; padding-top: 16px; border-top: 1px dashed var(--line);
+}
+.entry-links-label {
+  font-family: "JetBrains Mono", monospace; font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); margin-bottom: 12px;
+}
+.entry-links-list { display: flex; flex-direction: column; gap: 8px; }
+.entry-link-card {
+  display: grid; grid-template-columns: 110px 1fr auto;
+  align-items: center; gap: 14px;
+  padding: 10px 14px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  text-decoration: none; color: var(--ink);
+  transition: all var(--t-fast) var(--ease);
+}
+.entry-link-card:hover {
+  border-color: var(--accent); transform: translateX(3px);
+  background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+}
+.entry-link-kind {
+  font-family: "JetBrains Mono", monospace; font-size: .68rem;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--muted);
+}
+.entry-link-card[data-link-kind="cursus"]      .entry-link-kind { color: #5b8fb9; }
+.entry-link-card[data-link-kind="experience"]  .entry-link-kind { color: #d4894e; }
+.entry-link-card[data-link-kind="formation"]   .entry-link-kind { color: #6fa86f; }
+.entry-link-card[data-link-kind="rayonnement"] .entry-link-kind { color: #c47a9c; }
+.entry-link-card[data-link-kind="financement"] .entry-link-kind { color: #c2a04a; }
+.entry-link-card[data-link-kind="publication"] .entry-link-kind { color: #8a72b8; }
+.entry-link-title { font-size: .95rem; }
+.entry-link-arrow {
+  font-family: "JetBrains Mono", monospace; color: var(--muted);
+  transition: transform var(--t-fast), color var(--t-fast);
+}
+.entry-link-card:hover .entry-link-arrow { color: var(--accent); transform: translateX(4px); }
+
+.hash-flash { animation: hashFlash 2.4s ease; }
+@keyframes hashFlash {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  15%, 55% { box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 25%, transparent); }
+}
+
+@media (max-width: 600px) {
+  .entry-link-card { grid-template-columns: 1fr; gap: 4px; padding: 12px 14px; }
+  .entry-link-arrow { display: none; }
+}
+
 .subitem {
   background: var(--surface); border-radius: var(--radius-sm);
   padding: 18px 22px; border-left: 2px solid var(--line);

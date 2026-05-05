@@ -198,6 +198,19 @@ function getDefaultData() {
 /* ==============================================================
    RENDU DE TOUTES LES SECTIONS
    ============================================================== */
+function scrollToHashIfAny() {
+  const hash = location.hash;
+  if (!hash || hash === "#admin") return;
+  const id = decodeURIComponent(hash.slice(1));
+  const target = document.getElementById(id);
+  if (!target) return;
+  setTimeout(() => {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    target.classList.add("hash-flash");
+    setTimeout(() => target.classList.remove("hash-flash"), 2400);
+  }, 120);
+}
+
 function renderAll() {
   renderProfile();
   if ($("#aboutText"))      renderAbout();
@@ -215,6 +228,7 @@ function renderAll() {
   if ($("#pageCards"))          renderPageCards();
   if ($("#identityCard"))       renderIdentityCard();
   setTimeout(revealOnScroll, 100);
+  scrollToHashIfAny();
 }
 
 /* ---------- PROFIL / HERO ---------- */
@@ -498,12 +512,35 @@ function renderSubItem(si) {
     </article>`;
 }
 
+function renderLinkedItems(ids = []) {
+  if (!ids.length) return "";
+  const links = ids.map(id => findLinkedItem(id)).filter(x => x);
+  if (!links.length) return "";
+  return `
+    <div class="entry-links">
+      <div class="entry-links-label">↳ Items liés (${links.length})</div>
+      <div class="entry-links-list">
+        ${links.map(({ item, kind }) => {
+          const url = KIND_TO_PAGE[kind] || "#";
+          const label = item.title || item.name || "(sans titre)";
+          return `
+            <a class="entry-link-card" href="${escapeHtml(url)}#${escapeHtml(item.id)}" data-link-kind="${escapeHtml(kind)}">
+              <span class="entry-link-kind">${escapeHtml(ITEM_KIND_LABELS[kind] || kind)}</span>
+              <span class="entry-link-title">${escapeHtml(label)}</span>
+              <span class="entry-link-arrow">→</span>
+            </a>`;
+        }).join("")}
+      </div>
+    </div>`;
+}
+
 /* Rendu d'une entrée principale avec sous-items dépliables */
 function renderEntryWithSubItems(item) {
   const name = item.title || item.role || item.degree || "";
   const subItems = item.subItems || [];
+  const linkedItems = item.linkedItems || [];
   return `
-    <article class="entry" data-item-id="${escapeHtml(item.id)}">
+    <article class="entry" id="${escapeHtml(item.id)}" data-item-id="${escapeHtml(item.id)}">
       <header class="entry-head">
         <div class="entry-date">${escapeHtml(periodLabel(item.start, item.end))}</div>
         <h2 class="entry-title">${escapeHtml(name)}</h2>
@@ -520,6 +557,7 @@ function renderEntryWithSubItems(item) {
           ${subItems.map(renderSubItem).join("")}
         </div>
       ` : ""}
+      ${renderLinkedItems(linkedItems)}
     </article>`;
 }
 
@@ -581,7 +619,7 @@ function renderFlatEntry(it, dateField = "start") {
     ? escapeHtml(String(it.year || ""))
     : escapeHtml(periodLabel(it.start, it.end));
   return `
-    <article class="entry">
+    <article class="entry" id="${escapeHtml(it.id)}">
       ${dateStr ? `<div class="entry-date">${dateStr}</div>` : ""}
       <h3 class="entry-title">${escapeHtml(it.title || "")}</h3>
       ${it.org ? `<div class="entry-org">${escapeHtml(it.org)}</div>` : ""}
@@ -644,7 +682,7 @@ function renderTravauxPage() {
   container.innerHTML = pubs.map(p => {
     const hasAbstract = !!(p.abstract && p.abstract.trim());
     return `
-      <article class="travaux-item" data-item-id="${escapeHtml(p.id)}">
+      <article class="travaux-item" id="${escapeHtml(p.id)}" data-item-id="${escapeHtml(p.id)}">
         <div class="travaux-meta">
           <span class="travaux-year">${escapeHtml(String(p.year || ""))}</span>
           ${p.type ? `<span class="travaux-type">${escapeHtml(typeLabels[p.type] || p.type)}</span>` : ""}
@@ -785,6 +823,32 @@ function aggregatedItemSkills(item) {
   const set = new Set(item.skills || []);
   (item.subItems || []).forEach(si => (si.skills || []).forEach(sid => set.add(sid)));
   return [...set];
+}
+
+const COLLECTION_TO_KIND = {
+  cursus: "cursus",
+  experiences: "experience",
+  formations: "formation",
+  rayonnement: "rayonnement",
+  financements: "financement",
+  publications: "publication",
+};
+
+const KIND_TO_PAGE = {
+  cursus: "cursus.html",
+  experience: "experiences.html",
+  formation: "formations.html",
+  rayonnement: "mediation.html",
+  financement: "financements.html",
+  publication: "travaux.html",
+};
+
+function findLinkedItem(id) {
+  for (const coll of Object.keys(COLLECTION_TO_KIND)) {
+    const item = (DATA[coll] || []).find(x => x.id === id);
+    if (item) return { item, kind: COLLECTION_TO_KIND[coll], collection: coll };
+  }
+  return null;
 }
 
 function getAllItems() {
@@ -1246,6 +1310,7 @@ function renderEntityForm(key, item) {
         </div>
       </div>
       ${item ? renderSubItemsAdmin(key, item) : `<p class="hint" style="margin-top:16px">💡 Enregistrez d'abord cette entrée pour pouvoir y ajouter des sous-expériences.</p>`}
+      ${item ? renderLinksAdmin(key, item) : ""}
     `;
   }
 
@@ -1509,6 +1574,7 @@ function bindEntityForm(key) {
       obj.description = form.querySelector('[name="description"]').value.trim();
       obj.type = key === "experiences" ? "experience" : "education";
       obj.subItems = editingEntity?.subItems || [];
+      obj.linkedItems = editingEntity?.linkedItems || [];
       obj.skills = [...form.querySelectorAll('input[name="skill"]:checked')].map(x => x.value);
       if (!obj.title) { toast("Titre requis", "error"); return; }
     }
@@ -1571,7 +1637,100 @@ function bindEntityForm(key) {
 
   if ((key === "experiences" || key === "cursus") && editingEntity) {
     bindSubItemsAdmin(key, editingEntity);
+    bindLinksAdmin(key, editingEntity);
   }
+}
+
+/* ---------- Items liés (cursus / experiences) ---------- */
+function renderLinksAdmin(parentKey, parent) {
+  const linkedIds = parent.linkedItems || [];
+  const links = linkedIds.map(id => findLinkedItem(id)).filter(x => x);
+
+  const linkedSet = new Set(linkedIds);
+  const candidates = [];
+  for (const coll of Object.keys(COLLECTION_TO_KIND)) {
+    (DATA[coll] || []).forEach(it => {
+      if (it.id === parent.id) return;
+      if (linkedSet.has(it.id)) return;
+      candidates.push({
+        id: it.id,
+        kind: COLLECTION_TO_KIND[coll],
+        label: it.title || it.name || "(sans titre)",
+      });
+    });
+  }
+  candidates.sort((a, b) => a.kind.localeCompare(b.kind) || a.label.localeCompare(b.label));
+
+  return `
+    <div class="links-admin" style="margin-top:24px; padding-top:20px; border-top:1px dashed var(--line)">
+      <h3>Items liés <span style="color:var(--muted); font-weight:400">(${links.length})</span></h3>
+      <p class="hint">Reliez d'autres entrées du portfolio pour les afficher en bas de cette entrée. Un clic sur le lien redirige vers la page concernée.</p>
+      ${links.length ? `
+        <div class="admin-list">
+          ${links.map(({ item, kind }) => `
+            <div class="admin-item" data-link-id="${escapeHtml(item.id)}">
+              <div class="admin-item-info">
+                <div class="t">${escapeHtml(item.title || item.name || "(sans titre)")}</div>
+                <div class="s">${escapeHtml(ITEM_KIND_LABELS[kind] || kind)}</div>
+              </div>
+              <div class="actions">
+                <button class="btn small danger" data-act="unlink">✕ Délier</button>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      ` : `<div class="empty-note">Aucun item lié pour le moment.</div>`}
+      <div style="display:flex; gap:8px; margin-top:12px; align-items:center; flex-wrap:wrap">
+        <select id="linkPicker" style="flex:1; min-width:220px">
+          <option value="">— Sélectionner un item à lier —</option>
+          ${candidates.length ? renderLinkOptions(candidates) : `<option value="" disabled>Aucun candidat disponible</option>`}
+        </select>
+        <button class="btn primary" id="addLink" ${candidates.length ? "" : "disabled"}>+ Lier</button>
+      </div>
+    </div>
+  `;
+}
+
+function renderLinkOptions(candidates) {
+  const groups = {};
+  candidates.forEach(c => {
+    const label = ITEM_KIND_LABELS[c.kind] || c.kind;
+    (groups[label] = groups[label] || []).push(c);
+  });
+  return Object.entries(groups).map(([label, items]) => `
+    <optgroup label="${escapeHtml(label)}">
+      ${items.map(c => `<option value="${escapeHtml(c.id)}">${escapeHtml(c.label)}</option>`).join("")}
+    </optgroup>
+  `).join("");
+}
+
+function bindLinksAdmin(parentKey, parent) {
+  $$(".links-admin .admin-item").forEach(el => {
+    el.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-act]");
+      if (btn?.dataset.act !== "unlink") return;
+      const id = el.dataset.linkId;
+      parent.linkedItems = (parent.linkedItems || []).filter(x => x !== id);
+      markDirty();
+      renderAll();
+      $("#entityForm").innerHTML = renderEntityForm(parentKey, parent);
+      bindEntityForm(parentKey);
+      toast("Lien retiré");
+    });
+  });
+
+  $("#addLink")?.addEventListener("click", () => {
+    const sel = $("#linkPicker");
+    const id = sel?.value;
+    if (!id) { toast("Sélectionnez un item à lier", "error"); return; }
+    parent.linkedItems = parent.linkedItems || [];
+    if (!parent.linkedItems.includes(id)) parent.linkedItems.push(id);
+    markDirty();
+    renderAll();
+    $("#entityForm").innerHTML = renderEntityForm(parentKey, parent);
+    bindEntityForm(parentKey);
+    toast("Item lié");
+  });
 }
 
 /* ---------- Onglet Sync (GitHub + mot de passe) ---------- */
@@ -1786,6 +1945,7 @@ async function bootApp({ active = null, links } = {}) {
   initAdminAccess();
   initAdminPanel();
   await loadData();
+  window.addEventListener("hashchange", scrollToHashIfAny);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

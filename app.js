@@ -746,6 +746,41 @@ function itemColor(kind) {
   return ITEM_KIND_COLORS[kind] || "var(--ink)";
 }
 
+function rectCollide() {
+  let nodes;
+  function force(alpha) {
+    const iterations = 2;
+    const len = nodes.length;
+    for (let it = 0; it < iterations; it++) {
+      for (let i = 0; i < len; i++) {
+        const a = nodes[i];
+        const aCx = a.x + (a._anchorX || 0);
+        for (let j = i + 1; j < len; j++) {
+          const b = nodes[j];
+          const bCx = b.x + (b._anchorX || 0);
+          const dx = bCx - aCx;
+          const dy = b.y - a.y;
+          const overlapX = (a._halfW + b._halfW) - Math.abs(dx);
+          const overlapY = (a._halfH + b._halfH) - Math.abs(dy);
+          if (overlapX > 0 && overlapY > 0) {
+            if (overlapX < overlapY) {
+              const push = (overlapX / 2) * (dx < 0 ? -1 : 1) * alpha;
+              a.x -= push;
+              b.x += push;
+            } else {
+              const push = (overlapY / 2) * (dy < 0 ? -1 : 1) * alpha;
+              a.y -= push;
+              b.y += push;
+            }
+          }
+        }
+      }
+    }
+  }
+  force.initialize = (n) => { nodes = n; };
+  return force;
+}
+
 function aggregatedItemSkills(item) {
   const set = new Set(item.skills || []);
   (item.subItems || []).forEach(si => (si.skills || []).forEach(sid => set.add(sid)));
@@ -815,12 +850,16 @@ function renderGraph() {
   }
 
   const radiusFor = (n) => n.type === "item" ? 11 : 9;
+  const truncate = (s, n) => s.length > n ? s.slice(0, n - 1) + "…" : s;
+
+  nodes.forEach(n => { n._label = truncate(n.label || "", 26); });
 
   const sim = d3.forceSimulation(nodes)
-    .force("link",   d3.forceLink(links).id(d => d.id).distance(85).strength(.4))
-    .force("charge", d3.forceManyBody().strength(-200))
+    .force("link",   d3.forceLink(links).id(d => d.id).distance(110).strength(.35))
+    .force("charge", d3.forceManyBody().strength(-380))
     .force("center", d3.forceCenter(w/2, h/2))
-    .force("collide",d3.forceCollide().radius(d => radiusFor(d) + 14));
+    .force("x",      d3.forceX(w/2).strength(.04))
+    .force("y",      d3.forceY(h/2).strength(.04));
 
   const link = g.append("g").attr("class", "links")
     .selectAll("line").data(links).join("line")
@@ -865,7 +904,23 @@ function renderGraph() {
   node.append("text")
     .attr("dx", d => radiusFor(d) + 6)
     .attr("dy", 4)
-    .text(d => d.label.length > 32 ? d.label.slice(0, 30) + "…" : d.label);
+    .text(d => d._label);
+
+  // Mesure de la bbox (taille texte + nœud) pour la collision rectangulaire
+  node.each(function(d) {
+    const txt = this.querySelector("text");
+    let tw = 0, th = 12;
+    if (txt) {
+      try { const b = txt.getBBox(); tw = b.width; th = b.height; }
+      catch (e) { tw = (d._label || "").length * 6.2; }
+    }
+    const r = radiusFor(d);
+    d._anchorX = 3 + tw / 2;
+    d._halfW = r + 3 + tw / 2 + 4;
+    d._halfH = Math.max(r, th / 2 + 4) + 3;
+  });
+
+  sim.force("collide", rectCollide());
 
   node.on("click", (e, d) => {
     e.stopPropagation();
@@ -881,6 +936,8 @@ function renderGraph() {
       .attr("x2", d => d.target.x).attr("y2", d => d.target.y);
     node.attr("transform", d => `translate(${d.x},${d.y})`);
   });
+
+  sim.alpha(0.9).restart();
 
   graphApi = {
     highlight({ skillIds, itemIds, hasSelection }) {

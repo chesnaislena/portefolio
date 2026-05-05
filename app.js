@@ -138,6 +138,87 @@ function mountAdminUI() {
 }
 
 /* ==============================================================
+   MODAL DÉTAIL D'UNE COMPÉTENCE (pages d'items)
+   ============================================================== */
+function mountSkillModal() {
+  if ($("#skillModal")) return;
+  const div = document.createElement("div");
+  div.id = "skillModal";
+  div.className = "skill-modal";
+  div.setAttribute("hidden", "");
+  div.innerHTML = `
+    <div class="skill-modal-backdrop" data-close></div>
+    <div class="skill-modal-box" role="dialog" aria-labelledby="skillModalName" aria-modal="true">
+      <button class="skill-modal-close" type="button" data-close aria-label="Fermer">×</button>
+      <div class="skill-modal-cat" id="skillModalCat"></div>
+      <h2 class="skill-modal-name" id="skillModalName"></h2>
+      <div class="skill-modal-level" id="skillModalLevel"></div>
+      <div class="skill-modal-desc" id="skillModalDesc"></div>
+      <div class="skill-modal-uses" id="skillModalUses"></div>
+    </div>`;
+  document.body.appendChild(div);
+  div.addEventListener("click", (e) => {
+    if (e.target.closest("[data-close]")) closeSkillModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !div.hasAttribute("hidden")) closeSkillModal();
+  });
+}
+
+const SKILL_CAT_LABELS = {
+  hard: "Compétence technique",
+  soft: "Compétence transversale",
+  language: "Langue",
+};
+
+function openSkillModal(skillId) {
+  const sk = (DATA.skills || []).find(s => s.id === skillId);
+  if (!sk) return;
+  const modal = $("#skillModal");
+  if (!modal) return;
+
+  const catLabel = SKILL_CAT_LABELS[sk.category] || sk.category || "";
+  const catColor = skillColor(sk.category);
+  $("#skillModalCat").innerHTML = catLabel
+    ? `<span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:${catColor}; vertical-align:middle; margin-right:8px"></span>${escapeHtml(catLabel)}`
+    : "";
+  $("#skillModalName").textContent = sk.name || "";
+  $("#skillModalLevel").innerHTML = sk.level ? `Niveau : ${escapeHtml(sk.level)}` : "";
+  $("#skillModalLevel").style.display = sk.level ? "inline-block" : "none";
+  $("#skillModalDesc").innerHTML = sk.description
+    ? `<p>${escapeHtml(sk.description).replace(/\n/g, "<br>")}</p>`
+    : `<p class="empty-note" style="margin:0">Pas de description.</p>`;
+
+  const uses = findSkillUses(skillId);
+  if (!uses.length) {
+    $("#skillModalUses").innerHTML = `<h4>Mobilisée dans</h4><p class="empty-note" style="margin:0">Aucun item ne référence encore cette compétence.</p>`;
+  } else {
+    $("#skillModalUses").innerHTML = `
+      <h4>Mobilisée dans (${uses.length})</h4>
+      <ul>
+        ${uses.map(u => `
+          <li>
+            <a href="${escapeHtml(KIND_TO_PAGE[u.kind] || '#')}#${escapeHtml(u.id)}">
+              <span class="skill-modal-use-kind" data-link-kind="${escapeHtml(u.kind)}">${escapeHtml(ITEM_KIND_LABELS[u.kind] || u.kind)}</span>
+              <span class="skill-modal-use-title">${escapeHtml(u.label)}</span>
+            </a>
+          </li>
+        `).join("")}
+      </ul>`;
+  }
+
+  modal.removeAttribute("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+function closeSkillModal() {
+  const modal = $("#skillModal");
+  if (!modal) return;
+  modal.setAttribute("hidden", "");
+  document.body.style.overflow = "";
+}
+
+/* ==============================================================
    CHARGEMENT DES DONNÉES
    ============================================================== */
 async function loadData() {
@@ -479,7 +560,7 @@ function renderSkillChips(ids = []) {
   return `<div class="tl-skills">${
     ids.map(sid => {
       const sk = (DATA.skills || []).find(s => s.id === sid);
-      return sk ? `<span class="chip">${escapeHtml(sk.name)}</span>` : "";
+      return sk ? `<button type="button" class="chip skill-chip" data-skill-id="${escapeHtml(sid)}">${escapeHtml(sk.name)}</button>` : "";
     }).join("")
   }</div>`;
 }
@@ -849,6 +930,24 @@ function findLinkedItem(id) {
     if (item) return { item, kind: COLLECTION_TO_KIND[coll], collection: coll };
   }
   return null;
+}
+
+function findSkillUses(skillId) {
+  const uses = [];
+  for (const coll of Object.keys(COLLECTION_TO_KIND)) {
+    (DATA[coll] || []).forEach(it => {
+      const direct = (it.skills || []).includes(skillId);
+      const viaSub = (it.subItems || []).some(si => (si.skills || []).includes(skillId));
+      if (direct || viaSub) {
+        uses.push({
+          id: it.id,
+          kind: COLLECTION_TO_KIND[coll],
+          label: it.title || it.name || "(sans titre)",
+        });
+      }
+    });
+  }
+  return uses;
 }
 
 function getAllItems() {
@@ -1941,11 +2040,19 @@ window.addEventListener("resize", () => { if (DATA && $("#skillsGraph")) renderG
 async function bootApp({ active = null, links } = {}) {
   mountHeader({ active, links });
   mountAdminUI();
+  mountSkillModal();
   initTheme();
   initAdminAccess();
   initAdminPanel();
   await loadData();
   window.addEventListener("hashchange", scrollToHashIfAny);
+  document.body.addEventListener("click", (e) => {
+    const chip = e.target.closest(".skill-chip[data-skill-id]");
+    if (!chip) return;
+    e.preventDefault();
+    e.stopPropagation();
+    openSkillModal(chip.dataset.skillId);
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {

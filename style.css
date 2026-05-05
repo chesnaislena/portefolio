@@ -330,13 +330,15 @@ html[data-theme="dark"] .theme-toggle .moon { display: block; }
 .tl-skills { display: flex; flex-wrap: wrap; gap: 6px; }
 .tl-skills .chip {
   font-family: "JetBrains Mono", monospace; font-size: .68rem;
-  padding: 3px 8px; border: 1px solid var(--line); border-radius: 999px;
+  padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px;
   color: var(--muted); cursor: pointer; transition: all var(--t-fast) var(--ease);
+  background: transparent; line-height: 1.5;
 }
 .tl-skills .chip:hover, .tl-skills .chip.highlighted {
   border-color: var(--accent); color: var(--accent);
   background: color-mix(in oklab, var(--accent) 8%, transparent);
 }
+.tl-skills button.chip { font: inherit; font-family: "JetBrains Mono", monospace; font-size: .68rem; }
 
 /* ============================================================
    PUBLICATIONS
@@ -523,6 +525,85 @@ footer:hover .admin-hint { opacity: .6; }
 .admin-foot {
   padding: 16px 28px; border-top: 1px solid var(--line);
   display: flex; justify-content: space-between; gap: 10px;
+}
+
+/* Modal détail compétence */
+.skill-modal {
+  position: fixed; inset: 0; z-index: 1500;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; animation: skillModalIn .18s ease;
+}
+@keyframes skillModalIn { from { opacity: 0 } to { opacity: 1 } }
+.skill-modal-backdrop {
+  position: absolute; inset: 0;
+  background: color-mix(in oklab, var(--ink) 45%, transparent);
+  cursor: pointer; backdrop-filter: blur(2px);
+}
+.skill-modal-box {
+  position: relative; background: var(--bg-elev);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 36px 32px 28px; max-width: 560px; width: 100%;
+  max-height: 82vh; overflow-y: auto;
+  box-shadow: var(--shadow);
+}
+.skill-modal-close {
+  position: absolute; top: 14px; right: 14px;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: transparent; border: 1px solid var(--line);
+  color: var(--muted); cursor: pointer; font-size: 1.3rem; line-height: 1;
+  transition: all var(--t-fast) var(--ease);
+}
+.skill-modal-close:hover { color: var(--accent); border-color: var(--accent); }
+.skill-modal-cat {
+  font-family: "JetBrains Mono", monospace; font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); margin-bottom: 10px;
+}
+.skill-modal-name {
+  font-family: "Fraunces", serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  font-style: italic; color: var(--accent); margin-bottom: 14px; line-height: 1.15;
+}
+.skill-modal-level {
+  display: inline-block; padding: 4px 12px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px; font-size: .78rem;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--ink-soft); margin-bottom: 18px;
+}
+.skill-modal-desc {
+  color: var(--ink-soft); line-height: 1.6;
+  font-size: .96rem; margin-bottom: 24px;
+}
+.skill-modal-uses h4 {
+  font-family: "JetBrains Mono", monospace; font-size: .7rem;
+  text-transform: uppercase; letter-spacing: .14em;
+  color: var(--muted); margin-bottom: 12px;
+  padding-top: 18px; border-top: 1px dashed var(--line);
+}
+.skill-modal-uses ul { list-style: none; }
+.skill-modal-uses li { border-bottom: 1px dashed var(--line); }
+.skill-modal-uses li:last-child { border-bottom: none; }
+.skill-modal-uses li a {
+  display: grid; grid-template-columns: 110px 1fr;
+  gap: 14px; align-items: center;
+  padding: 10px 0; color: var(--ink); text-decoration: none;
+  transition: color var(--t-fast), padding-left var(--t-fast);
+}
+.skill-modal-uses li a:hover { color: var(--accent); padding-left: 4px; }
+.skill-modal-use-kind {
+  font-family: "JetBrains Mono", monospace; font-size: .68rem;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--muted);
+}
+.skill-modal-use-kind[data-link-kind="cursus"]      { color: #5b8fb9; }
+.skill-modal-use-kind[data-link-kind="experience"]  { color: #d4894e; }
+.skill-modal-use-kind[data-link-kind="formation"]   { color: #6fa86f; }
+.skill-modal-use-kind[data-link-kind="rayonnement"] { color: #c47a9c; }
+.skill-modal-use-kind[data-link-kind="financement"] { color: #c2a04a; }
+.skill-modal-use-kind[data-link-kind="publication"] { color: #8a72b8; }
+.skill-modal-use-title { font-size: .92rem; }
+@media (max-width: 600px) {
+  .skill-modal-uses li a { grid-template-columns: 1fr; gap: 2px; }
 }
 
 /* Toast */

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-04",
-    "version": 3,
+    "lastUpdated": "2026-05-05",
+    "version": 4,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -23,27 +23,139 @@
     }
   },
   "skills": [
-    { "id": "s-anim-comportement", "name": "Comportement souris", "category": "hard", "level": "avancé" },
-    { "id": "s-anim-stereotaxie", "name": "Stéréotaxie", "category": "hard", "level": "avancé" },
-    { "id": "s-anim-perfusion", "name": "Perfusion intra-cardiaque", "category": "hard", "level": "avancé" },
-    { "id": "s-anim-prelevement", "name": "Prélèvement de cerveaux", "category": "hard", "level": "avancé" },
-    { "id": "s-anim-dissection", "name": "Dissections", "category": "hard", "level": "avancé" },
-    { "id": "s-lab-dosage", "name": "Dosage protéique", "category": "hard", "level": "avancé" },
-    { "id": "s-lab-westernblot", "name": "Western-blot", "category": "hard", "level": "avancé" },
-    { "id": "s-lab-elisa", "name": "ELISA", "category": "hard", "level": "avancé" },
-    { "id": "s-lab-arn", "name": "Extraction ARN", "category": "hard", "level": "avancé" },
-    { "id": "s-lab-pcr", "name": "RTqPCR et PCR", "category": "hard", "level": "avancé" },
-    { "id": "s-lab-coupe", "name": "Coupe de cerveaux", "category": "hard", "level": "avancé" },
-    { "id": "s-lab-ihc", "name": "Immunohistochimie", "category": "hard", "level": "avancé" },
-    { "id": "s-lab-confocale", "name": "Microscopie confocale", "category": "hard", "level": "avancé" },
-    { "id": "s-soft-ethovision", "name": "Ethovision XT", "category": "hard", "level": "avancé" },
-    { "id": "s-soft-imagej", "name": "ImageJ", "category": "hard", "level": "avancé" },
-    { "id": "s-soft-prism", "name": "GraphPad Prism", "category": "hard", "level": "avancé" },
-    { "id": "s-soft-imaris", "name": "Imaris", "category": "hard", "level": "intermédiaire" },
-    { "id": "s-soft-encadrement", "name": "Encadrement / Mentorat", "category": "soft", "level": "avancé" },
-    { "id": "s-soft-vulgarisation", "name": "Vulgarisation scientifique", "category": "soft", "level": "avancé" },
-    { "id": "s-lang-anglais", "name": "Anglais", "category": "language", "level": "B2" },
-    { "id": "s-lang-francais", "name": "Français", "category": "language", "level": "natif" }
+    {
+      "id": "s-anim-comportement",
+      "name": "Comportement souris",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-stereotaxie",
+      "name": "Stéréotaxie",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-perfusion",
+      "name": "Perfusion intra-cardiaque",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-prelevement",
+      "name": "Prélèvement de cerveaux",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-dissection",
+      "name": "Dissections",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-dosage",
+      "name": "Dosage protéique",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-westernblot",
+      "name": "Western-blot",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-elisa",
+      "name": "ELISA",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-arn",
+      "name": "Extraction ARN",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-pcr",
+      "name": "RTqPCR et PCR",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-coupe",
+      "name": "Coupe de cerveaux",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-ihc",
+      "name": "Immunohistochimie",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-confocale",
+      "name": "Microscopie confocale",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-ethovision",
+      "name": "Ethovision XT",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-imagej",
+      "name": "ImageJ",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-prism",
+      "name": "GraphPad Prism",
+      "category": "hard",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-imaris",
+      "name": "Imaris",
+      "category": "hard",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-soft-encadrement",
+      "name": "Encadrement / Mentorat",
+      "category": "soft",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-vulgarisation",
+      "name": "Vulgarisation scientifique",
+      "category": "soft",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lang-anglais",
+      "name": "Anglais",
+      "category": "language",
+      "level": "B2"
+    },
+    {
+      "id": "s-lang-francais",
+      "name": "Français",
+      "category": "language",
+      "level": "natif"
+    },
+    {
+      "id": "ski-mot47fy2-zkrm",
+      "name": "Comp1",
+      "category": "scientific",
+      "level": "test?",
+      "description": "Test"
+    }
   ],
   "cursus": [
     {
@@ -55,8 +167,29 @@
       "start": "2025-10",
       "end": null,
       "description": "Thèse sous la direction de David Blum (LiLNCog, Lille) et AJ Robison (Michigan State University). Sujet : rôle de la pathologie Tau et des récepteurs adénosinergiques A2A dans les symptômes dépressifs associés à la maladie d'Alzheimer.",
-      "subItems": [],
-      "skills": ["s-anim-comportement", "s-anim-stereotaxie", "s-lab-westernblot", "s-lab-ihc", "s-lab-confocale"]
+      "subItems": [
+        {
+          "id": "sub-mot2k8nq-5xg0",
+          "title": "J'ai fait caca au lit",
+          "location": "Toilettes",
+          "start": "2003-01",
+          "end": null,
+          "summary": "éze",
+          "detail": "aaz",
+          "skills": [
+            "s-lab-pcr",
+            "s-lab-coupe",
+            "s-lab-confocale"
+          ]
+        }
+      ],
+      "skills": [
+        "s-anim-comportement",
+        "s-anim-stereotaxie",
+        "s-lab-westernblot",
+        "s-lab-ihc",
+        "s-lab-confocale"
+      ]
     },
     {
       "id": "edu-master",
@@ -68,7 +201,10 @@
       "end": "2022-06",
       "description": "Mention Bien.",
       "subItems": [],
-      "skills": []
+      "skills": [],
+      "linkedItems": [
+        "exp-stage-m1"
+      ]
     },
     {
       "id": "edu-licence",
@@ -105,7 +241,18 @@
           "detail": "Programme transdisciplinaire de l'École Graduée centré sur la médecine de précision."
         }
       ],
-      "skills": ["s-anim-comportement", "s-anim-stereotaxie", "s-anim-perfusion", "s-anim-prelevement", "s-lab-westernblot", "s-lab-ihc", "s-lab-confocale", "s-soft-ethovision", "s-soft-imagej", "s-soft-prism"]
+      "skills": [
+        "s-anim-comportement",
+        "s-anim-stereotaxie",
+        "s-anim-perfusion",
+        "s-anim-prelevement",
+        "s-lab-westernblot",
+        "s-lab-ihc",
+        "s-lab-confocale",
+        "s-soft-ethovision",
+        "s-soft-imagej",
+        "s-soft-prism"
+      ]
     },
     {
       "id": "exp-ingenieure",
@@ -117,7 +264,26 @@
       "end": "2025-09",
       "description": "Étude du rôle de la protéine Tau dans l'homéostasie cérébrale et synaptique : mise au point de tests comportementaux, développement et validation de protocoles, travail avec des souris, formation du nouveau personnel. Sous la responsabilité scientifique de David Blum.",
       "subItems": [],
-      "skills": ["s-anim-comportement", "s-anim-stereotaxie", "s-anim-perfusion", "s-anim-prelevement", "s-anim-dissection", "s-lab-dosage", "s-lab-westernblot", "s-lab-elisa", "s-lab-arn", "s-lab-pcr", "s-lab-coupe", "s-lab-ihc", "s-lab-confocale", "s-soft-ethovision", "s-soft-imagej", "s-soft-prism", "s-soft-imaris", "s-soft-encadrement"]
+      "skills": [
+        "s-anim-comportement",
+        "s-anim-stereotaxie",
+        "s-anim-perfusion",
+        "s-anim-prelevement",
+        "s-anim-dissection",
+        "s-lab-dosage",
+        "s-lab-westernblot",
+        "s-lab-elisa",
+        "s-lab-arn",
+        "s-lab-pcr",
+        "s-lab-coupe",
+        "s-lab-ihc",
+        "s-lab-confocale",
+        "s-soft-ethovision",
+        "s-soft-imagej",
+        "s-soft-prism",
+        "s-soft-imaris",
+        "s-soft-encadrement"
+      ]
     },
     {
       "id": "exp-stage-m2",
@@ -129,7 +295,9 @@
       "end": "2022-06",
       "description": "Étude par approche pharmacologique in vivo de la contribution du récepteur dopaminergique D3 aux mécanismes d'addiction et de dépendance, sous la tutelle de Marilyne Roussel. Durée : 6 mois.",
       "subItems": [],
-      "skills": ["s-anim-comportement"]
+      "skills": [
+        "s-anim-comportement"
+      ]
     },
     {
       "id": "exp-stage-m1",
@@ -165,7 +333,9 @@
       "start": "2024",
       "end": "2024",
       "description": "Chirurgie chez la souris, le rat, le lapin et le porc.",
-      "skills": ["s-anim-stereotaxie"]
+      "skills": [
+        "s-anim-stereotaxie"
+      ]
     },
     {
       "id": "form-experim",
@@ -175,7 +345,9 @@
       "start": "2021",
       "end": "2021",
       "description": "Habilitation à concevoir des protocoles d'expérimentation animale (niveau concepteur).",
-      "skills": ["s-anim-comportement"]
+      "skills": [
+        "s-anim-comportement"
+      ]
     }
   ],
   "rayonnement": [
@@ -199,7 +371,9 @@
       "start": "2026",
       "end": null,
       "description": "Encadrement sur 2 mois d'un(e) lycéen(ne) et d'un(e) collégien(ne).",
-      "skills": ["s-soft-encadrement"]
+      "skills": [
+        "s-soft-encadrement"
+      ]
     },
     {
       "id": "ray-cerveau",
@@ -210,7 +384,9 @@
       "start": "2026",
       "end": "2026",
       "description": "Organisation et présentation d'un atelier durant la Semaine du cerveau, pour scolaires et grand public.",
-      "skills": ["s-soft-vulgarisation"]
+      "skills": [
+        "s-soft-vulgarisation"
+      ]
     },
     {
       "id": "ray-fetescience",
@@ -221,7 +397,9 @@
       "start": "2024",
       "end": "2025",
       "description": "Organisation et présentation d'un atelier durant la Fête de la Science, pour scolaires et grand public.",
-      "skills": ["s-soft-vulgarisation"]
+      "skills": [
+        "s-soft-vulgarisation"
+      ]
     },
     {
       "id": "ray-declic",
@@ -232,7 +410,9 @@
       "start": "2023",
       "end": "2023",
       "description": "Intervention dans le cadre du programme Déclic.",
-      "skills": ["s-soft-vulgarisation"]
+      "skills": [
+        "s-soft-vulgarisation"
+      ]
     }
   ],
   "financements": [
@@ -274,7 +454,10 @@
       "type": "article",
       "abstract": "",
       "url": "https://doi.org/10.1093/brain/awaf417",
-      "skills": ["s-anim-comportement", "s-lab-ihc"]
+      "skills": [
+        "s-anim-comportement",
+        "s-lab-ihc"
+      ]
     },
     {
       "id": "pub-newcal-flora",

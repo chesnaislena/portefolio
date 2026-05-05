@@ -69,7 +69,7 @@ function mountHeader({ active = null, links = DEFAULT_NAV_LINKS } = {}) {
       <div class="wrap">
         <nav>
           <a href="index.html" class="brand">
-            <span class="brand-mark" id="brandMark" title="Triple-clic pour admin"></span>
+            <span class="brand-mark" id="brandMark"></span>
             <span id="brandName">Portfolio</span>
           </a>
           <ul>
@@ -84,6 +84,38 @@ function mountHeader({ active = null, links = DEFAULT_NAV_LINKS } = {}) {
         </nav>
       </div>
     </header>`;
+}
+
+/* ==============================================================
+   INJECTION DU FOOTER (partagé entre toutes les pages MPA)
+   ============================================================== */
+function mountFooter() {
+  const host = document.querySelector("footer");
+  if (!host) return;
+  host.outerHTML = `
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-block">
+            <div class="section-label">Restons en lien</div>
+            <p class="contact-big" id="contactBig"></p>
+            <div class="contact-links" id="contactLinks"></div>
+          </div>
+          <div class="footer-block footer-identity">
+            <div class="section-label">Identité</div>
+            <div class="footer-name" id="footIdentityName"></div>
+            <div class="footer-role" id="footRole"></div>
+            <div class="footer-meta-line" id="footLab"></div>
+            <div class="footer-meta-line" id="footLocation"></div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span id="footYear"></span> · <span id="footName"></span></span>
+          <a class="footer-back" href="#top">↑ Retour en haut</a>
+        </div>
+      </div>
+    </footer>
+  `;
 }
 
 /* ==============================================================

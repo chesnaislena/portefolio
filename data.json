@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-17",
-    "version": 14,
+    "version": 15,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -1236,7 +1236,7 @@
             "ski-mpa1uekh-wgmv",
             "ski-mpa4fjo9-30pb"
           ],
-          "detail": "Mise au point d'un modèle d'addiction basé sur la sensibilisation comportementale (augmentation progressive de l'activité locomotrice après injections répétées de morphine). Modulation de cette sensibilisation locomotrice par l'administration d'un antagoniste partiel des récepteurs dopaminergiques D3 synthétisé au sein de l'unité de chimie du laboratoire.\nConcrètement, les tests comportementaux ont été réalisés en autonomie avec un roulement avec mon encadrante pour nous permettre de passer le maximum de souris par jour."
+          "detail": "Objectif 1 : Mise au point d'un modèle d'addiction basé sur la sensibilisation comportementale (augmentation progressive de l'activité locomotrice après injections répétées de morphine). \nObjectif 2 : Modulation de cette sensibilisation locomotrice par l'administration d'un antagoniste partiel des récepteurs dopaminergiques D3 synthétisé au sein de l'unité de chimie du laboratoire.\nConcrètement, les tests comportementaux ont été réalisés en autonomie avec un roulement avec mon encadrante pour nous permettre de passer le maximum de souris par jour."
         },
         {
           "id": "exp-stage-m2-techniques",
@@ -1244,33 +1244,54 @@
           "location": "Rennes, France",
           "start": "2022-01",
           "end": "2022-06",
-          "summary": "Contention, gavage, injections intrapéritonéale et sous-cutanée, observation du comportement.",
+          "summary": "Formation aux techniques d'expérimentation animale : contention, gavage, injection intrapéritonéale, injection sous-cutanée, comportement.",
           "skills": [
             "s-anim-inj-ip",
             "s-anim-inj-sc",
             "s-anim-gavage",
-            "s-anim-contention",
-            "s-anim-comportement"
+            "s-comp-openfield",
+            "ski-mpa4v0ck-655g"
           ],
-          "detail": "Formation aux techniques d'expérimentation animale : contention, gavage, injection intrapéritonéale, injection sous-cutanée, observation du comportement."
+          "detail": ""
         },
         {
           "id": "exp-stage-m2-analyse",
-          "title": "Analyse, collaboration & adaptabilité",
+          "title": "Collaborations",
           "location": "Rennes, France",
           "start": "2022-01",
           "end": "2022-06",
-          "summary": "Réflexion scientifique, travail inter-unités vers la clinique, anticipation des imprévus et curiosité.",
+          "summary": "Travail inter unités et curiosité.",
           "skills": [
             "s-soft-esprit-critique",
             "s-soft-biblio",
-            "s-soft-equipe",
             "s-soft-adaptabilite",
-            "s-soft-organisation",
-            "s-soft-planification",
-            "s-soft-anticipation"
+            "s-soft-equipe",
+            "ski-mpa4v0ck-655g"
           ],
-          "detail": "Échange, remise en question et réflexion scientifique dans l'analyse des résultats (appuyée sur la bibliographie) et l'évolution des expériences (prise de décisions, gros volumes horaires). Capacité d'adaptation face à l'imprévu (réorganisation des groupes, modification des plans) et anticipation (commande de souris supplémentaires en cas d'animaux agressifs ou blessés). Planification du temps de travail à court et long terme. Travail collaboratif avec les autres unités du laboratoire pour amener les molécules synthétisées en interne vers les phases de recherche clinique. Curiosité et adaptabilité sur d'autres projets en parallèle : administration intra-nasale chez le lapin, étude de toxicité chez le rat, essai de dissection sur souris, échanges avec des spécialistes en modélisation 3D de récepteurs et prédiction d'interaction."
+          "detail": "- Travail collaboratif avec les autres unités du laboratoire pour amener les molécules synthétisées en interne vers les phases de recherche clinique. \n- Curiosité et adaptabilité sur d'autres projets en parallèle : observation d’une expérience avec administration d’un médicament intra nasale chez le lapin, observation d’une étude de toxicité chez le rat, essaie d’une dissection sur souris, échange avec des spécialistes en modélisation 3D de récepteurs et prédiction statistique d’interaction avec les molécules testées."
+        },
+        {
+          "id": "sub-mpa5xpfy-wsjq",
+          "title": "Réflexions",
+          "location": "Rennes, France",
+          "start": "2022-01",
+          "end": "2022-06",
+          "summary": "Discussions, adaptations et planification",
+          "detail": "- Échanges, remise en question et réflexion scientifique dans l'analyse des résultats (appuyée sur la bibliographie) et l'évolution des expériences (prise de décisions, gros volumes horaires). \n- Capacité d'adaptation face à l'imprévu (réorganisation des groupes, modification des plans) et anticipation (commande de souris supplémentaires en cas d'animaux agressifs ou blessés). \n- Planification du temps de travail à court et long terme. \nCe travail à permis la réalisation de 3 rapports de Master (Veille scientifique, Conduite de projet et Démarche scientifique), ainsi que 2 oraux devant un jury de scientifiques m'ayant permis de majorer au semestre 10.",
+          "skills": [
+            "s-data-analyse",
+            "s-soft-redaction-rapport",
+            "s-soft-esprit-critique",
+            "s-soft-biblio",
+            "s-soft-comm-orale",
+            "s-soft-planification",
+            "s-soft-anticipation",
+            "s-soft-equipe",
+            "s-soft-rigueur",
+            "s-soft-integrite",
+            "ski-mpa4tskp-vof9",
+            "ski-mpa4v0ck-655g"
+          ]
         }
       ],
       "skills": [

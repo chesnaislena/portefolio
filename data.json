@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-17",
-    "version": 10,
+    "version": 11,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -1278,10 +1278,12 @@
             "s-lab-if",
             "s-micro-fluo",
             "s-soft-imagej",
+            "s-data-analyse",
+            "s-soft-esprit-critique",
             "s-soft-organisation",
             "s-soft-rigueur"
           ],
-          "detail": "L'objectif a été de quantifier le nombre de neurones sérotoninergiques (5-HT) et l'intensité du marquage de ces neurones dans le cerveau des poisson zèbres KO pour l'aromatase neuronale (enzyme de synthèse d'œstradiol) vs contrôles. \nPour ce faire, j'ai appris à disséquer sous loupe binoculaire le cerveau des poissons zèbres, à les couper au cryostat sur lame, et à réaliser une immunofluorescence sur lame (5-HT). Cela a permis de prendre des images au microscope à fluorescence et de quantifier le marquage sur ImageJ (intensité de marquage avec établissement d'un seuil, IHC 5-HT et comptage du nombre de neurones positifs)."
+          "detail": "L'objectif a été de quantifier le nombre de neurones sérotoninergiques (5-HT) et l'intensité du marquage de ces neurones dans le cerveau des poisson zèbres KO pour l'aromatase neuronale (enzyme de synthèse d'œstradiol) vs contrôles. \nPour ce faire, j'ai appris à disséquer sous loupe binoculaire le cerveau des poissons zèbres, à les couper au cryostat sur lame, et à réaliser une immunofluorescence sur lame (5-HT). Cela a permis de prendre des images au microscope à fluorescence et de quantifier le marquage sur ImageJ (intensité de marquage avec établissement d'un seuil, IHC 5-HT et comptage du nombre de neurones positifs). Cela m'a permis de développer mon esprit critique en échangeant sur les méthodes d'analyse d'immunofluorescence."
         },
         {
           "id": "exp-stage-m1-apoptose",
@@ -1305,6 +1307,7 @@
           "end": "2021-06",
           "summary": "Esprit critique, présentation en réunion d'équipe, bibliographie et adaptabilité.",
           "skills": [
+            "s-soft-redaction-rapport",
             "s-soft-esprit-critique",
             "s-soft-biblio",
             "s-soft-comm-orale",
@@ -1312,7 +1315,7 @@
             "s-soft-adaptabilite",
             "s-soft-equipe"
           ],
-          "detail": "Esprit critique et échanges sur les méthodes d'analyse d'immunofluorescence. Présentation des travaux en réunion d'équipe, bibliographie, tenue d'un cahier de laboratoire, respect des normes de sécurité, esprit d'équipe et adaptabilité au milieu de la recherche."
+          "detail": "Lors de cette première expérience au sein d'un laboratoire de recherche spécialisé en neuroscience, m'a donné le goût à ce domaine de recherche, dans lequel j'ai poursuivi mon parcours. \nJ'ai continué a développer les réflexes dans un laboratoire, à savoir la tenue d'un cahier de laboratoire, le respect des normes de sécurité, l'anticipation face à l'imprévu, l'esprit d'équipe en participant à des réunions d'équipe et la bibliographie. \nCe travail a conduit à l'écriture d'un résumé du projet et à la présentation du projet et des résultats auprès d'un jury de Master."
         }
       ],
       "skills": [

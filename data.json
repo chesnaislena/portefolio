@@ -1524,11 +1524,6 @@
         "s-anim-stereotaxie",
         "s-anim-perfusion"
       ]
-      "skills": [
-        "s-anim-chirurgie",
-        "s-anim-stereotaxie",
-        "s-anim-perfusion"
-      ]
     },
     {
       "id": "form-isoflurane",
@@ -1538,9 +1533,6 @@
       "start": "2024",
       "end": "2024",
       "description": "Utilisation de l'isoflurane en anesthésie animale.",
-      "skills": [
-        "s-anim-chirurgie"
-      ]
       "skills": [
         "s-anim-chirurgie"
       ]

@@ -725,6 +725,9 @@
           "skills": [
             "s-soft-adaptabilite"
           ],
+          "skills": [
+            "s-soft-adaptabilite"
+          ],
           "detail": "Savoir évoluer : mobilité de la Nouvelle-Calédonie à la France pour le Master."
         }
       ],
@@ -1312,6 +1315,9 @@
           "skills": [
             "s-lab-tunel"
           ],
+          "skills": [
+            "s-lab-tunel"
+          ],
           "detail": "TUNEL pour l'évaluation de l'apoptose."
         },
         {
@@ -1518,6 +1524,11 @@
         "s-anim-stereotaxie",
         "s-anim-perfusion"
       ]
+      "skills": [
+        "s-anim-chirurgie",
+        "s-anim-stereotaxie",
+        "s-anim-perfusion"
+      ]
     },
     {
       "id": "form-isoflurane",
@@ -1527,6 +1538,9 @@
       "start": "2024",
       "end": "2024",
       "description": "Utilisation de l'isoflurane en anesthésie animale.",
+      "skills": [
+        "s-anim-chirurgie"
+      ]
       "skills": [
         "s-anim-chirurgie"
       ]
@@ -1692,11 +1706,11 @@
     {
       "id": "pub-tau22",
       "title": "Sex-dependent effects of maternal high-fat diet during lactation in the offspring of adult THY-Tau22 mice",
-      "year": "2025",
+      "year": 2025,
       "authors": "Gauvrit T., … Chesnais L., … et al.",
       "venue": "Brain",
       "type": "article",
-      "abstract": "",
+      "abstract": "The perinatal environment has been suggested to participate in the development of tauopathies and Alzheimer’s disease, but the molecular and cellular mechanisms involved remain contradictory and under-investigated. Here, we evaluated the effects of a maternal high-fat diet (HFD) during lactation on the development of tauopathy in the THY-Tau22 mouse strain, a model of progressive tau pathology associated with cognitive decline.\n\nDuring lactation, dams were fed either a chow diet (13.6% of fat) or an HFD (58% of fat). At weaning, offspring were fed a chow diet until sacrifice at 4 months of age (the onset of tau pathology) or 7 months of age (the onset of cognitive impairment).\n\nDuring lactation, maternal HFD increased body weight gain in offspring. At 3 months of age, maternal HFD led to a mild glucose intolerance only in male offspring. Moreover, it impaired spatial memory in both male and female 6-month-old offspring, with males being more impacted. These cognitive deficits were associated with increased phosphorylation of hippocampal tau protein, observed at 4 months in males and at 7 months in females, highlighting a sex-specific temporal shift. Additionally, maternal HFD modified adult hippocampal neurogenesis, leading to an increase in the number of mature neuronal cells in females and in dendritic arborization length in males. Synaptic analysis further revealed that maternal HFD led to synaptic loss only in males. Finally, multi-omics approaches showed that maternal HFD had long-term consequences for the transcriptome, proteome and regulome, and this effect was also sex dependent, with mitochondrial pathways, ribosomal activity, cilium and the extracellular matrix predominantly impacted in males, whereas gliogenesis, myelination and synaptic plasticity were affected primarily in females. Regulome analysis suggested that this sex-dependent phenotype was more related to a temporal shift rather than to distinct sex-specific alterations.\n\nCollectively, our data suggest that maternal HFD accelerates the development of tauopathy in THY-Tau22 offspring, with sex-dependent effects and with males being impacted earlier than females. These findings highlight that exposure to maternal HFD represents a critical window of vulnerability and, potentially, of opportunity for interventions aimed at preventing the development of neurodegenerative diseases.",
       "url": "https://doi.org/10.1093/brain/awaf417",
       "skills": [
         "s-anim-comportement",

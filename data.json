@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-17",
-    "version": 13,
+    "version": 14,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -1207,7 +1207,11 @@
             "s-soft-ethovision",
             "s-soft-organisation",
             "s-soft-planification",
-            "s-soft-anticipation"
+            "s-soft-anticipation",
+            "s-soft-adaptabilite",
+            "s-soft-rigueur",
+            "ski-mpa0alw8-2t31",
+            "ski-mpa1uekh-wgmv"
           ],
           "detail": "Mise en place du dispositif expérimental (luminosité, bruit blanc, détection des souris par vidéotracking via Ethovision XT). Création du protocole expérimental sur Ethovision : paramètres de détection, protocole d'habituation de 30 min ou de test de 1 h, calibration du logiciel, nombre de souris par jour — anticipation et organisation."
         },
@@ -1219,13 +1223,20 @@
           "end": "2022-06",
           "summary": "Modèle de sensibilisation comportementale à la morphine, modulé par un antagoniste partiel du RD3.",
           "skills": [
-            "s-anim-comportement",
-            "s-anim-inj-ip",
             "s-anim-inj-sc",
             "s-anim-gavage",
-            "s-anim-contention"
+            "s-anim-ethique",
+            "s-comp-openfield",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation",
+            "s-soft-adaptabilite",
+            "s-soft-equipe",
+            "ski-mpa1tz7b-co3e",
+            "ski-mpa1uekh-wgmv",
+            "ski-mpa4fjo9-30pb"
           ],
-          "detail": "Mise au point d'un modèle d'addiction basé sur la sensibilisation comportementale (augmentation progressive de l'activité locomotrice après injections répétées de morphine). Modulation de cette sensibilisation locomotrice par l'administration d'un antagoniste partiel des récepteurs dopaminergiques D3 synthétisé au sein de l'unité de chimie du laboratoire."
+          "detail": "Mise au point d'un modèle d'addiction basé sur la sensibilisation comportementale (augmentation progressive de l'activité locomotrice après injections répétées de morphine). Modulation de cette sensibilisation locomotrice par l'administration d'un antagoniste partiel des récepteurs dopaminergiques D3 synthétisé au sein de l'unité de chimie du laboratoire.\nConcrètement, les tests comportementaux ont été réalisés en autonomie avec un roulement avec mon encadrante pour nous permettre de passer le maximum de souris par jour."
         },
         {
           "id": "exp-stage-m2-techniques",

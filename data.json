@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-17",
-    "version": 7,
+    "version": 8,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -24,25 +24,12 @@
   },
   "skills": [
     {
-      "id": "s-anim-comportement",
-      "name": "Observation du comportement murin",
-      "category": "hard",
-      "group": "anim",
-      "level": "avancé"
-    },
-    {
-      "id": "s-anim-stereotaxie",
+      "id": "s-anim-chirurgie",
       "name": "Stéréotaxie",
       "category": "hard",
       "group": "anim",
-      "level": "avancé"
-    },
-    {
-      "id": "s-anim-chirurgie",
-      "name": "Chirurgie animale",
-      "category": "hard",
-      "group": "anim",
-      "level": "avancé"
+      "level": "avancé",
+      "description": ""
     },
     {
       "id": "s-anim-perfusion",
@@ -73,22 +60,8 @@
       "level": "avancé"
     },
     {
-      "id": "s-anim-contention",
-      "name": "Contention animale",
-      "category": "hard",
-      "group": "anim",
-      "level": "avancé"
-    },
-    {
       "id": "s-anim-prelevement",
       "name": "Prélèvement de tissus (hippocampe, cerveau)",
-      "category": "hard",
-      "group": "anim",
-      "level": "avancé"
-    },
-    {
-      "id": "s-anim-dissection",
-      "name": "Dissections",
       "category": "hard",
       "group": "anim",
       "level": "avancé"
@@ -98,14 +71,16 @@
       "name": "Élevage & nourrissage",
       "category": "hard",
       "group": "anim",
-      "level": "avancé"
+      "level": "Débutante",
+      "description": ""
     },
     {
       "id": "s-anim-reproduction",
       "name": "Reproduction & accouplement",
       "category": "hard",
       "group": "anim",
-      "level": "avancé"
+      "level": "Débutante",
+      "description": ""
     },
     {
       "id": "s-anim-ethique",
@@ -119,67 +94,28 @@
       "name": "Réglementation expérimentation animale (DAP)",
       "category": "hard",
       "group": "anim",
-      "level": "avancé"
-    },
-    {
-      "id": "s-comp-ymaze",
-      "name": "Y-maze",
-      "category": "hard",
-      "group": "anim",
-      "level": "avancé"
+      "level": "Intermédiaire",
+      "description": ""
     },
     {
       "id": "s-comp-epm",
-      "name": "Elevated Plus Maze (EPM)",
+      "name": "Comportement depression-like",
       "category": "hard",
       "group": "anim",
-      "level": "avancé"
+      "level": "avancé",
+      "description": "Eleveted plus maze (EPM)\nSocial Y-maze\nSocial interaction test\nNest building test\nSucrose preference Test\nSplash test\nTail suspension test"
     },
     {
       "id": "s-comp-openfield",
-      "name": "Open-Field",
+      "name": "Test de sensibilisation locomotrice (open-field)",
       "category": "hard",
       "group": "anim",
-      "level": "avancé"
+      "level": "avancé",
+      "description": ""
     },
     {
       "id": "s-comp-nor",
       "name": "Reconnaissance d'objet nouveau (NOR)",
-      "category": "hard",
-      "group": "anim",
-      "level": "avancé"
-    },
-    {
-      "id": "s-comp-suspension",
-      "name": "Test de suspension par la queue",
-      "category": "hard",
-      "group": "anim",
-      "level": "avancé"
-    },
-    {
-      "id": "s-comp-sucrose",
-      "name": "Test de préférence au sucrose",
-      "category": "hard",
-      "group": "anim",
-      "level": "avancé"
-    },
-    {
-      "id": "s-comp-splash",
-      "name": "Splash test",
-      "category": "hard",
-      "group": "anim",
-      "level": "avancé"
-    },
-    {
-      "id": "s-comp-nesting",
-      "name": "Nesting test",
-      "category": "hard",
-      "group": "anim",
-      "level": "avancé"
-    },
-    {
-      "id": "s-comp-social",
-      "name": "Test d'interaction sociale",
       "category": "hard",
       "group": "anim",
       "level": "avancé"
@@ -193,10 +129,11 @@
     },
     {
       "id": "s-lab-dosage",
-      "name": "Dosage protéique",
+      "name": "Dosage protéique (BCA)",
       "category": "hard",
       "group": "lab",
-      "level": "avancé"
+      "level": "avancé",
+      "description": ""
     },
     {
       "id": "s-lab-westernblot",
@@ -213,25 +150,12 @@
       "level": "avancé"
     },
     {
-      "id": "s-lab-arn",
-      "name": "Extraction d'ARN",
-      "category": "hard",
-      "group": "lab",
-      "level": "avancé"
-    },
-    {
-      "id": "s-lab-proteines",
-      "name": "Extraction de protéines",
-      "category": "hard",
-      "group": "lab",
-      "level": "avancé"
-    },
-    {
       "id": "s-lab-extraction-combinee",
-      "name": "Extraction combinée ARN/protéines",
+      "name": "Extraction ARN/protéines",
       "category": "hard",
       "group": "lab",
-      "level": "avancé"
+      "level": "avancé",
+      "description": ""
     },
     {
       "id": "s-lab-synaptosomes",
@@ -273,7 +197,8 @@
       "name": "Coupe au vibratome",
       "category": "hard",
       "group": "lab",
-      "level": "avancé"
+      "level": "Débutante",
+      "description": ""
     },
     {
       "id": "s-lab-ihc",
@@ -301,7 +226,8 @@
       "name": "Microscopie confocale",
       "category": "hard",
       "group": "lab",
-      "level": "avancé"
+      "level": "Intermédiaire",
+      "description": ""
     },
     {
       "id": "s-micro-fluo",
@@ -315,42 +241,40 @@
       "name": "Spinning disk",
       "category": "hard",
       "group": "lab",
-      "level": "avancé"
+      "level": "Débutante",
+      "description": ""
     },
     {
       "id": "s-micro-culture",
       "name": "Culture microbienne (PSM, milieux)",
       "category": "hard",
       "group": "lab",
-      "level": "intermédiaire"
+      "level": "Débutante",
+      "description": ""
     },
     {
       "id": "s-micro-isolement",
       "name": "Isolement bactéries / champignons",
       "category": "hard",
       "group": "lab",
-      "level": "intermédiaire"
+      "level": "Débutante",
+      "description": ""
     },
     {
       "id": "s-micro-caracterisation",
       "name": "Caractérisation morphologique microbienne",
       "category": "hard",
       "group": "lab",
-      "level": "intermédiaire"
+      "level": "Débutante",
+      "description": ""
     },
     {
       "id": "s-field-echantillonnage",
       "name": "Échantillonnage terrain",
       "category": "hard",
       "group": "lab",
-      "level": "intermédiaire"
-    },
-    {
-      "id": "s-field-traitement",
-      "name": "Traitement & tri d'échantillons",
-      "category": "hard",
-      "group": "lab",
-      "level": "intermédiaire"
+      "level": "Débutante",
+      "description": ""
     },
     {
       "id": "s-soft-ethovision",
@@ -364,7 +288,8 @@
       "name": "ImageJ",
       "category": "hard",
       "group": "logiciel",
-      "level": "avancé"
+      "level": "intermédiaire",
+      "description": ""
     },
     {
       "id": "s-soft-prism",
@@ -406,7 +331,8 @@
       "name": "Encadrement d'étudiants",
       "category": "soft",
       "group": "transversal",
-      "level": "avancé"
+      "level": "intermédiaire",
+      "description": ""
     },
     {
       "id": "s-soft-formation",
@@ -420,7 +346,8 @@
       "name": "Vulgarisation scientifique",
       "category": "soft",
       "group": "transversal",
-      "level": "avancé"
+      "level": "intermédiaire",
+      "description": ""
     },
     {
       "id": "s-soft-mediation",
@@ -448,14 +375,16 @@
       "name": "Rédaction de demande de financement",
       "category": "soft",
       "group": "transversal",
-      "level": "avancé"
+      "level": "intermédiaire",
+      "description": ""
     },
     {
       "id": "s-soft-redaction-rapport",
       "name": "Rédaction de rapports & notes techniques",
       "category": "soft",
       "group": "transversal",
-      "level": "avancé"
+      "level": "intermédiaire",
+      "description": ""
     },
     {
       "id": "s-soft-esprit-critique",
@@ -476,14 +405,16 @@
       "name": "Communication orale scientifique",
       "category": "soft",
       "group": "transversal",
-      "level": "avancé"
+      "level": "intermédiaire",
+      "description": ""
     },
     {
       "id": "s-soft-comm-poster",
       "name": "Présentation poster",
       "category": "soft",
       "group": "transversal",
-      "level": "avancé"
+      "level": "intermédiaire",
+      "description": ""
     },
     {
       "id": "s-soft-organisation",
@@ -722,9 +653,6 @@
           "start": "2020-09",
           "end": "2020-09",
           "summary": "Mobilité de la Nouvelle-Calédonie vers la France pour intégrer le Master.",
-          "skills": [
-            "s-soft-adaptabilite"
-          ],
           "skills": [
             "s-soft-adaptabilite"
           ],
@@ -1312,9 +1240,6 @@
           "start": "2021-04",
           "end": "2021-06",
           "summary": "Marquage TUNEL pour évaluer l'apoptose.",
-          "skills": [
-            "s-lab-tunel"
-          ],
           "skills": [
             "s-lab-tunel"
           ],

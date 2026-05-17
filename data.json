@@ -516,6 +516,30 @@
       "category": "soft",
       "level": "Avancé",
       "description": ""
+    },
+    {
+      "id": "ski-mpa4d93g-dmwb",
+      "name": "Suivie du bien être animale",
+      "group": "anim",
+      "category": "hard",
+      "level": "Avancé",
+      "description": ""
+    },
+    {
+      "id": "ski-mpa4ei0r-2qgo",
+      "name": "Utilisation de médicaments",
+      "group": "anim",
+      "category": "hard",
+      "level": "Avancé",
+      "description": ""
+    },
+    {
+      "id": "ski-mpa4fjo9-30pb",
+      "name": "Responsabilités",
+      "group": "logiciel",
+      "category": "hard",
+      "level": "Avancé",
+      "description": ""
     }
   ],
   "cursus": [
@@ -1097,7 +1121,7 @@
       "location": "Rennes, France",
       "start": "2022-01",
       "end": "2022-06",
-      "description": "Étude par approche pharmacologique in vivo de l'intérêt de ligands sélectifs (agonistes partiels ou antagonistes) du récepteur dopaminergique D3 (RD3) dans l'addiction et les dépendances, sous la tutelle de Marilyne Roussel. Le RD3, cloné en 1990 dans le laboratoire de J.-C. Schwartz (co-fondateur de Bioprojet), présente une distribution enrichie dans les aires limbiques (noyau accumbens), zone clé de l'addiction. \nDurée : 6 mois.",
+      "description": "Étude par approche pharmacologique in vivo de l'intérêt de ligands sélectifs (agonistes partiels ou antagonistes) du récepteur dopaminergique D3 (RD3) dans l'addiction et les dépendances, sous la tutelle de Marilyne Roussel. Le RD3, cloné en 1990 dans le laboratoire de J.-C. Schwartz (co-fondateur de Bioprojet), présente une distribution enrichie dans les aires limbiques (noyau accumbens), zone clé de l'addiction. Durée : 6 mois.",
       "subItems": [
         {
           "id": "exp-stage-m2-reglementaire",
@@ -1110,9 +1134,10 @@
             "s-anim-ethique",
             "s-anim-reglementation",
             "s-data-stats",
-            "s-data-analyse"
+            "s-bioinfo",
+            "s-soft-rigueur"
           ],
-          "detail": "Pratiques encadrées par la directive européenne 2010/63/UE et le décret français 2013-118. Demande d'Autorisation de Projet (DAP) auprès du comité d'éthique garantissant le principe des 3R (Remplacer, Réduire, Raffiner) : sensibilisation à l'éthique animale et au dimensionnement statistique des effectifs en tenant compte de l'importante variabilité des réponses in vivo. Devoir de formation : formation continue à l'expérimentation animale dispensée par le fournisseur agréé Charles River (3 h) — pont entre bien-être des animaux de laboratoire et de l'être humain (fatigue compassionnelle, résilience, culture du soin)."
+          "detail": "Les pratiques sur les animaux sont encadrées par des lois et des textes règlementaires dont la directive européenne 2010/63/UE et le décret français 2013-118. \n- Soumission d’une demande d’autorisation de projet (DAP) réalisée avant mon arrivée, auprès du comité éthique. Elle permet de s’assurer que le projet respect le principe des 3R, à savoir « Remplacer, Réduire et Raffiner. J’ai donc été sensibilisé à l’éthique animale : effectif statistiquement suffisant en prenant en compte l’importante variabilité des réponses in vivo\n- Devoir de Formation : Formation continue à l’expérimentation animale : dispensé par le fournisseur agréé Charles River abordant le pont entre le bien-être des animaux de laboratoire et celui de l’être humain (Fatigue compassionnelle, résilience, culture du soin) 3h"
         },
         {
           "id": "exp-stage-m2-animaux",
@@ -1122,13 +1147,14 @@
           "end": "2022-06",
           "summary": "Commande, hébergement, suivi du bien-être et euthanasie des souris C57BL/6J.",
           "skills": [
+            "s-anim-elevage",
             "s-anim-ethique",
             "s-anim-reglementation",
             "s-soft-organisation",
             "s-soft-planification",
             "s-soft-anticipation"
           ],
-          "detail": "Commande des souris C57BL/6J : anticipation, planification, organisation (délai de réception, nombre d'animaux, 1 cage supplémentaire en cas d'imprévus). Hébergement : maîtrise des conditions (température, hygrométrie, enrichissement, cycle jour/nuit). Suivi : évaluation quotidienne du bien-être par scores, évaluation des points limites (bagarres avec blessures, isolement ou euthanasie, crises convulsives avec recours à la référente SBEA). Euthanasie par augmentation croissante de la concentration en CO2 pour réduire le stress."
+          "detail": "Ce projet étant entièrement réalisé chez la souris, je suis intervenu à partir de cette étape de gestion des animaux :\n- Commande des souris C57BL/6J auprès d'un fournisseur agréé qui a nécessité de l'anticipation, de la planification, et de l'organisation (délai de réception, nombre d'animaux, 1 cage supplémentaire en cas d'imprévus). \n- Hébergement : maîtrise des conditions (température, hygrométrie, enrichissement, cycle jour/nuit). \n- Suivi : évaluation quotidienne du bien-être par scores, évaluation des points limites (bagarres avec blessures, isolement ou euthanasie, crises convulsives avec recours à la référente SBEA). \n- Euthanasie par augmentation croissante de la concentration en CO2 pour réduire le stress."
         },
         {
           "id": "exp-stage-m2-composes",
@@ -1219,7 +1245,6 @@
         "s-anim-gavage",
         "s-anim-ethique",
         "s-anim-reglementation",
-        "s-comp-openfield",
         "s-soft-ethovision",
         "s-soft-prism",
         "s-data-stats",
@@ -1238,7 +1263,9 @@
         "s-lang-francais",
         "ski-mpa0alw8-2t31",
         "ski-mpa1tz7b-co3e",
-        "ski-mpa1uekh-wgmv"
+        "ski-mpa1uekh-wgmv",
+        "ski-mpa4d93g-dmwb",
+        "ski-mpa4ei0r-2qgo"
       ],
       "linkedItems": [
         "edu-master"
@@ -1301,6 +1328,7 @@
           "skills": [
             "s-lab-ihc",
             "s-lab-tunel",
+            "s-soft-organisation",
             "s-soft-adaptabilite"
           ],
           "detail": "La technique TUNEL est une technique d'immunohistologie visant ici à déterminer la mort neuronale dans le cerveau de nos poissons KO aromatase vs contrôles.\nToutefois, nous avons eu des difficultés dans la réalisation du protocole, qui a nécessité une adaptation du protocole."

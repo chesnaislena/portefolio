@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-17",
-    "version": 11,
+    "version": 12,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -1097,7 +1097,7 @@
       "location": "Rennes, France",
       "start": "2022-01",
       "end": "2022-06",
-      "description": "Étude par approche pharmacologique in vivo de l'intérêt de ligands sélectifs (agonistes partiels ou antagonistes) du récepteur dopaminergique D3 (RD3) dans l'addiction et les dépendances, sous la tutelle de Marilyne Roussel. Le RD3, cloné en 1990 dans le laboratoire de J.-C. Schwartz (co-fondateur de Bioprojet), présente une distribution enrichie dans les aires limbiques (noyau accumbens), zone clé de l'addiction. Durée : 6 mois.",
+      "description": "Étude par approche pharmacologique in vivo de l'intérêt de ligands sélectifs (agonistes partiels ou antagonistes) du récepteur dopaminergique D3 (RD3) dans l'addiction et les dépendances, sous la tutelle de Marilyne Roussel. Le RD3, cloné en 1990 dans le laboratoire de J.-C. Schwartz (co-fondateur de Bioprojet), présente une distribution enrichie dans les aires limbiques (noyau accumbens), zone clé de l'addiction. \nDurée : 6 mois.",
       "subItems": [
         {
           "id": "exp-stage-m2-reglementaire",
@@ -1214,25 +1214,31 @@
         }
       ],
       "skills": [
-        "s-anim-ethique",
-        "s-anim-reglementation",
-        "s-data-stats",
-        "s-data-analyse",
-        "s-soft-organisation",
-        "s-soft-planification",
-        "s-soft-anticipation",
-        "s-soft-rigueur",
-        "s-soft-integrite",
-        "s-soft-equipe",
-        "s-soft-ethovision",
-        "s-anim-comportement",
         "s-anim-inj-ip",
         "s-anim-inj-sc",
         "s-anim-gavage",
-        "s-anim-contention",
+        "s-anim-ethique",
+        "s-anim-reglementation",
+        "s-comp-openfield",
+        "s-soft-ethovision",
+        "s-soft-prism",
+        "s-data-stats",
+        "s-data-analyse",
+        "s-soft-redaction-rapport",
         "s-soft-esprit-critique",
         "s-soft-biblio",
-        "s-soft-adaptabilite"
+        "s-soft-comm-orale",
+        "s-soft-organisation",
+        "s-soft-planification",
+        "s-soft-anticipation",
+        "s-soft-adaptabilite",
+        "s-soft-equipe",
+        "s-soft-rigueur",
+        "s-soft-integrite",
+        "s-lang-francais",
+        "ski-mpa0alw8-2t31",
+        "ski-mpa1tz7b-co3e",
+        "ski-mpa1uekh-wgmv"
       ],
       "linkedItems": [
         "edu-master"

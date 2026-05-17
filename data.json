@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-17",
-    "version": 6,
+    "version": 7,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -23,51 +23,529 @@
     }
   },
   "skills": [
-    { "id": "s-anim-comportement", "name": "Comportement souris", "category": "hard", "group": "anim", "level": "avancé" },
-    { "id": "s-anim-stereotaxie", "name": "Stéréotaxie", "category": "hard", "group": "anim", "level": "avancé" },
-    { "id": "s-anim-chirurgie", "name": "Chirurgie animale", "category": "hard", "group": "anim", "level": "avancé" },
-    { "id": "s-anim-perfusion", "name": "Perfusion intra-cardiaque", "category": "hard", "group": "anim", "level": "avancé" },
-    { "id": "s-anim-injections", "name": "Injections (IP, SC, gavage, contention)", "category": "hard", "group": "anim", "level": "avancé" },
-    { "id": "s-anim-prelevement", "name": "Prélèvement de tissus (hippocampe, cerveau)", "category": "hard", "group": "anim", "level": "avancé" },
-    { "id": "s-anim-dissection", "name": "Dissections", "category": "hard", "group": "anim", "level": "avancé" },
-    { "id": "s-anim-elevage", "name": "Élevage & reproduction (souris, poisson zèbre)", "category": "hard", "group": "anim", "level": "avancé" },
-    { "id": "s-anim-ethique", "name": "Éthique animale & réglementation (3R, DAP)", "category": "hard", "group": "anim", "level": "avancé" },
-    { "id": "s-comp-memoire", "name": "Tests comportementaux de mémoire (Y-maze, EPM, Open-Field, NOR)", "category": "hard", "group": "anim", "level": "avancé" },
-    { "id": "s-comp-depression", "name": "Tests comportementaux de dépression (suspension, sucrose, splash, nesting)", "category": "hard", "group": "anim", "level": "avancé" },
-    { "id": "s-lab-dosage", "name": "Dosage protéique", "category": "hard", "group": "lab", "level": "avancé" },
-    { "id": "s-lab-westernblot", "name": "Western-blot", "category": "hard", "group": "lab", "level": "avancé" },
-    { "id": "s-lab-elisa", "name": "ELISA", "category": "hard", "group": "lab", "level": "avancé" },
-    { "id": "s-lab-arn", "name": "Extraction ARN / protéines", "category": "hard", "group": "lab", "level": "avancé" },
-    { "id": "s-lab-extraction-combinee", "name": "Extraction combinée ARN/protéines", "category": "hard", "group": "lab", "level": "avancé" },
-    { "id": "s-lab-synaptosomes", "name": "Extraction de synaptosomes", "category": "hard", "group": "lab", "level": "intermédiaire" },
-    { "id": "s-lab-pcr", "name": "PCR / RT-qPCR", "category": "hard", "group": "lab", "level": "avancé" },
-    { "id": "s-lab-genotypage", "name": "Génotypage", "category": "hard", "group": "lab", "level": "avancé" },
-    { "id": "s-lab-coupe", "name": "Coupe de cerveaux (cryostat, vibratome)", "category": "hard", "group": "lab", "level": "avancé" },
-    { "id": "s-lab-ihc", "name": "Immunohistochimie", "category": "hard", "group": "lab", "level": "avancé" },
-    { "id": "s-lab-if", "name": "Immunofluorescence", "category": "hard", "group": "lab", "level": "avancé" },
-    { "id": "s-lab-tunel", "name": "TUNEL (apoptose)", "category": "hard", "group": "lab", "level": "intermédiaire" },
-    { "id": "s-lab-confocale", "name": "Microscopie confocale", "category": "hard", "group": "lab", "level": "avancé" },
-    { "id": "s-micro-fluo", "name": "Microscopie à fluorescence / spinning disk", "category": "hard", "group": "lab", "level": "avancé" },
-    { "id": "s-micro-microbiologie", "name": "Microbiologie (culture, isolement)", "category": "hard", "group": "lab", "level": "intermédiaire" },
-    { "id": "s-field-echantillonnage", "name": "Échantillonnage terrain & traitement d'échantillons", "category": "hard", "group": "lab", "level": "intermédiaire" },
-    { "id": "s-soft-ethovision", "name": "Ethovision XT", "category": "hard", "group": "logiciel", "level": "avancé" },
-    { "id": "s-soft-imagej", "name": "ImageJ", "category": "hard", "group": "logiciel", "level": "avancé" },
-    { "id": "s-soft-prism", "name": "GraphPad Prism", "category": "hard", "group": "logiciel", "level": "avancé" },
-    { "id": "s-soft-imaris", "name": "Imaris (reconstruction 3D)", "category": "hard", "group": "logiciel", "level": "intermédiaire" },
-    { "id": "s-data-stats", "name": "Statistiques & analyse de données", "category": "hard", "group": "logiciel", "level": "intermédiaire" },
-    { "id": "s-bioinfo", "name": "Bioinformatique", "category": "hard", "group": "logiciel", "level": "débutant" },
-    { "id": "s-soft-encadrement", "name": "Encadrement / Mentorat", "category": "soft", "group": "transversal", "level": "avancé" },
-    { "id": "s-soft-vulgarisation", "name": "Vulgarisation & médiation scientifique", "category": "soft", "group": "transversal", "level": "avancé" },
-    { "id": "s-soft-gestion-projet", "name": "Gestion & développement de projet", "category": "soft", "group": "transversal", "level": "avancé" },
-    { "id": "s-soft-redaction", "name": "Rédaction scientifique (financement, rapports)", "category": "soft", "group": "transversal", "level": "avancé" },
-    { "id": "s-soft-esprit-critique", "name": "Esprit critique & analyse d'articles", "category": "soft", "group": "transversal", "level": "avancé" },
-    { "id": "s-soft-communication", "name": "Communication scientifique (oral, poster)", "category": "soft", "group": "transversal", "level": "avancé" },
-    { "id": "s-soft-organisation", "name": "Organisation, planification & anticipation", "category": "soft", "group": "transversal", "level": "avancé" },
-    { "id": "s-soft-adaptabilite", "name": "Adaptabilité", "category": "soft", "group": "transversal", "level": "avancé" },
-    { "id": "s-soft-equipe", "name": "Travail en équipe", "category": "soft", "group": "transversal", "level": "avancé" },
-    { "id": "s-soft-rigueur", "name": "Rigueur & intégrité scientifique", "category": "soft", "group": "transversal", "level": "avancé" },
-    { "id": "s-lang-anglais", "name": "Anglais", "category": "language", "level": "B2" },
-    { "id": "s-lang-francais", "name": "Français", "category": "language", "level": "natif" }
+    {
+      "id": "s-anim-comportement",
+      "name": "Observation du comportement murin",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-stereotaxie",
+      "name": "Stéréotaxie",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-chirurgie",
+      "name": "Chirurgie animale",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-perfusion",
+      "name": "Perfusion intra-cardiaque",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-inj-ip",
+      "name": "Injection intrapéritonéale (IP)",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-inj-sc",
+      "name": "Injection sous-cutanée (SC)",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-gavage",
+      "name": "Gavage",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-contention",
+      "name": "Contention animale",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-prelevement",
+      "name": "Prélèvement de tissus (hippocampe, cerveau)",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-dissection",
+      "name": "Dissections",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-elevage",
+      "name": "Élevage & nourrissage",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-reproduction",
+      "name": "Reproduction & accouplement",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-ethique",
+      "name": "Éthique animale & bien-être (3R)",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-anim-reglementation",
+      "name": "Réglementation expérimentation animale (DAP)",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-comp-ymaze",
+      "name": "Y-maze",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-comp-epm",
+      "name": "Elevated Plus Maze (EPM)",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-comp-openfield",
+      "name": "Open-Field",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-comp-nor",
+      "name": "Reconnaissance d'objet nouveau (NOR)",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-comp-suspension",
+      "name": "Test de suspension par la queue",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-comp-sucrose",
+      "name": "Test de préférence au sucrose",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-comp-splash",
+      "name": "Splash test",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-comp-nesting",
+      "name": "Nesting test",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-comp-social",
+      "name": "Test d'interaction sociale",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-comp-olfaction",
+      "name": "Test d'olfaction",
+      "category": "hard",
+      "group": "anim",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-dosage",
+      "name": "Dosage protéique",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-westernblot",
+      "name": "Western-blot",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-elisa",
+      "name": "ELISA",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-arn",
+      "name": "Extraction d'ARN",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-proteines",
+      "name": "Extraction de protéines",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-extraction-combinee",
+      "name": "Extraction combinée ARN/protéines",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-synaptosomes",
+      "name": "Extraction de synaptosomes",
+      "category": "hard",
+      "group": "lab",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-lab-pcr",
+      "name": "PCR",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-qpcr",
+      "name": "RT-qPCR",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-genotypage",
+      "name": "Génotypage",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-cryostat",
+      "name": "Coupe au cryostat",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-vibratome",
+      "name": "Coupe au vibratome",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-ihc",
+      "name": "Immunohistochimie",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-if",
+      "name": "Immunofluorescence",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lab-tunel",
+      "name": "TUNEL (apoptose)",
+      "category": "hard",
+      "group": "lab",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-lab-confocale",
+      "name": "Microscopie confocale",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-micro-fluo",
+      "name": "Microscopie à fluorescence",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-micro-spinningdisk",
+      "name": "Spinning disk",
+      "category": "hard",
+      "group": "lab",
+      "level": "avancé"
+    },
+    {
+      "id": "s-micro-culture",
+      "name": "Culture microbienne (PSM, milieux)",
+      "category": "hard",
+      "group": "lab",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-micro-isolement",
+      "name": "Isolement bactéries / champignons",
+      "category": "hard",
+      "group": "lab",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-micro-caracterisation",
+      "name": "Caractérisation morphologique microbienne",
+      "category": "hard",
+      "group": "lab",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-field-echantillonnage",
+      "name": "Échantillonnage terrain",
+      "category": "hard",
+      "group": "lab",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-field-traitement",
+      "name": "Traitement & tri d'échantillons",
+      "category": "hard",
+      "group": "lab",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-soft-ethovision",
+      "name": "Ethovision XT",
+      "category": "hard",
+      "group": "logiciel",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-imagej",
+      "name": "ImageJ",
+      "category": "hard",
+      "group": "logiciel",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-prism",
+      "name": "GraphPad Prism",
+      "category": "hard",
+      "group": "logiciel",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-imaris",
+      "name": "Imaris (reconstruction 3D)",
+      "category": "hard",
+      "group": "logiciel",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-data-stats",
+      "name": "Statistiques",
+      "category": "hard",
+      "group": "logiciel",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-data-analyse",
+      "name": "Analyse de données",
+      "category": "hard",
+      "group": "logiciel",
+      "level": "intermédiaire"
+    },
+    {
+      "id": "s-bioinfo",
+      "name": "Bioinformatique",
+      "category": "hard",
+      "group": "logiciel",
+      "level": "débutant"
+    },
+    {
+      "id": "s-soft-encadrement",
+      "name": "Encadrement d'étudiants",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-formation",
+      "name": "Formation & transmission de compétences",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-vulgarisation",
+      "name": "Vulgarisation scientifique",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-mediation",
+      "name": "Médiation scientifique",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-gestion-projet",
+      "name": "Gestion de projet",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-dev-projet",
+      "name": "Développement de projet",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-redaction-financement",
+      "name": "Rédaction de demande de financement",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-redaction-rapport",
+      "name": "Rédaction de rapports & notes techniques",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-esprit-critique",
+      "name": "Esprit critique",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-biblio",
+      "name": "Analyse d'articles & bibliographie",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-comm-orale",
+      "name": "Communication orale scientifique",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-comm-poster",
+      "name": "Présentation poster",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-organisation",
+      "name": "Organisation",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-planification",
+      "name": "Planification",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-anticipation",
+      "name": "Anticipation",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-adaptabilite",
+      "name": "Adaptabilité",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-equipe",
+      "name": "Travail en équipe",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-rigueur",
+      "name": "Rigueur scientifique",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-soft-integrite",
+      "name": "Intégrité scientifique",
+      "category": "soft",
+      "group": "transversal",
+      "level": "avancé"
+    },
+    {
+      "id": "s-lang-anglais",
+      "name": "Anglais",
+      "category": "language",
+      "level": "B2"
+    },
+    {
+      "id": "s-lang-francais",
+      "name": "Français",
+      "category": "language",
+      "level": "natif"
+    }
   ],
   "cursus": [
     {
@@ -87,7 +565,13 @@
           "start": "2025-09",
           "end": "2026-08",
           "summary": "Formations transversales suivies dans le cadre du doctorat : gestion de la motivation, intégrité scientifique, science ouverte.",
-          "skills": ["s-soft-rigueur", "s-soft-organisation"],
+          "skills": [
+            "s-soft-rigueur",
+            "s-soft-integrite",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation"
+          ],
           "detail": "• Gérer sa motivation durant sa thèse (26–27 mars 2026, INSERM Lille) : outils de communication, organisation du temps, établir des limites.\n• Intégrité scientifique dans les métiers de la recherche (01 sept. 2025 – 31 août 2026, Université de Lille) : validation d'un MOOC.\n• Premiers pas en Science ouverte : comprendre, échanger, s'engager (16 janvier 2026, 6 h, Université de Lille)."
         },
         {
@@ -97,7 +581,12 @@
           "start": "2025-12",
           "end": "2026-01",
           "summary": "Participation à des colloques de doctorants : écoute, esprit critique, discussions scientifiques.",
-          "skills": ["s-soft-communication", "s-soft-esprit-critique"],
+          "skills": [
+            "s-soft-comm-orale",
+            "s-soft-comm-poster",
+            "s-soft-esprit-critique",
+            "s-soft-biblio"
+          ],
           "detail": "• 26th EURON PhD Days (29–30 janvier 2026, Université catholique de Louvain).\n• Journée André Verbert 2025 — Colloque des doctorants (02 décembre 2025, Faculté de médecine de Lille — Pôle Recherche)."
         },
         {
@@ -107,12 +596,39 @@
           "start": "2026-01",
           "end": "2026-06",
           "summary": "Encadrement, sur 8 mercredis après-midi, d'une lycéenne et d'une collégienne sur un projet de recherche autour de la pathologie Tau.",
-          "skills": ["s-soft-encadrement", "s-soft-vulgarisation", "s-soft-communication", "s-soft-organisation"],
+          "skills": [
+            "s-soft-encadrement",
+            "s-soft-formation",
+            "s-soft-vulgarisation",
+            "s-soft-mediation",
+            "s-soft-comm-orale",
+            "s-soft-comm-poster",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation"
+          ],
           "detail": "Projet « Caractérisation de la pathologie Tau dans un modèle murin de la maladie d'Alzheimer (souris Thy-Tau22) ». Vulgarisation du projet auprès des élèves, formation à l'expérimentation en laboratoire et aux techniques d'immunofluorescence et de Western-blot, encadrement dans la préparation de leur diaporama pour un symposium (familles, professeurs, encadrants). Communication, planification du programme, anticipation, bienveillance, adaptabilité face aux imprévus (disponibilité des échantillons, IF non concluante, gel de WB cassé) — y compris le choix de montrer les échecs car ils font partie de la recherche."
         }
       ],
-      "skills": ["s-soft-rigueur", "s-soft-organisation", "s-soft-communication", "s-soft-esprit-critique", "s-soft-encadrement", "s-soft-vulgarisation"],
-      "linkedItems": ["exp-doctorante", "exp-ingenieure"]
+      "skills": [
+        "s-soft-rigueur",
+        "s-soft-integrite",
+        "s-soft-organisation",
+        "s-soft-planification",
+        "s-soft-anticipation",
+        "s-soft-comm-orale",
+        "s-soft-comm-poster",
+        "s-soft-esprit-critique",
+        "s-soft-biblio",
+        "s-soft-encadrement",
+        "s-soft-formation",
+        "s-soft-vulgarisation",
+        "s-soft-mediation"
+      ],
+      "linkedItems": [
+        "exp-doctorante",
+        "exp-ingenieure"
+      ]
     },
     {
       "id": "edu-master",
@@ -131,7 +647,11 @@
           "start": "2020-09",
           "end": "2022-06",
           "summary": "Toxicologie, communication cellulaire, biologie cellulaire, génétique, biochimie, bioinformatique, statistique, préparation de l'après-master.",
-          "skills": ["s-bioinfo", "s-data-stats"],
+          "skills": [
+            "s-bioinfo",
+            "s-data-stats",
+            "s-data-analyse"
+          ],
           "detail": "Matières : toxicologie, bases de la communication cellulaire, biologie cellulaire, génétique, biochimie, bioinformatique, statistique, module « préparer l'après master »."
         },
         {
@@ -141,7 +661,12 @@
           "start": "2020-09",
           "end": "2022-06",
           "summary": "Présentations orales, poster et résumé écrit autour d'articles scientifiques — développement de l'esprit critique.",
-          "skills": ["s-soft-esprit-critique", "s-soft-communication"],
+          "skills": [
+            "s-soft-esprit-critique",
+            "s-soft-biblio",
+            "s-soft-comm-orale",
+            "s-soft-comm-poster"
+          ],
           "detail": "▸ PRÉSENTATION ORALE — biomatériaux & immunologie\n« ILC1 drive intestinal epithelial and matrix remodelling »\nJowett G. M., Norman M. D. A., Yu T. T. L. et al. — Nature Materials, 2021 ; 20:250-259. DOI : 10.1038/s41563-020-0783-8\nÀ l'aide de cocultures d'organoïdes intestinaux et de cellules lymphoïdes innées de type 1 (ILC1), l'étude montre que les ILC1 sécrètent du TGF-β1 et, via la MMP9, remodèlent l'épithélium et la matrice extracellulaire de l'intestin enflammé.\n\n▸ PRÉSENTATION ORALE — base de communication cellulaire\n« Mechanical Strain Determines Cilia Length, Motility, and Planar Position in the Left-Right Organizer »\nChien Y. H., Srinivasan S., Keller R., Kintner C. — Developmental Cell, 2018 ; 45(3):316-330.e4. DOI : 10.1016/j.devcel.2018.04.007\nLes contraintes mécaniques tissulaires déterminent la longueur, la motilité et la position planaire des cils de l'organisateur gauche-droite, étape clé de la mise en place de l'asymétrie de l'embryon.\n\n▸ POSTER — physiologie de la reproduction\n« Oviductal Retention of Embryos in Female Mice Lacking Estrogen Receptor α in the Isthmus and the Uterus »\nHerrera G. G. B., Lierz S. L., Harris E. A. et al. — Endocrinology, 2020 ; 161(2):bqz033. DOI : 10.1210/endocr/bqz033\nObjectif : mieux comprendre la fonction du récepteur aux œstrogènes ESR1 (ERα) dans le tractus reproducteur femelle ; sa délétion dans l'isthme et l'utérus provoque une rétention des embryons dans l'oviducte.\n\n▸ RÉSUMÉ ÉCRIT — toxicologie\n« Regulation of drug transporter expression by oncostatin M in human hepatocytes »\nLe Vée M., Jouan E., Stieger B., Lecureur V., Fardel O. — Biochemical Pharmacology, 2011 ; 82(3):304-311. DOI : 10.1016/j.bcp.2011.04.017\nL'oncostatine M, cytokine pro-inflammatoire, modifie l'expression des transporteurs de médicaments dans les hépatocytes humains — un déterminant de la pharmacocinétique et de la toxicité hépatique."
         },
         {
@@ -151,7 +676,10 @@
           "start": "2020-09",
           "end": "2022-06",
           "summary": "Résumé scientifique vulgarisé d'une page, accompagné d'un schéma de synthèse, sur le rôle de la leptine.",
-          "skills": ["s-soft-vulgarisation"],
+          "skills": [
+            "s-soft-vulgarisation",
+            "s-soft-mediation"
+          ],
           "detail": "Rédaction d'un résumé scientifique vulgarisé d'une page avec schéma résumé portant sur le rôle de la leptine."
         },
         {
@@ -161,7 +689,14 @@
           "start": "2020-09",
           "end": "2022-06",
           "summary": "De la question de recherche à la rédaction d'une demande de financement, sous la tutelle d'un chercheur spécialisé.",
-          "skills": ["s-soft-gestion-projet", "s-soft-redaction", "s-soft-esprit-critique"],
+          "skills": [
+            "s-soft-gestion-projet",
+            "s-soft-dev-projet",
+            "s-soft-redaction-financement",
+            "s-soft-redaction-rapport",
+            "s-soft-esprit-critique",
+            "s-soft-biblio"
+          ],
           "detail": "Développement d'un projet de recherche à partir d'une question : recherche bibliographique, formulation d'une hypothèse, choix des méthodes pouvant répondre à la question, résultats espérés, estimation du budget nécessaire et rédaction de la demande de financement, sous la tutelle d'un chercheur spécialisé."
         },
         {
@@ -171,7 +706,13 @@
           "start": "2020-09",
           "end": "2022-06",
           "summary": "Cycle de visioconférences « invitation d'anciens étudiants du Master ».",
-          "skills": ["s-soft-communication", "s-soft-organisation"],
+          "skills": [
+            "s-soft-comm-orale",
+            "s-soft-comm-poster",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation"
+          ],
           "detail": "Recherche d'intervenants, interviews, planification de l'événement, communication aux autres étudiants et création du lien Zoom."
         },
         {
@@ -181,12 +722,35 @@
           "start": "2020-09",
           "end": "2020-09",
           "summary": "Mobilité de la Nouvelle-Calédonie vers la France pour intégrer le Master.",
-          "skills": ["s-soft-adaptabilite"],
+          "skills": [
+            "s-soft-adaptabilite"
+          ],
           "detail": "Savoir évoluer : mobilité de la Nouvelle-Calédonie à la France pour le Master."
         }
       ],
-      "skills": ["s-bioinfo", "s-data-stats", "s-soft-esprit-critique", "s-soft-communication", "s-soft-vulgarisation", "s-soft-gestion-projet", "s-soft-redaction", "s-soft-organisation", "s-soft-adaptabilite"],
-      "linkedItems": ["exp-stage-m1", "exp-stage-m2"]
+      "skills": [
+        "s-bioinfo",
+        "s-data-stats",
+        "s-data-analyse",
+        "s-soft-esprit-critique",
+        "s-soft-biblio",
+        "s-soft-comm-orale",
+        "s-soft-comm-poster",
+        "s-soft-vulgarisation",
+        "s-soft-mediation",
+        "s-soft-gestion-projet",
+        "s-soft-dev-projet",
+        "s-soft-redaction-financement",
+        "s-soft-redaction-rapport",
+        "s-soft-organisation",
+        "s-soft-planification",
+        "s-soft-anticipation",
+        "s-soft-adaptabilite"
+      ],
+      "linkedItems": [
+        "exp-stage-m1",
+        "exp-stage-m2"
+      ]
     },
     {
       "id": "edu-licence",
@@ -215,12 +779,30 @@
           "start": "2019-04",
           "end": "2019-05",
           "summary": "Stage ayant donné lieu à un article en cours de rédaction et à une communication en Australie.",
-          "skills": ["s-field-echantillonnage", "s-micro-microbiologie", "s-lab-pcr"],
+          "skills": [
+            "s-field-echantillonnage",
+            "s-field-traitement",
+            "s-micro-culture",
+            "s-micro-isolement",
+            "s-micro-caracterisation",
+            "s-lab-pcr",
+            "s-lab-qpcr"
+          ],
           "detail": "Stage de Licence 3 sur la rhizosphère de plantes néo-calédoniennes, ayant débouché sur un article scientifique en cours de rédaction et une communication présentée en Australie. Voir l'expérience associée."
         }
       ],
-      "skills": ["s-field-echantillonnage", "s-micro-microbiologie", "s-lab-pcr"],
-      "linkedItems": ["exp-stage-l3"]
+      "skills": [
+        "s-field-echantillonnage",
+        "s-field-traitement",
+        "s-micro-culture",
+        "s-micro-isolement",
+        "s-micro-caracterisation",
+        "s-lab-pcr",
+        "s-lab-qpcr"
+      ],
+      "linkedItems": [
+        "exp-stage-l3"
+      ]
     }
   ],
   "experiences": [
@@ -241,7 +823,18 @@
           "start": "2025-10",
           "end": null,
           "summary": "Rôle de la tauopathie hippocampique et de la dérégulation des récepteurs A2A astrocytaires dans les comportements de type dépressif de la maladie d'Alzheimer.",
-          "skills": ["s-anim-stereotaxie", "s-anim-chirurgie", "s-comp-depression", "s-soft-esprit-critique"],
+          "skills": [
+            "s-anim-stereotaxie",
+            "s-anim-chirurgie",
+            "s-comp-suspension",
+            "s-comp-sucrose",
+            "s-comp-splash",
+            "s-comp-nesting",
+            "s-comp-social",
+            "s-comp-olfaction",
+            "s-soft-esprit-critique",
+            "s-soft-biblio"
+          ],
           "detail": "La tauopathie hippocampique et sa propagation corticale (stades de Braak) jouent un rôle déterminant dans le déclin cognitif de la maladie d'Alzheimer (MA). Outre les troubles de la mémoire, la dépression est un symptôme clé et une charge importante pour les aidants, dont les mécanismes et le lien avec la tauopathie ont été largement négligés. L'activité accrue des projections glutamatergiques de l'hippocampe ventral (vHPC) vers le noyau accumbens (NAc) confère une susceptibilité aux comportements de type dépressif ; or la pathologie Tau apparaît précocement dans le vHPC. En parallèle, les niveaux de récepteurs A2A augmentent dans les astrocytes hippocampiques des patients, en corrélation avec les stades de Braak, et favoriseraient l'hyperexcitabilité neuronale.\n\nObjectifs : (1) déterminer dans quelle mesure la tauopathie du vHPC altère l'excitabilité de la connexion vHPC-NAc et le développement de comportements de type dépressif ; (2) établir le rôle instrumental des récepteurs A2A astrocytaires ; (3) tester si le blocage de ces récepteurs peut normaliser ces changements pathologiques. Au-delà de l'aspect mnésique, le projet vise à mieux comprendre l'émergence des troubles neuropsychiatriques dans la MA et à proposer une approche thérapeutique innovante."
         },
         {
@@ -251,7 +844,15 @@
           "start": "2025-10",
           "end": null,
           "summary": "Adaptation, à partir de la bibliographie et d'échanges, d'une batterie de tests de comportement de type dépressif.",
-          "skills": ["s-comp-depression", "s-soft-esprit-critique", "s-soft-adaptabilite"],
+          "skills": [
+            "s-comp-social",
+            "s-comp-splash",
+            "s-comp-olfaction",
+            "s-comp-nesting",
+            "s-soft-esprit-critique",
+            "s-soft-biblio",
+            "s-soft-adaptabilite"
+          ],
           "detail": "Adaptation des tests comportementaux de dépression à la suite d'échanges et de recherche bibliographique : test d'interaction sociale en three-chamber transformé en Y-maze social et en open-field ; splash test ; test d'olfaction ; nesting test."
         },
         {
@@ -265,8 +866,27 @@
           "detail": "Programme transdisciplinaire de l'École Graduée centré sur la médecine de précision."
         }
       ],
-      "skills": ["s-anim-stereotaxie", "s-anim-chirurgie", "s-anim-perfusion", "s-comp-depression", "s-soft-esprit-critique", "s-soft-adaptabilite", "s-soft-organisation"],
-      "linkedItems": ["edu-doctorat", "exp-ingenieure"]
+      "skills": [
+        "s-anim-stereotaxie",
+        "s-anim-chirurgie",
+        "s-comp-suspension",
+        "s-comp-sucrose",
+        "s-comp-splash",
+        "s-comp-nesting",
+        "s-comp-social",
+        "s-comp-olfaction",
+        "s-soft-esprit-critique",
+        "s-soft-biblio",
+        "s-soft-adaptabilite",
+        "s-anim-perfusion",
+        "s-soft-organisation",
+        "s-soft-planification",
+        "s-soft-anticipation"
+      ],
+      "linkedItems": [
+        "edu-doctorat",
+        "exp-ingenieure"
+      ]
     },
     {
       "id": "exp-ingenieure",
@@ -285,7 +905,35 @@
           "start": "2023-09",
           "end": "2024-12",
           "summary": "Acquisition des techniques du laboratoire et de la plateforme d'imagerie, puis de la chirurgie animale.",
-          "skills": ["s-lab-ihc", "s-lab-if", "s-lab-pcr", "s-lab-westernblot", "s-lab-elisa", "s-lab-arn", "s-lab-dosage", "s-lab-synaptosomes", "s-lab-coupe", "s-lab-confocale", "s-micro-fluo", "s-soft-imaris", "s-comp-memoire", "s-anim-injections", "s-anim-prelevement", "s-anim-chirurgie", "s-anim-perfusion", "s-anim-stereotaxie"],
+          "skills": [
+            "s-lab-ihc",
+            "s-lab-if",
+            "s-lab-pcr",
+            "s-lab-qpcr",
+            "s-lab-westernblot",
+            "s-lab-elisa",
+            "s-lab-arn",
+            "s-lab-proteines",
+            "s-lab-dosage",
+            "s-lab-synaptosomes",
+            "s-lab-cryostat",
+            "s-lab-vibratome",
+            "s-lab-confocale",
+            "s-micro-fluo",
+            "s-micro-spinningdisk",
+            "s-soft-imaris",
+            "s-comp-ymaze",
+            "s-comp-epm",
+            "s-comp-openfield",
+            "s-anim-inj-ip",
+            "s-anim-inj-sc",
+            "s-anim-gavage",
+            "s-anim-contention",
+            "s-anim-prelevement",
+            "s-anim-chirurgie",
+            "s-anim-perfusion",
+            "s-anim-stereotaxie"
+          ],
           "detail": "Méthodes du laboratoire : immunohistochimie en fluorescence et en coloration visible, qPCR, Western-blot, ELISA, extraction d'ARN et de protéines, extraction de synaptosomes, coupe de cerveaux au cryostat et au vibratome. Plateforme d'imagerie : microscopie confocale (LSM 980 et 710), spinning disk, reconstruction 3D sous Imaris. Déjà titulaire de l'expérimentation animale : formation aux tests comportementaux de mémoire (Y-maze, EPM, Open-Field), manipulation des souris en laboratoire A1 et A2, prélèvement de tissus (notamment hippocampe), injections intrapéritonéales et sous-cutanées, mise en place du plan de travail, dislocation cervicale. En 2024, formation à la chirurgie animale : perfusions intracardiaques et interventions de stéréotaxie chez la souris."
         },
         {
@@ -295,7 +943,19 @@
           "start": "2023-09",
           "end": "2025-09",
           "summary": "Caractérisation phénotypique d'un modèle murin selon la modulation du récepteur A2A neuronal et mise en place d'un test de mémoire à long terme (NOR).",
-          "skills": ["s-lab-pcr", "s-lab-westernblot", "s-lab-elisa", "s-comp-memoire", "s-soft-prism", "s-soft-organisation", "s-soft-communication"],
+          "skills": [
+            "s-lab-pcr",
+            "s-lab-qpcr",
+            "s-lab-westernblot",
+            "s-lab-elisa",
+            "s-comp-nor",
+            "s-soft-prism",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation",
+            "s-soft-comm-orale",
+            "s-soft-comm-poster"
+          ],
           "detail": "Chez les patients atteints de MA, le développement de la pathologie Tau hippocampique s'accompagne d'une augmentation de l'expression des récepteurs A2A neuronaux. Prise en charge de la validation du génotype des souris (PCR), de l'évaluation de la neuroinflammation (qPCR) et de l'analyse de la pathologie Tau (Western-blot, ELISA), avec contribution à l'analyse des résultats — résultats destinés à une publication scientifique. Sur le volet comportemental : responsabilité de la mise en place d'un test de mémoire à long terme (NOR, reconnaissance d'objet nouveau) au sein du centre — choix du matériel, validation des conditions expérimentales, planification, réalisation, suivi du bien-être animal, analyse et présentation des résultats à l'ensemble du centre."
         },
         {
@@ -305,7 +965,16 @@
           "start": "2023-09",
           "end": "2025-09",
           "summary": "Collaboration avec l'Institut Pasteur de Lille : la neuroinflammation induite par Toxoplasma gondii exacerbe-t-elle la pathologie Tau ?",
-          "skills": ["s-anim-injections", "s-anim-dissection", "s-lab-westernblot", "s-lab-ihc", "s-soft-equipe"],
+          "skills": [
+            "s-anim-inj-ip",
+            "s-anim-inj-sc",
+            "s-anim-gavage",
+            "s-anim-contention",
+            "s-anim-dissection",
+            "s-lab-westernblot",
+            "s-lab-ihc",
+            "s-soft-equipe"
+          ],
           "detail": "Projet mené en collaboration avec l'Institut Pasteur de Lille visant à déterminer si la neuroinflammation induite par Toxoplasma gondii (toxoplasmose) exacerbe la pathologie Tau dans un modèle murin de la MA. Le centre, habilité à manipuler des protéines prion-like telles que Tau, a permis une série d'analyses biochimiques, moléculaires et histologiques. En charge de la caractérisation des effets de l'injection du parasite sur les modèles et de la réalisation des dissections murines."
         },
         {
@@ -315,7 +984,18 @@
           "start": "2024-01",
           "end": "2025-09",
           "summary": "Rôle de la pathologie Tau et des récepteurs A2A dans les symptômes dépressifs de la maladie d'Alzheimer — projet poursuivi en doctorat.",
-          "skills": ["s-anim-chirurgie", "s-anim-stereotaxie", "s-comp-depression", "s-soft-organisation", "s-soft-rigueur"],
+          "skills": [
+            "s-anim-chirurgie",
+            "s-anim-stereotaxie",
+            "s-comp-suspension",
+            "s-comp-social",
+            "s-comp-sucrose",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation",
+            "s-soft-rigueur",
+            "s-soft-integrite"
+          ],
           "detail": "Suivi de la formation à la chirurgie animale (2024) permettant d'effectuer des injections stéréotaxiques pour induire la pathologie Tau ou la surexpression du récepteur A2A, suivi post-opératoire et bien-être des animaux. Mise en place et réalisation de tests comportementaux de dépression (test de suspension par la queue, test d'interaction sociale, test de préférence au sucrose). Sensibilisation continue aux bonnes pratiques et règles éthiques, maintien de l'habilitation à l'expérimentation animale. Les premiers résultats ont permis d'obtenir un financement et de poursuivre ce travail en doctorat à l'Université de Lille (continuité assurée)."
         },
         {
@@ -325,7 +1005,15 @@
           "start": "2023-09",
           "end": "2025-09",
           "summary": "Contributions à de nombreuses études de l'équipe et mise au point / correction de protocoles.",
-          "skills": ["s-lab-if", "s-lab-pcr", "s-lab-extraction-combinee", "s-soft-esprit-critique", "s-soft-equipe"],
+          "skills": [
+            "s-lab-if",
+            "s-lab-pcr",
+            "s-lab-qpcr",
+            "s-lab-extraction-combinee",
+            "s-soft-esprit-critique",
+            "s-soft-biblio",
+            "s-soft-equipe"
+          ],
           "detail": "Contribution à de nombreuses études (projets de doctorantes, collaborations) en expérimentation sur modèles murins et en caractérisation biochimique, moléculaire et histologique. Mise au point de marqueurs synaptiques par immunofluorescence pour des comarquages pré- et post-synaptiques. Identification d'un dysfonctionnement du protocole de qPCR, tests pour en déterminer la cause et adaptation du protocole. Développement d'une méthode d'extraction combinée ARN/protéines permettant d'analyser les deux biomolécules à partir d'un même échantillon."
         },
         {
@@ -335,7 +1023,17 @@
           "start": "2023-09",
           "end": "2025-09",
           "summary": "Responsable du pôle qPCR, bon fonctionnement du laboratoire, transmission des compétences, médiation scientifique.",
-          "skills": ["s-lab-pcr", "s-soft-encadrement", "s-soft-vulgarisation", "s-soft-organisation"],
+          "skills": [
+            "s-lab-pcr",
+            "s-lab-qpcr",
+            "s-soft-encadrement",
+            "s-soft-formation",
+            "s-soft-vulgarisation",
+            "s-soft-mediation",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation"
+          ],
           "detail": "Responsable du pôle qPCR : gestion du matériel, des consommables et des échanges avec les fournisseurs. Participation au bon fonctionnement du laboratoire (maintenance, nettoyage des équipements, gestion des déchets). Transmission des compétences : formation de membres du personnel et d'étudiants aux techniques de biologie moléculaire, biochimie et histologie. Médiation scientifique : Fête de la science (lycéens et collégiens), Semaine du cerveau, événement « Déclic » (présentation du parcours à des lycéens). Réunions et communication de résultats en anglais."
         },
         {
@@ -345,12 +1043,74 @@
           "start": "2024-01",
           "end": "2024-12",
           "summary": "Formations suivies durant le contrat (gestes qui sauvent, chirurgie, isoflurane, formation continue à l'expérimentation animale).",
-          "skills": ["s-anim-chirurgie", "s-anim-ethique"],
+          "skills": [
+            "s-anim-chirurgie",
+            "s-anim-ethique",
+            "s-anim-reglementation"
+          ],
           "detail": "• Sensibilisation aux gestes qui sauvent — 1 journée (2024, EPSILON FORMATION).\n• Procédures expérimentales chirurgicales AUEC (Chirurgie) — 6 jours (2024, Université de Lille).\n• Formation à l'utilisation de l'isoflurane.\n• Formation continue à l'expérimentation animale (17,3 h)."
         }
       ],
-      "skills": ["s-lab-ihc", "s-lab-if", "s-lab-pcr", "s-lab-westernblot", "s-lab-elisa", "s-lab-arn", "s-lab-dosage", "s-lab-extraction-combinee", "s-lab-synaptosomes", "s-lab-coupe", "s-lab-confocale", "s-micro-fluo", "s-soft-imaris", "s-soft-prism", "s-comp-memoire", "s-comp-depression", "s-anim-injections", "s-anim-prelevement", "s-anim-dissection", "s-anim-chirurgie", "s-anim-stereotaxie", "s-anim-perfusion", "s-anim-ethique", "s-soft-encadrement", "s-soft-vulgarisation", "s-soft-organisation", "s-soft-esprit-critique", "s-soft-communication", "s-soft-equipe", "s-soft-rigueur", "s-lang-anglais"],
-      "linkedItems": ["edu-doctorat", "exp-doctorante"]
+      "skills": [
+        "s-lab-ihc",
+        "s-lab-if",
+        "s-lab-pcr",
+        "s-lab-qpcr",
+        "s-lab-westernblot",
+        "s-lab-elisa",
+        "s-lab-arn",
+        "s-lab-proteines",
+        "s-lab-dosage",
+        "s-lab-synaptosomes",
+        "s-lab-cryostat",
+        "s-lab-vibratome",
+        "s-lab-confocale",
+        "s-micro-fluo",
+        "s-micro-spinningdisk",
+        "s-soft-imaris",
+        "s-comp-ymaze",
+        "s-comp-epm",
+        "s-comp-openfield",
+        "s-anim-inj-ip",
+        "s-anim-inj-sc",
+        "s-anim-gavage",
+        "s-anim-contention",
+        "s-anim-prelevement",
+        "s-anim-chirurgie",
+        "s-anim-perfusion",
+        "s-anim-stereotaxie",
+        "s-comp-nor",
+        "s-soft-prism",
+        "s-soft-organisation",
+        "s-soft-planification",
+        "s-soft-anticipation",
+        "s-soft-comm-orale",
+        "s-soft-comm-poster",
+        "s-anim-dissection",
+        "s-soft-equipe",
+        "s-comp-suspension",
+        "s-comp-social",
+        "s-comp-sucrose",
+        "s-soft-rigueur",
+        "s-soft-integrite",
+        "s-lab-extraction-combinee",
+        "s-soft-esprit-critique",
+        "s-soft-biblio",
+        "s-soft-encadrement",
+        "s-soft-formation",
+        "s-soft-vulgarisation",
+        "s-soft-mediation",
+        "s-anim-ethique",
+        "s-anim-reglementation",
+        "s-comp-splash",
+        "s-comp-nesting",
+        "s-comp-olfaction",
+        "s-lang-anglais"
+      ],
+      "linkedItems": [
+        "edu-doctorat",
+        "exp-doctorante"
+      ]
     },
     {
       "id": "exp-stage-m2",
@@ -369,7 +1129,12 @@
           "start": "2022-01",
           "end": "2022-06",
           "summary": "Sensibilisation à l'éthique animale, au principe des 3R et au cadre réglementaire de l'expérimentation animale.",
-          "skills": ["s-anim-ethique", "s-data-stats"],
+          "skills": [
+            "s-anim-ethique",
+            "s-anim-reglementation",
+            "s-data-stats",
+            "s-data-analyse"
+          ],
           "detail": "Pratiques encadrées par la directive européenne 2010/63/UE et le décret français 2013-118. Demande d'Autorisation de Projet (DAP) auprès du comité d'éthique garantissant le principe des 3R (Remplacer, Réduire, Raffiner) : sensibilisation à l'éthique animale et au dimensionnement statistique des effectifs en tenant compte de l'importante variabilité des réponses in vivo. Devoir de formation : formation continue à l'expérimentation animale dispensée par le fournisseur agréé Charles River (3 h) — pont entre bien-être des animaux de laboratoire et de l'être humain (fatigue compassionnelle, résilience, culture du soin)."
         },
         {
@@ -379,7 +1144,13 @@
           "start": "2022-01",
           "end": "2022-06",
           "summary": "Commande, hébergement, suivi du bien-être et euthanasie des souris C57BL/6J.",
-          "skills": ["s-anim-ethique", "s-soft-organisation"],
+          "skills": [
+            "s-anim-ethique",
+            "s-anim-reglementation",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation"
+          ],
           "detail": "Commande des souris C57BL/6J : anticipation, planification, organisation (délai de réception, nombre d'animaux, 1 cage supplémentaire en cas d'imprévus). Hébergement : maîtrise des conditions (température, hygrométrie, enrichissement, cycle jour/nuit). Suivi : évaluation quotidienne du bien-être par scores, évaluation des points limites (bagarres avec blessures, isolement ou euthanasie, crises convulsives avec recours à la référente SBEA). Euthanasie par augmentation croissante de la concentration en CO2 pour réduire le stress."
         },
         {
@@ -389,7 +1160,14 @@
           "start": "2022-01",
           "end": "2022-06",
           "summary": "Sélection du composé d'intérêt RD3 et gestion des produits réglementés (chimiothèque, morphine / ANSM).",
-          "skills": ["s-soft-rigueur", "s-soft-organisation", "s-soft-equipe"],
+          "skills": [
+            "s-soft-rigueur",
+            "s-soft-integrite",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation",
+            "s-soft-equipe"
+          ],
           "detail": "Molécule d'intérêt stockée dans une chimiothèque protégée par code d'accès (intégrité et rigueur). Sélection du composé sur la base de la documentation des autres unités (activité, affinité et sélectivité pour le RD3), du timing d'administration (études de pharmacocinétique) et du choix de la dose ; tests de dissolution réalisés — démarche pluridisciplinaire, écoute, capacité de synthèse. Morphine (stupéfiant soumis à autorisation ANSM) stockée dans un coffre à accès réglementé, demande de sortie auprès du pharmacien et tenue d'un registre des utilisations — rigueur, anticipation, justification."
         },
         {
@@ -399,7 +1177,12 @@
           "start": "2022-01",
           "end": "2022-06",
           "summary": "Mise en place du dispositif de vidéotracking et création du protocole sous Ethovision XT.",
-          "skills": ["s-soft-ethovision", "s-soft-organisation"],
+          "skills": [
+            "s-soft-ethovision",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation"
+          ],
           "detail": "Mise en place du dispositif expérimental (luminosité, bruit blanc, détection des souris par vidéotracking via Ethovision XT). Création du protocole expérimental sur Ethovision : paramètres de détection, protocole d'habituation de 30 min ou de test de 1 h, calibration du logiciel, nombre de souris par jour — anticipation et organisation."
         },
         {
@@ -409,7 +1192,13 @@
           "start": "2022-01",
           "end": "2022-06",
           "summary": "Modèle de sensibilisation comportementale à la morphine, modulé par un antagoniste partiel du RD3.",
-          "skills": ["s-anim-comportement", "s-anim-injections"],
+          "skills": [
+            "s-anim-comportement",
+            "s-anim-inj-ip",
+            "s-anim-inj-sc",
+            "s-anim-gavage",
+            "s-anim-contention"
+          ],
           "detail": "Mise au point d'un modèle d'addiction basé sur la sensibilisation comportementale (augmentation progressive de l'activité locomotrice après injections répétées de morphine). Modulation de cette sensibilisation locomotrice par l'administration d'un antagoniste partiel des récepteurs dopaminergiques D3 synthétisé au sein de l'unité de chimie du laboratoire."
         },
         {
@@ -419,7 +1208,13 @@
           "start": "2022-01",
           "end": "2022-06",
           "summary": "Contention, gavage, injections intrapéritonéale et sous-cutanée, observation du comportement.",
-          "skills": ["s-anim-injections", "s-anim-comportement"],
+          "skills": [
+            "s-anim-inj-ip",
+            "s-anim-inj-sc",
+            "s-anim-gavage",
+            "s-anim-contention",
+            "s-anim-comportement"
+          ],
           "detail": "Formation aux techniques d'expérimentation animale : contention, gavage, injection intrapéritonéale, injection sous-cutanée, observation du comportement."
         },
         {
@@ -429,12 +1224,42 @@
           "start": "2022-01",
           "end": "2022-06",
           "summary": "Réflexion scientifique, travail inter-unités vers la clinique, anticipation des imprévus et curiosité.",
-          "skills": ["s-soft-esprit-critique", "s-soft-equipe", "s-soft-adaptabilite", "s-soft-organisation"],
+          "skills": [
+            "s-soft-esprit-critique",
+            "s-soft-biblio",
+            "s-soft-equipe",
+            "s-soft-adaptabilite",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation"
+          ],
           "detail": "Échange, remise en question et réflexion scientifique dans l'analyse des résultats (appuyée sur la bibliographie) et l'évolution des expériences (prise de décisions, gros volumes horaires). Capacité d'adaptation face à l'imprévu (réorganisation des groupes, modification des plans) et anticipation (commande de souris supplémentaires en cas d'animaux agressifs ou blessés). Planification du temps de travail à court et long terme. Travail collaboratif avec les autres unités du laboratoire pour amener les molécules synthétisées en interne vers les phases de recherche clinique. Curiosité et adaptabilité sur d'autres projets en parallèle : administration intra-nasale chez le lapin, étude de toxicité chez le rat, essai de dissection sur souris, échanges avec des spécialistes en modélisation 3D de récepteurs et prédiction d'interaction."
         }
       ],
-      "skills": ["s-anim-comportement", "s-anim-injections", "s-anim-ethique", "s-soft-ethovision", "s-data-stats", "s-soft-esprit-critique", "s-soft-equipe", "s-soft-adaptabilite", "s-soft-organisation", "s-soft-rigueur"],
-      "linkedItems": ["edu-master"]
+      "skills": [
+        "s-anim-ethique",
+        "s-anim-reglementation",
+        "s-data-stats",
+        "s-data-analyse",
+        "s-soft-organisation",
+        "s-soft-planification",
+        "s-soft-anticipation",
+        "s-soft-rigueur",
+        "s-soft-integrite",
+        "s-soft-equipe",
+        "s-soft-ethovision",
+        "s-anim-comportement",
+        "s-anim-inj-ip",
+        "s-anim-inj-sc",
+        "s-anim-gavage",
+        "s-anim-contention",
+        "s-soft-esprit-critique",
+        "s-soft-biblio",
+        "s-soft-adaptabilite"
+      ],
+      "linkedItems": [
+        "edu-master"
+      ]
     },
     {
       "id": "exp-stage-m1",
@@ -453,7 +1278,11 @@
           "start": "2021-04",
           "end": "2021-06",
           "summary": "Nourrissage, reproduction et génotypage du poisson zèbre.",
-          "skills": ["s-anim-elevage", "s-lab-genotypage"],
+          "skills": [
+            "s-anim-elevage",
+            "s-anim-reproduction",
+            "s-lab-genotypage"
+          ],
           "detail": "Nourrissage et reproduction des poissons zèbres ; génotypage à partir de nageoire caudale."
         },
         {
@@ -463,7 +1292,14 @@
           "start": "2021-04",
           "end": "2021-06",
           "summary": "Coupes au cryostat, immunofluorescence (IHC 5-HT) et quantification sous ImageJ.",
-          "skills": ["s-lab-coupe", "s-lab-if", "s-micro-fluo", "s-soft-imagej"],
+          "skills": [
+            "s-lab-cryostat",
+            "s-lab-vibratome",
+            "s-lab-if",
+            "s-micro-fluo",
+            "s-micro-spinningdisk",
+            "s-soft-imagej"
+          ],
           "detail": "Cryostat, coupes sur lames. Immunofluorescence sur lames, prise d'images au microscope à fluorescence et quantification du marquage avec ImageJ (intensité de marquage avec établissement d'un seuil, IHC 5-HT)."
         },
         {
@@ -473,7 +1309,9 @@
           "start": "2021-04",
           "end": "2021-06",
           "summary": "Marquage TUNEL pour évaluer l'apoptose.",
-          "skills": ["s-lab-tunel"],
+          "skills": [
+            "s-lab-tunel"
+          ],
           "detail": "TUNEL pour l'évaluation de l'apoptose."
         },
         {
@@ -483,12 +1321,38 @@
           "start": "2021-04",
           "end": "2021-06",
           "summary": "Esprit critique, présentation en réunion d'équipe, bibliographie et adaptabilité.",
-          "skills": ["s-soft-esprit-critique", "s-soft-communication", "s-soft-adaptabilite", "s-soft-equipe"],
+          "skills": [
+            "s-soft-esprit-critique",
+            "s-soft-biblio",
+            "s-soft-comm-orale",
+            "s-soft-comm-poster",
+            "s-soft-adaptabilite",
+            "s-soft-equipe"
+          ],
           "detail": "Esprit critique et échanges sur les méthodes d'analyse d'immunofluorescence. Présentation des travaux en réunion d'équipe, bibliographie, tenue d'un cahier de laboratoire, respect des normes de sécurité, esprit d'équipe et adaptabilité au milieu de la recherche."
         }
       ],
-      "skills": ["s-anim-elevage", "s-lab-genotypage", "s-lab-coupe", "s-lab-if", "s-micro-fluo", "s-soft-imagej", "s-lab-tunel", "s-soft-esprit-critique", "s-soft-communication", "s-soft-adaptabilite", "s-soft-equipe"],
-      "linkedItems": ["edu-master"]
+      "skills": [
+        "s-anim-elevage",
+        "s-anim-reproduction",
+        "s-lab-genotypage",
+        "s-lab-cryostat",
+        "s-lab-vibratome",
+        "s-lab-if",
+        "s-micro-fluo",
+        "s-micro-spinningdisk",
+        "s-soft-imagej",
+        "s-lab-tunel",
+        "s-soft-esprit-critique",
+        "s-soft-biblio",
+        "s-soft-comm-orale",
+        "s-soft-comm-poster",
+        "s-soft-adaptabilite",
+        "s-soft-equipe"
+      ],
+      "linkedItems": [
+        "edu-master"
+      ]
     },
     {
       "id": "exp-stage-l3",
@@ -507,7 +1371,13 @@
           "start": "2019-04",
           "end": "2019-05",
           "summary": "Récolte sur le terrain, tri et constitution de pools d'échantillons.",
-          "skills": ["s-field-echantillonnage", "s-soft-organisation"],
+          "skills": [
+            "s-field-echantillonnage",
+            "s-field-traitement",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation"
+          ],
           "detail": "Récolte d'échantillons sur le terrain (rhizosphère, terre), traitement des échantillons, tri et formation de pools d'échantillons."
         },
         {
@@ -517,7 +1387,13 @@
           "start": "2019-04",
           "end": "2019-05",
           "summary": "Mise en culture, isolement et caractérisation des bactéries et champignons (AMF).",
-          "skills": ["s-micro-microbiologie", "s-micro-fluo"],
+          "skills": [
+            "s-micro-culture",
+            "s-micro-isolement",
+            "s-micro-caracterisation",
+            "s-micro-fluo",
+            "s-micro-spinningdisk"
+          ],
           "detail": "Bases de microbiologie : utilisation d'un PSM, mise en culture sur milieu approprié, isolement des bactéries et des champignons (AMF), caractérisation morphologique des bactéries, imagerie et caractérisation des AMF."
         },
         {
@@ -527,7 +1403,12 @@
           "start": "2019-04",
           "end": "2019-05",
           "summary": "Analyse PCR de la rhizosphère et résolution d'un problème de qPCR.",
-          "skills": ["s-lab-pcr", "s-soft-esprit-critique"],
+          "skills": [
+            "s-lab-pcr",
+            "s-lab-qpcr",
+            "s-soft-esprit-critique",
+            "s-soft-biblio"
+          ],
           "detail": "Analyse PCR de la rhizosphère. Réflexion et capacité d'analyse face à un problème de qPCR : test de différentes conditions pour déterminer l'élément bloquant."
         },
         {
@@ -537,12 +1418,40 @@
           "start": "2019-04",
           "end": "2019-05",
           "summary": "Cahier de laboratoire, normes de sécurité, esprit d'équipe et présentation du projet.",
-          "skills": ["s-soft-equipe", "s-soft-communication", "s-soft-rigueur"],
+          "skills": [
+            "s-soft-equipe",
+            "s-soft-comm-orale",
+            "s-soft-comm-poster",
+            "s-soft-rigueur",
+            "s-soft-integrite"
+          ],
           "detail": "Découverte d'un laboratoire de recherche : tenir un cahier de laboratoire, respecter les normes de sécurité, esprit d'équipe. Bibliographie. Présentation du projet devant l'équipe de recherche."
         }
       ],
-      "skills": ["s-field-echantillonnage", "s-micro-microbiologie", "s-micro-fluo", "s-lab-pcr", "s-soft-esprit-critique", "s-soft-equipe", "s-soft-communication", "s-soft-rigueur", "s-soft-organisation"],
-      "linkedItems": ["edu-licence"]
+      "skills": [
+        "s-field-echantillonnage",
+        "s-field-traitement",
+        "s-soft-organisation",
+        "s-soft-planification",
+        "s-soft-anticipation",
+        "s-micro-culture",
+        "s-micro-isolement",
+        "s-micro-caracterisation",
+        "s-micro-fluo",
+        "s-micro-spinningdisk",
+        "s-lab-pcr",
+        "s-lab-qpcr",
+        "s-soft-esprit-critique",
+        "s-soft-biblio",
+        "s-soft-equipe",
+        "s-soft-comm-orale",
+        "s-soft-comm-poster",
+        "s-soft-rigueur",
+        "s-soft-integrite"
+      ],
+      "linkedItems": [
+        "edu-licence"
+      ]
     }
   ],
   "formations": [
@@ -554,7 +1463,11 @@
       "start": "2026-03",
       "end": "2026-03",
       "description": "2 jours (26–27 mars 2026). Outils de communication, organisation du temps, établir des limites.",
-      "skills": ["s-soft-organisation"]
+      "skills": [
+        "s-soft-organisation",
+        "s-soft-planification",
+        "s-soft-anticipation"
+      ]
     },
     {
       "id": "form-science-ouverte",
@@ -564,7 +1477,10 @@
       "start": "2026-01",
       "end": "2026-01",
       "description": "6 heures (16 janvier 2026).",
-      "skills": ["s-soft-rigueur"]
+      "skills": [
+        "s-soft-rigueur",
+        "s-soft-integrite"
+      ]
     },
     {
       "id": "form-integrite",
@@ -574,7 +1490,10 @@
       "start": "2025-09",
       "end": "2026-08",
       "description": "Validation d'un MOOC (01 sept. 2025 – 31 août 2026).",
-      "skills": ["s-soft-rigueur"]
+      "skills": [
+        "s-soft-rigueur",
+        "s-soft-integrite"
+      ]
     },
     {
       "id": "form-gestes",
@@ -594,7 +1513,11 @@
       "start": "2024",
       "end": "2024",
       "description": "6 jours (2024). Réalisation de perfusions intracardiaques et d'interventions de stéréotaxie chez la souris.",
-      "skills": ["s-anim-chirurgie", "s-anim-stereotaxie", "s-anim-perfusion"]
+      "skills": [
+        "s-anim-chirurgie",
+        "s-anim-stereotaxie",
+        "s-anim-perfusion"
+      ]
     },
     {
       "id": "form-isoflurane",
@@ -604,7 +1527,9 @@
       "start": "2024",
       "end": "2024",
       "description": "Utilisation de l'isoflurane en anesthésie animale.",
-      "skills": ["s-anim-chirurgie"]
+      "skills": [
+        "s-anim-chirurgie"
+      ]
     },
     {
       "id": "form-fcea",
@@ -614,7 +1539,10 @@
       "start": "2024",
       "end": "2024",
       "description": "Maintien de l'habilitation à l'expérimentation animale (17,3 h).",
-      "skills": ["s-anim-ethique"]
+      "skills": [
+        "s-anim-ethique",
+        "s-anim-reglementation"
+      ]
     },
     {
       "id": "form-charles-river",
@@ -624,7 +1552,10 @@
       "start": "2022",
       "end": "2022",
       "description": "3 h. Pont entre le bien-être des animaux de laboratoire et celui de l'être humain : fatigue compassionnelle, résilience, culture du soin.",
-      "skills": ["s-anim-ethique"]
+      "skills": [
+        "s-anim-ethique",
+        "s-anim-reglementation"
+      ]
     },
     {
       "id": "form-experim",
@@ -634,7 +1565,11 @@
       "start": "2021-12",
       "end": "2021-12",
       "description": "Obtenue le 17 décembre 2021. Habilitation à concevoir des procédures expérimentales et des projets sur les modèles rat et souris.",
-      "skills": ["s-anim-ethique", "s-anim-comportement"]
+      "skills": [
+        "s-anim-ethique",
+        "s-anim-reglementation",
+        "s-anim-comportement"
+      ]
     }
   ],
   "rayonnement": [
@@ -647,7 +1582,11 @@
       "start": "2026",
       "end": null,
       "description": "Membre du bureau des jeunes chercheurs de la Société des Neurosciences.",
-      "skills": ["s-soft-communication", "s-soft-equipe"]
+      "skills": [
+        "s-soft-comm-orale",
+        "s-soft-comm-poster",
+        "s-soft-equipe"
+      ]
     },
     {
       "id": "ray-apprentis",
@@ -658,7 +1597,17 @@
       "start": "2026",
       "end": null,
       "description": "Encadrement, sur 8 mercredis après-midi, d'une lycéenne et d'une collégienne sur le projet « Caractérisation de la pathologie Tau dans un modèle murin de la maladie d'Alzheimer (souris Thy-Tau22) » : vulgarisation, formation à l'expérimentation (immunofluorescence, Western-blot), encadrement de la préparation du diaporama pour un symposium.",
-      "skills": ["s-soft-encadrement", "s-soft-vulgarisation", "s-soft-communication", "s-soft-organisation"]
+      "skills": [
+        "s-soft-encadrement",
+        "s-soft-formation",
+        "s-soft-vulgarisation",
+        "s-soft-mediation",
+        "s-soft-comm-orale",
+        "s-soft-comm-poster",
+        "s-soft-organisation",
+        "s-soft-planification",
+        "s-soft-anticipation"
+      ]
     },
     {
       "id": "ray-cerveau",
@@ -669,7 +1618,10 @@
       "start": "2026",
       "end": "2026",
       "description": "Organisation et présentation d'un atelier durant la Semaine du cerveau, pour scolaires et grand public.",
-      "skills": ["s-soft-vulgarisation"]
+      "skills": [
+        "s-soft-vulgarisation",
+        "s-soft-mediation"
+      ]
     },
     {
       "id": "ray-fetescience",
@@ -680,7 +1632,10 @@
       "start": "2024",
       "end": "2025",
       "description": "Organisation et présentation d'un atelier durant la Fête de la Science, auprès de lycéens et collégiens.",
-      "skills": ["s-soft-vulgarisation"]
+      "skills": [
+        "s-soft-vulgarisation",
+        "s-soft-mediation"
+      ]
     },
     {
       "id": "ray-declic",
@@ -691,7 +1646,12 @@
       "start": "2023",
       "end": "2023",
       "description": "Présentation de son parcours à des lycéens dans le cadre du programme Déclic.",
-      "skills": ["s-soft-vulgarisation", "s-soft-communication"]
+      "skills": [
+        "s-soft-vulgarisation",
+        "s-soft-mediation",
+        "s-soft-comm-orale",
+        "s-soft-comm-poster"
+      ]
     }
   ],
   "financements": [
@@ -702,7 +1662,12 @@
       "year": "2026",
       "amount": "23 000 €",
       "description": "Appel à projets ouvert aux doctorants — « The Tau link to depression in Alzheimer Disease ». 23 000 € pour le consommable.",
-      "skills": ["s-soft-redaction", "s-soft-gestion-projet"]
+      "skills": [
+        "s-soft-redaction-financement",
+        "s-soft-redaction-rapport",
+        "s-soft-gestion-projet",
+        "s-soft-dev-projet"
+      ]
     },
     {
       "id": "fin-fra",
@@ -733,7 +1698,16 @@
       "type": "article",
       "abstract": "",
       "url": "https://doi.org/10.1093/brain/awaf417",
-      "skills": ["s-anim-comportement", "s-comp-memoire", "s-lab-ihc", "s-lab-westernblot", "s-lab-elisa"]
+      "skills": [
+        "s-anim-comportement",
+        "s-comp-ymaze",
+        "s-comp-epm",
+        "s-comp-openfield",
+        "s-comp-nor",
+        "s-lab-ihc",
+        "s-lab-westernblot",
+        "s-lab-elisa"
+      ]
     },
     {
       "id": "pub-newcal-flora",
@@ -744,7 +1718,15 @@
       "type": "preprint",
       "abstract": "",
       "url": "",
-      "skills": ["s-field-echantillonnage", "s-micro-microbiologie", "s-lab-pcr"]
+      "skills": [
+        "s-field-echantillonnage",
+        "s-field-traitement",
+        "s-micro-culture",
+        "s-micro-isolement",
+        "s-micro-caracterisation",
+        "s-lab-pcr",
+        "s-lab-qpcr"
+      ]
     },
     {
       "id": "pub-newcal-meta",
@@ -755,7 +1737,15 @@
       "type": "communication",
       "abstract": "",
       "url": "https://hal.science/hal-04953318",
-      "skills": ["s-field-echantillonnage", "s-micro-microbiologie", "s-soft-communication"]
+      "skills": [
+        "s-field-echantillonnage",
+        "s-field-traitement",
+        "s-micro-culture",
+        "s-micro-isolement",
+        "s-micro-caracterisation",
+        "s-soft-comm-orale",
+        "s-soft-comm-poster"
+      ]
     }
   ]
 }

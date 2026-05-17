@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-17",
-    "version": 15,
+    "version": 16,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -552,6 +552,14 @@
     {
       "id": "ski-mpa4v0ck-655g",
       "name": "Ecoute",
+      "group": "transversal",
+      "category": "soft",
+      "level": "Avancé",
+      "description": ""
+    },
+    {
+      "id": "ski-mpa65lv0-8g1u",
+      "name": "Curiosité",
       "group": "transversal",
       "category": "soft",
       "level": "Avancé",
@@ -1266,7 +1274,8 @@
             "s-soft-biblio",
             "s-soft-adaptabilite",
             "s-soft-equipe",
-            "ski-mpa4v0ck-655g"
+            "ski-mpa4v0ck-655g",
+            "ski-mpa65lv0-8g1u"
           ],
           "detail": "- Travail collaboratif avec les autres unités du laboratoire pour amener les molécules synthétisées en interne vers les phases de recherche clinique. \n- Curiosité et adaptabilité sur d'autres projets en parallèle : observation d’une expérience avec administration d’un médicament intra nasale chez le lapin, observation d’une étude de toxicité chez le rat, essaie d’une dissection sur souris, échange avec des spécialistes en modélisation 3D de récepteurs et prédiction statistique d’interaction avec les molécules testées."
         },

@@ -197,20 +197,15 @@ function mountSkillModal() {
   });
 }
 
-const SKILL_CAT_LABELS = {
-  scientific: "Compétence scientifique",
-  hard: "Compétence technique",
-  soft: "Compétence transversale",
-};
-
 function openSkillModal(skillId) {
   const sk = (DATA.skills || []).find(s => s.id === skillId);
   if (!sk) return;
   const modal = $("#skillModal");
   if (!modal) return;
 
-  const catLabel = SKILL_CAT_LABELS[sk.category] || sk.category || "";
-  const catColor = skillColor(sk.category);
+  const isLang = sk.category === "language";
+  const catLabel = isLang ? "Langue" : skillGroupLabel(skillGroup(sk));
+  const catColor = isLang ? "var(--muted)" : skillGroupColor(skillGroup(sk));
   $("#skillModalCat").innerHTML = catLabel
     ? `<span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:${catColor}; vertical-align:middle; margin-right:8px"></span>${escapeHtml(catLabel)}`
     : "";
@@ -352,8 +347,6 @@ function renderProfile() {
   if ($("#heroTitle"))    $("#heroTitle").innerHTML = p.tagline
     ? p.tagline.replace(/\*([^*]+)\*/g, "<em>$1</em>")
     : "Bienvenue.";
-  if ($("#heroSub"))      $("#heroSub").textContent = p.about ? p.about.split("\n")[0] : "";
-
   if ($("#heroLocation")) $("#heroLocation").innerHTML = p.location ? `📍 ${escapeHtml(p.location)}` : "";
   if ($("#heroLab"))      $("#heroLab").innerHTML      = p.lab      ? `🔬 ${escapeHtml(p.lab)}` : "";
   if ($("#heroEmail"))    $("#heroEmail").innerHTML    = p.email    ? `✉ <a href="mailto:${escapeHtml(p.email)}" style="color:inherit; border-bottom:1px solid currentColor">${escapeHtml(p.email)}</a>` : "";
@@ -383,26 +376,59 @@ function renderAbout() {
   `).join("");
 }
 
+/* ---------- COMPÉTENCES — CLASSIFICATION ---------- */
+const SKILL_GROUPS = [
+  { key: "anim",        title: "Expérimentation animale",   color: "#d4894e" },
+  { key: "lab",         title: "Techniques de laboratoire", color: "#7fb3d9" },
+  { key: "logiciel",    title: "Logiciels",                 color: "#c2a04a" },
+  { key: "transversal", title: "Transversales",             color: "#c4a8de" },
+];
+const SKILL_GROUP_KEYS = SKILL_GROUPS.map(g => g.key);
+const SKILL_GROUP_MAP = Object.fromEntries(SKILL_GROUPS.map(g => [g.key, g]));
+function skillGroupColor(key) { return (SKILL_GROUP_MAP[key] || {}).color || "var(--muted)"; }
+function skillGroupLabel(key) { return (SKILL_GROUP_MAP[key] || {}).title || ""; }
+
+function skillGroup(sk) {
+  if (!sk) return "lab";
+  if (sk.group && SKILL_GROUP_KEYS.includes(sk.group)) return sk.group;
+  if (sk.category === "language") return "lang";
+  const id = sk.id || "";
+  if (/^s-anim-/.test(id) || /^s-comp-/.test(id)) return "anim";
+  if (id === "s-data-stats" || id === "s-bioinfo" || /^s-soft-(ethovision|imagej|prism|imaris)$/.test(id)) return "logiciel";
+  if (/^s-lab-/.test(id) || /^s-micro-/.test(id) || /^s-field-/.test(id)) return "lab";
+  if (sk.category === "soft") return "transversal";
+  return "lab";
+}
+
+const LEVEL_RANK = { "avancé": 0, "avance": 0, "intermédiaire": 1, "intermediaire": 1, "débutant": 2, "debutant": 2 };
+function skillLevelRank(level) {
+  const k = (level || "").toLowerCase().trim();
+  return k in LEVEL_RANK ? LEVEL_RANK[k] : 99;
+}
+
+function sortSkillObjects(skills) {
+  return skills.slice().sort((a, b) =>
+    skillLevelRank(a.level) - skillLevelRank(b.level) ||
+    (a.name || "").localeCompare(b.name || "", "fr"));
+}
+
 /* ---------- COMPÉTENCES — CARTES ---------- */
 function renderSkills() {
   const grid = $("#skillsGrid");
-  const groups = {
-    scientific: { title: "Scientifiques",  idx: "01", skills: [] },
-    soft:       { title: "Transversales",  idx: "02", skills: [] },
-    hard:       { title: "Techniques",     idx: "03", skills: [] },
-  };
+  const buckets = {};
+  SKILL_GROUPS.forEach(g => { buckets[g.key] = []; });
   (DATA.skills || []).forEach(s => {
-    if (s.category === "language") return;
-    (groups[s.category] || groups.hard).skills.push(s);
+    const bucket = buckets[skillGroup(s)];
+    if (bucket) bucket.push(s);
   });
 
-  grid.innerHTML = Object.entries(groups)
-    .filter(([_, g]) => g.skills.length)
-    .map(([cat, g]) => `
-      <div class="skill-card" data-cat="${cat}">
-        <h3>${g.title}<span class="idx">${g.idx}</span></h3>
+  const cards = SKILL_GROUPS
+    .filter(g => buckets[g.key].length)
+    .map((g, i) => `
+      <div class="skill-card" data-cat="${g.key}" data-group="${g.key}" style="--card-accent:${g.color}">
+        <h3>${g.title}<span class="idx">${String(i + 1).padStart(2, "0")}</span></h3>
         <ul>
-          ${g.skills.map(s => `
+          ${sortSkillObjects(buckets[g.key]).map(s => `
             <li data-skill-id="${s.id}" tabindex="0">
               <div class="skill-line">
                 <span class="skill-name">${escapeHtml(s.name)}</span>
@@ -414,9 +440,7 @@ function renderSkills() {
       </div>
     `).join("");
 
-  if (!(DATA.skills || []).length) {
-    grid.innerHTML = `<div class="empty-note">Aucune compétence n'a encore été ajoutée.</div>`;
-  }
+  grid.innerHTML = cards || `<div class="empty-note">Aucune compétence n'a encore été ajoutée.</div>`;
 
   $$('#skillsGrid li[data-skill-id]').forEach(li => {
     li.addEventListener("click", () => selectSkill(li.dataset.skillId));
@@ -592,13 +616,24 @@ function applyHighlight({ skillIds, itemIds }) {
 /* Helpers communs : ligne de skills + détail repliable */
 function renderSkillChips(ids = []) {
   if (!ids.length) return "";
-  const chips = ids.map(sid => {
-    const sk = (DATA.skills || []).find(s => s.id === sid);
-    if (!sk || sk.category === "language") return "";
-    return `<button type="button" class="chip skill-chip" data-skill-id="${escapeHtml(sid)}">${escapeHtml(sk.name)}</button>`;
-  }).filter(Boolean);
-  if (!chips.length) return "";
-  return `<div class="tl-skills">${chips.join("")}</div>`;
+  const present = ids
+    .map(sid => (DATA.skills || []).find(s => s.id === sid))
+    .filter(sk => sk && sk.category !== "language");
+  if (!present.length) return "";
+
+  const rows = SKILL_GROUPS.map(g => {
+    const inGroup = sortSkillObjects(present.filter(sk => skillGroup(sk) === g.key));
+    if (!inGroup.length) return "";
+    const chips = inGroup.map(sk =>
+      `<button type="button" class="chip skill-chip" data-skill-id="${escapeHtml(sk.id)}" data-skill-group="${g.key}">${escapeHtml(sk.name)}</button>`
+    ).join("");
+    return `<div class="tl-skill-row" data-skill-group="${g.key}">
+        <span class="tl-skill-tag">${escapeHtml(g.title)}</span>
+        <span class="tl-skill-chips">${chips}</span>
+      </div>`;
+  }).filter(Boolean).join("");
+
+  return `<div class="tl-skills grouped">${rows}</div>`;
 }
 
 function periodLabel(start, end) {
@@ -869,12 +904,6 @@ function renderIdentityCard() {
    ============================================================== */
 let graphApi = null;
 
-const SKILL_COLORS = {
-  scientific: "#87b88c",
-  soft:       "#c4a8de",
-  hard:       "#7fb3d9",
-};
-
 const ITEM_KIND_COLORS = {
   cursus:      "#5b8fb9",
   experience:  "#d4894e",
@@ -892,10 +921,6 @@ const ITEM_KIND_LABELS = {
   financement: "Financement",
   publication: "Travail",
 };
-
-function skillColor(category) {
-  return SKILL_COLORS[category] || SKILL_COLORS.hard;
-}
 
 function itemColor(kind) {
   return ITEM_KIND_COLORS[kind] || "var(--ink)";
@@ -1016,7 +1041,7 @@ function renderGraph() {
   const graphSkills = (DATA.skills || []).filter(s => s.category !== "language");
   const skillIds = new Set(graphSkills.map(s => s.id));
   const skillNodes = graphSkills.map(s => ({
-    id: s.id, label: s.name, type: "skill", category: s.category
+    id: s.id, label: s.name, type: "skill", group: skillGroup(s)
   }));
 
   const itemNodes = [];
@@ -1083,7 +1108,7 @@ function renderGraph() {
       sel.append("circle")
         .attr("class", "node-shape")
         .attr("r", radiusFor(d))
-        .attr("fill", skillColor(d.category))
+        .attr("fill", skillGroupColor(d.group))
         .attr("stroke", "var(--line)")
         .attr("stroke-width", 1);
     } else {
@@ -1325,9 +1350,18 @@ function bindProfileForm() {
 
 /* ---------- Onglets Entités (compétences, exp, cursus, pubs) ---------- */
 function renderEntityList(key, label) {
-  const items = DATA[key] || [];
+  let items = DATA[key] || [];
+  if (key === "skills") {
+    const grpRank = it => it.category === "language"
+      ? SKILL_GROUP_KEYS.length
+      : SKILL_GROUP_KEYS.indexOf(skillGroup(it));
+    items = items.slice().sort((a, b) =>
+      grpRank(a) - grpRank(b) ||
+      skillLevelRank(a.level) - skillLevelRank(b.level) ||
+      (a.name || "").localeCompare(b.name || "", "fr"));
+  }
   const describe = (it) => {
-    if (key === "skills")       return { t: it.name, s: `${it.category} · ${it.level || ""}` };
+    if (key === "skills")       return { t: it.name, s: `${it.category === "language" ? "Langue" : skillGroupLabel(skillGroup(it))} · ${it.level || ""}` };
     if (key === "experiences")  return { t: it.title || it.role   || "(sans titre)", s: `${it.org || ""} — ${fmtDate(it.start)}${(it.subItems||[]).length ? ` · ${(it.subItems||[]).length} sous-exp.` : ""}` };
     if (key === "cursus")       return { t: it.title || it.degree || "(sans titre)", s: `${it.org || ""} — ${fmtDate(it.start)}${(it.subItems||[]).length ? ` · ${(it.subItems||[]).length} sous-exp.` : ""}` };
     if (key === "formations")   return { t: it.title || "(sans titre)", s: `${it.org || ""} — ${fmtDate(it.start)}` };
@@ -1400,17 +1434,18 @@ function renderEntityForm(key, item) {
   ).join("");
 
   if (key === "skills") {
+    const curGroup = it.category === "language" ? "language" : (item ? skillGroup(it) : "anim");
+    const groupOpts = [
+      ...SKILL_GROUPS.map(g => [g.key, g.title]),
+      ["language", "Langue"],
+    ].map(([v, t]) => `<option value="${v}" ${curGroup === v ? "selected" : ""}>${t}</option>`).join("");
     return `
       <div class="admin-form">
         <h3>${item ? "Modifier la compétence" : "Nouvelle compétence"}</h3>
         <label>Nom <input type="text" name="name" value="${escapeHtml(it.name)}" required></label>
         <div class="row">
           <label>Catégorie
-            <select name="category">
-              <option value="scientific" ${it.category==="scientific"?"selected":""}>Scientifique</option>
-              <option value="soft"       ${it.category==="soft"      ?"selected":""}>Transversale</option>
-              <option value="hard"       ${it.category==="hard"      ?"selected":""}>Technique</option>
-            </select>
+            <select name="group">${groupOpts}</select>
           </label>
           <label>Niveau <input type="text" name="level" value="${escapeHtml(it.level)}" placeholder="ex. avancé, C1…"></label>
         </div>
@@ -1696,7 +1731,14 @@ function bindEntityForm(key) {
 
     if (key === "skills") {
       obj.name = form.querySelector('[name="name"]').value.trim();
-      obj.category = form.querySelector('[name="category"]').value;
+      const grp = form.querySelector('[name="group"]').value;
+      if (grp === "language") {
+        obj.category = "language";
+        delete obj.group;
+      } else {
+        obj.group = grp;
+        obj.category = grp === "transversal" ? "soft" : "hard";
+      }
       obj.level = form.querySelector('[name="level"]').value.trim();
       obj.description = form.querySelector('[name="description"]').value.trim();
       if (!obj.name) { toast("Nom requis", "error"); return; }

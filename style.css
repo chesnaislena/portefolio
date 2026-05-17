@@ -72,7 +72,8 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .82rem; }
 
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); position: relative; z-index: 2; }
-section { padding: clamp(70px, 10vh, 120px) 0; position: relative; }
+section { padding: clamp(90px, 13vh, 160px) 0; position: relative; }
+#top > section + section { border-top: 1px solid var(--line); }
 
 /* ============================================================
    HEADER
@@ -150,8 +151,7 @@ html[data-theme="dark"] .theme-toggle .moon { display: block; }
   font-variation-settings: "opsz" 144, "SOFT" 100;
   color: var(--accent);
 }
-.hero-sub { margin-top: 32px; max-width: 58ch; font-size: 1.1rem; color: var(--ink-soft); }
-.hero-meta { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px 28px; font-size: .88rem; color: var(--muted); }
+.hero-meta { margin-top: 48px; display: flex; flex-wrap: wrap; gap: 12px 28px; font-size: .88rem; color: var(--muted); }
 .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
 
 .hero-viz { position: absolute; right: -5%; top: 15%; width: 520px; max-width: 48vw; opacity: .55; pointer-events: none; z-index: 0; }
@@ -294,6 +294,10 @@ html[data-theme="dark"] .theme-toggle .moon { display: block; }
   font-style: italic;
 }
 .skill-card li:hover .skill-desc { color: var(--ink-soft); }
+.skill-card[data-group]::before { background: var(--card-accent, var(--accent)); transform: scaleX(1); }
+.skill-card[data-group] h3 { color: var(--card-accent, var(--accent)); }
+.skill-card[data-group] li:hover,
+.skill-card[data-group] li.highlighted { color: var(--card-accent, var(--accent)); }
 
 /* ============================================================
    TIMELINE — EXPÉRIENCE & FORMATION
@@ -339,6 +343,36 @@ html[data-theme="dark"] .theme-toggle .moon { display: block; }
   background: color-mix(in oklab, var(--accent) 8%, transparent);
 }
 .tl-skills button.chip { font: inherit; font-family: "JetBrains Mono", monospace; font-size: .68rem; }
+
+/* Code couleur des compétences par catégorie */
+.skill-chip[data-skill-group="anim"]        { --g: #d4894e; }
+.skill-chip[data-skill-group="lab"]         { --g: #7fb3d9; }
+.skill-chip[data-skill-group="logiciel"]    { --g: #c2a04a; }
+.skill-chip[data-skill-group="transversal"] { --g: #c4a8de; }
+.tl-skills .skill-chip[data-skill-group] {
+  border-color: color-mix(in oklab, var(--g, var(--line)) 55%, var(--line));
+}
+.tl-skills .skill-chip[data-skill-group]:hover,
+.tl-skills .skill-chip[data-skill-group].highlighted {
+  border-color: var(--g, var(--accent)); color: var(--g, var(--accent));
+  background: color-mix(in oklab, var(--g, var(--accent)) 12%, transparent);
+}
+
+/* Compétences alignées par catégorie dans les items :
+   titre de catégorie au-dessus, chips alignés sur la même marge gauche */
+.tl-skills.grouped { flex-direction: column; align-items: stretch; gap: 14px; }
+.tl-skill-row { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.tl-skill-row[data-skill-group="anim"]        { --g: #d4894e; }
+.tl-skill-row[data-skill-group="lab"]         { --g: #7fb3d9; }
+.tl-skill-row[data-skill-group="logiciel"]    { --g: #c2a04a; }
+.tl-skill-row[data-skill-group="transversal"] { --g: #c4a8de; }
+.tl-skill-tag {
+  font-family: "JetBrains Mono", monospace; font-size: .58rem;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--g, var(--muted));
+  border-left: 2px solid var(--g, var(--line)); padding-left: 8px;
+}
+.tl-skill-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 
 /* ============================================================
    PUBLICATIONS

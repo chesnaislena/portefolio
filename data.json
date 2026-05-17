@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-17",
-    "version": 12,
+    "version": 13,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -538,6 +538,22 @@
       "name": "Responsabilités",
       "group": "logiciel",
       "category": "hard",
+      "level": "Avancé",
+      "description": ""
+    },
+    {
+      "id": "ski-mpa4tskp-vof9",
+      "name": "Capacité de synthèse",
+      "group": "transversal",
+      "category": "soft",
+      "level": "Avancé",
+      "description": ""
+    },
+    {
+      "id": "ski-mpa4v0ck-655g",
+      "name": "Ecoute",
+      "group": "transversal",
+      "category": "soft",
       "level": "Avancé",
       "description": ""
     }
@@ -1152,7 +1168,10 @@
             "s-anim-reglementation",
             "s-soft-organisation",
             "s-soft-planification",
-            "s-soft-anticipation"
+            "s-soft-anticipation",
+            "s-soft-adaptabilite",
+            "s-soft-equipe",
+            "ski-mpa4d93g-dmwb"
           ],
           "detail": "Ce projet étant entièrement réalisé chez la souris, je suis intervenu à partir de cette étape de gestion des animaux :\n- Commande des souris C57BL/6J auprès d'un fournisseur agréé qui a nécessité de l'anticipation, de la planification, et de l'organisation (délai de réception, nombre d'animaux, 1 cage supplémentaire en cas d'imprévus). \n- Hébergement : maîtrise des conditions (température, hygrométrie, enrichissement, cycle jour/nuit). \n- Suivi : évaluation quotidienne du bien-être par scores, évaluation des points limites (bagarres avec blessures, isolement ou euthanasie, crises convulsives avec recours à la référente SBEA). \n- Euthanasie par augmentation croissante de la concentration en CO2 pour réduire le stress."
         },
@@ -1164,14 +1183,18 @@
           "end": "2022-06",
           "summary": "Sélection du composé d'intérêt RD3 et gestion des produits réglementés (chimiothèque, morphine / ANSM).",
           "skills": [
-            "s-soft-rigueur",
-            "s-soft-integrite",
             "s-soft-organisation",
             "s-soft-planification",
             "s-soft-anticipation",
-            "s-soft-equipe"
+            "s-soft-equipe",
+            "s-soft-rigueur",
+            "s-soft-integrite",
+            "ski-mpa4ei0r-2qgo",
+            "ski-mpa4fjo9-30pb",
+            "ski-mpa4tskp-vof9",
+            "ski-mpa4v0ck-655g"
           ],
-          "detail": "Molécule d'intérêt stockée dans une chimiothèque protégée par code d'accès (intégrité et rigueur). Sélection du composé sur la base de la documentation des autres unités (activité, affinité et sélectivité pour le RD3), du timing d'administration (études de pharmacocinétique) et du choix de la dose ; tests de dissolution réalisés — démarche pluridisciplinaire, écoute, capacité de synthèse. Morphine (stupéfiant soumis à autorisation ANSM) stockée dans un coffre à accès réglementé, demande de sortie auprès du pharmacien et tenue d'un registre des utilisations — rigueur, anticipation, justification."
+          "detail": "- Molécule d'intérêt stockée dans une chimiothèque protégée par code d'accès (intégrité et rigueur). Sélection du composé sur la base de la documentation des autres unités (activité, affinité et sélectivité pour le RD3), du timing d'administration (études de pharmacocinétique) et du choix de la dose ; tests de dissolution réalisés — démarche pluridisciplinaire, écoute, capacité de synthèse. \n- Morphine (stupéfiant soumis à autorisation ANSM) stockée dans un coffre à accès réglementé, demande de sortie auprès du pharmacien et tenue d'un registre des utilisations — rigueur, anticipation, justification."
         },
         {
           "id": "exp-stage-m2-dispositif",

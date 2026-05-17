@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-17",
-    "version": 9,
+    "version": 10,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -1246,7 +1246,7 @@
       "location": "Rennes, France",
       "start": "2021-04",
       "end": "2021-06",
-      "description": "Étude de l'impact de l'œstradiol sur la neurogénèse adulte du poisson zèbre (modèle knock-out pour l'aromatase cérébrale, responsable de la synthèse de l'œstradiol), sous la tutelle de Colette Vaillant-Capitaine. Durée : 2 mois.",
+      "description": "Étude de l'impact de l'œstradiol sur la neurogénèse adulte du poisson zèbre (modèle knock-out pour l'aromatase cérébrale, responsable de la synthèse de l'œstradiol), sous la tutelle de Colette Vaillant-Capitaine. \nDurée : 2 mois.",
       "subItems": [
         {
           "id": "exp-stage-m1-modele",
@@ -1254,13 +1254,17 @@
           "location": "Rennes, France",
           "start": "2021-04",
           "end": "2021-06",
-          "summary": "Nourrissage, reproduction et génotypage du poisson zèbre.",
+          "summary": "Nourrissage, reproduction et génotypage du poisson zèbre à partir de nageoire caudale.",
           "skills": [
             "s-anim-elevage",
             "s-anim-reproduction",
-            "s-lab-genotypage"
+            "s-lab-genotypage",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation",
+            "s-soft-adaptabilite"
           ],
-          "detail": "Nourrissage et reproduction des poissons zèbres ; génotypage à partir de nageoire caudale."
+          "detail": ""
         },
         {
           "id": "exp-stage-m1-histologie",
@@ -1268,16 +1272,16 @@
           "location": "Rennes, France",
           "start": "2021-04",
           "end": "2021-06",
-          "summary": "Coupes au cryostat, immunofluorescence (IHC 5-HT) et quantification sous ImageJ.",
+          "summary": "Dissection de cerveaux, coupes au cryostat, immunofluorescence (IHC 5-HT) et quantification sous ImageJ.",
           "skills": [
             "s-lab-cryostat",
-            "s-lab-vibratome",
             "s-lab-if",
             "s-micro-fluo",
-            "s-micro-spinningdisk",
-            "s-soft-imagej"
+            "s-soft-imagej",
+            "s-soft-organisation",
+            "s-soft-rigueur"
           ],
-          "detail": "Cryostat, coupes sur lames. Immunofluorescence sur lames, prise d'images au microscope à fluorescence et quantification du marquage avec ImageJ (intensité de marquage avec établissement d'un seuil, IHC 5-HT)."
+          "detail": "L'objectif a été de quantifier le nombre de neurones sérotoninergiques (5-HT) et l'intensité du marquage de ces neurones dans le cerveau des poisson zèbres KO pour l'aromatase neuronale (enzyme de synthèse d'œstradiol) vs contrôles. \nPour ce faire, j'ai appris à disséquer sous loupe binoculaire le cerveau des poissons zèbres, à les couper au cryostat sur lame, et à réaliser une immunofluorescence sur lame (5-HT). Cela a permis de prendre des images au microscope à fluorescence et de quantifier le marquage sur ImageJ (intensité de marquage avec établissement d'un seuil, IHC 5-HT et comptage du nombre de neurones positifs)."
         },
         {
           "id": "exp-stage-m1-apoptose",
@@ -1287,9 +1291,11 @@
           "end": "2021-06",
           "summary": "Marquage TUNEL pour évaluer l'apoptose.",
           "skills": [
-            "s-lab-tunel"
+            "s-lab-ihc",
+            "s-lab-tunel",
+            "s-soft-adaptabilite"
           ],
-          "detail": "TUNEL pour l'évaluation de l'apoptose."
+          "detail": "La technique TUNEL est une technique d'immunohistologie visant ici à déterminer la mort neuronale dans le cerveau de nos poissons KO aromatase vs contrôles.\nToutefois, nous avons eu des difficultés dans la réalisation du protocole, qui a nécessité une adaptation du protocole."
         },
         {
           "id": "exp-stage-m1-demarche",
@@ -1312,20 +1318,22 @@
       "skills": [
         "s-anim-elevage",
         "s-anim-reproduction",
+        "s-lab-pcr",
         "s-lab-genotypage",
         "s-lab-cryostat",
-        "s-lab-vibratome",
         "s-lab-if",
-        "s-micro-fluo",
-        "s-micro-spinningdisk",
-        "s-soft-imagej",
         "s-lab-tunel",
+        "s-micro-fluo",
+        "s-soft-imagej",
+        "s-data-stats",
+        "s-data-analyse",
         "s-soft-esprit-critique",
         "s-soft-biblio",
         "s-soft-comm-orale",
         "s-soft-comm-poster",
-        "s-soft-adaptabilite",
-        "s-soft-equipe"
+        "s-soft-organisation",
+        "s-soft-equipe",
+        "s-lang-francais"
       ],
       "linkedItems": [
         "edu-master"

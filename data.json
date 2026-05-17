@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-17",
-    "version": 8,
+    "version": 9,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -476,6 +476,46 @@
       "name": "Français",
       "category": "language",
       "level": "natif"
+    },
+    {
+      "id": "ski-mpa09y0j-lwlw",
+      "name": "Mise au point de protocoles",
+      "group": "lab",
+      "category": "hard",
+      "level": "Avancé",
+      "description": ""
+    },
+    {
+      "id": "ski-mpa0alw8-2t31",
+      "name": "Mise au point de tests comportementaux",
+      "group": "anim",
+      "category": "hard",
+      "level": "Avancé",
+      "description": ""
+    },
+    {
+      "id": "ski-mpa0k8aj-tih6",
+      "name": "Investissement dans la vie du laboratoire",
+      "group": "lab",
+      "category": "hard",
+      "level": "Avancé",
+      "description": ""
+    },
+    {
+      "id": "ski-mpa1tz7b-co3e",
+      "name": "persévérance",
+      "group": "transversal",
+      "category": "soft",
+      "level": "Avancé",
+      "description": ""
+    },
+    {
+      "id": "ski-mpa1uekh-wgmv",
+      "name": "Autonomie",
+      "group": "transversal",
+      "category": "soft",
+      "level": "Avancé",
+      "description": ""
     }
   ],
   "cursus": [
@@ -542,19 +582,25 @@
         }
       ],
       "skills": [
-        "s-soft-rigueur",
-        "s-soft-integrite",
-        "s-soft-organisation",
-        "s-soft-planification",
-        "s-soft-anticipation",
-        "s-soft-comm-orale",
-        "s-soft-comm-poster",
-        "s-soft-esprit-critique",
-        "s-soft-biblio",
         "s-soft-encadrement",
         "s-soft-formation",
         "s-soft-vulgarisation",
-        "s-soft-mediation"
+        "s-soft-mediation",
+        "s-soft-gestion-projet",
+        "s-soft-redaction-financement",
+        "s-soft-esprit-critique",
+        "s-soft-biblio",
+        "s-soft-comm-orale",
+        "s-soft-comm-poster",
+        "s-soft-organisation",
+        "s-soft-planification",
+        "s-soft-anticipation",
+        "s-soft-adaptabilite",
+        "s-soft-equipe",
+        "s-soft-rigueur",
+        "s-soft-integrite",
+        "s-lang-anglais",
+        "s-lang-francais"
       ],
       "linkedItems": [
         "exp-doctorante",
@@ -1293,7 +1339,7 @@
       "location": "Nouvelle-Calédonie",
       "start": "2019-04",
       "end": "2019-05",
-      "description": "Étude de la rhizosphère de plantes néo-calédoniennes (métallophytes), sous la tutelle de Valérie Burtet-Sarramegna. Stage ayant donné lieu à un article scientifique en cours de rédaction et à une communication présentée en Australie. Durée : 1,5 mois.",
+      "description": "Étude de la rhizosphère de plantes néo-calédoniennes (métallophytes), sous la tutelle de Valérie Burtet-Sarramegna. \nStage ayant donné lieu à un article scientifique en cours de rédaction et à une communication présentée en Australie. \nDurée : 1,5 mois.",
       "subItems": [
         {
           "id": "exp-stage-l3-echantillonnage",
@@ -1301,15 +1347,12 @@
           "location": "Nouvelle-Calédonie",
           "start": "2019-04",
           "end": "2019-05",
-          "summary": "Récolte sur le terrain, tri et constitution de pools d'échantillons.",
+          "summary": "Récolte sur le terrain (rhizosphère, terre), tri et constitution de pools d'échantillons.",
           "skills": [
             "s-field-echantillonnage",
-            "s-field-traitement",
-            "s-soft-organisation",
-            "s-soft-planification",
-            "s-soft-anticipation"
+            "s-soft-organisation"
           ],
-          "detail": "Récolte d'échantillons sur le terrain (rhizosphère, terre), traitement des échantillons, tri et formation de pools d'échantillons."
+          "detail": ""
         },
         {
           "id": "exp-stage-l3-microbiologie",
@@ -1322,10 +1365,9 @@
             "s-micro-culture",
             "s-micro-isolement",
             "s-micro-caracterisation",
-            "s-micro-fluo",
-            "s-micro-spinningdisk"
+            "s-soft-organisation"
           ],
-          "detail": "Bases de microbiologie : utilisation d'un PSM, mise en culture sur milieu approprié, isolement des bactéries et des champignons (AMF), caractérisation morphologique des bactéries, imagerie et caractérisation des AMF."
+          "detail": "L'objectif est de caractériser la population bactérienne et de champignons retrouvés au niveau de la rhizosphère et du sol récupéré sur des plantes hyper-accumulatrices de nickel néo-calédoniennes.\nPour cela j'ai appris les bases de microbiologie, à savoir l'utilisation d'un PSM et les normes de sécurité. \nPour la partie bactéries, j'ai appris à mettre en culture les échantillons récoltés sur un milieu approprié, avec +/- de nickel et à des concentrations différentes pour identifier les bactéries résistantes. Puis les colonies bactériennes les plus représentées et intéressantes en termes de résistance au nickel, ont été isolées pour ensuite être caractérisées morphologiquement.  \nPour la partie champignons (AMF), j'ai appris à identifier, imager et caractériser des AMF."
         },
         {
           "id": "exp-stage-l3-moleculaire",
@@ -1335,12 +1377,13 @@
           "end": "2019-05",
           "summary": "Analyse PCR de la rhizosphère et résolution d'un problème de qPCR.",
           "skills": [
-            "s-lab-pcr",
             "s-lab-qpcr",
             "s-soft-esprit-critique",
-            "s-soft-biblio"
+            "s-soft-adaptabilite",
+            "s-soft-equipe",
+            "ski-mpa1tz7b-co3e"
           ],
-          "detail": "Analyse PCR de la rhizosphère. Réflexion et capacité d'analyse face à un problème de qPCR : test de différentes conditions pour déterminer l'élément bloquant."
+          "detail": "Une fois les bactéries isolées, nous avons réalisé une qPCR afin de quantifier l'ARN ribosomal. \nCependant, nous avons identifié un problème au niveaux des contrôles, qui n'étaient pas négatifs. J'ai donc appris à développer ma réflexion et ma capacité d'analyse face ce problème de qPCR : test de différentes conditions pour déterminer l'élément bloquant."
         },
         {
           "id": "exp-stage-l3-vie-labo",
@@ -1350,38 +1393,36 @@
           "end": "2019-05",
           "summary": "Cahier de laboratoire, normes de sécurité, esprit d'équipe et présentation du projet.",
           "skills": [
-            "s-soft-equipe",
+            "s-soft-redaction-rapport",
+            "s-soft-biblio",
             "s-soft-comm-orale",
-            "s-soft-comm-poster",
+            "s-soft-equipe",
             "s-soft-rigueur",
-            "s-soft-integrite"
+            "s-soft-integrite",
+            "s-lang-francais"
           ],
-          "detail": "Découverte d'un laboratoire de recherche : tenir un cahier de laboratoire, respecter les normes de sécurité, esprit d'équipe. Bibliographie. Présentation du projet devant l'équipe de recherche."
+          "detail": "Lors de cette première expérience professionnelle au sein d'un laboratoire  de recherche, j'ai découvert le fonctionnement d'un laboratoire et notamment l'importance de tenir un cahier de laboratoire, les normes de sécurité, le traitement des déchets, mais aussi l'importance de l'esprit d'équipe en participant à des réunions d'équipe et la bibliographie. \nCe travail conduit à la rédaction d'un rapport de stage et à la présentation du projet et des résultats auprès d'un jury de Licence. De même, mon implication dans ce projet et l'identification d'une bactérie très intéressante a permis, a posteriori, à l'équipe de recherche, de présenter les résultats en congrès (Australie) et de rédiger un papier."
         }
       ],
       "skills": [
-        "s-field-echantillonnage",
-        "s-field-traitement",
-        "s-soft-organisation",
-        "s-soft-planification",
-        "s-soft-anticipation",
+        "s-lab-qpcr",
         "s-micro-culture",
         "s-micro-isolement",
         "s-micro-caracterisation",
-        "s-micro-fluo",
-        "s-micro-spinningdisk",
-        "s-lab-pcr",
-        "s-lab-qpcr",
+        "s-field-echantillonnage",
         "s-soft-esprit-critique",
         "s-soft-biblio",
-        "s-soft-equipe",
         "s-soft-comm-orale",
-        "s-soft-comm-poster",
+        "s-soft-equipe",
         "s-soft-rigueur",
-        "s-soft-integrite"
+        "s-soft-integrite",
+        "s-lang-francais",
+        "ski-mpa1tz7b-co3e"
       ],
       "linkedItems": [
-        "edu-licence"
+        "edu-licence",
+        "pub-newcal-meta",
+        "pub-newcal-flora"
       ]
     }
   ],

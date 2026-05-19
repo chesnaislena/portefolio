@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-19",
-    "version": 24,
+    "version": 25,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -762,19 +762,19 @@
         }
       ],
       "skills": [
-        "s-bioinfo",
         "s-data-stats",
         "s-data-analyse",
-        "s-soft-esprit-critique",
-        "s-soft-biblio",
-        "s-soft-comm-orale",
-        "s-soft-comm-poster",
+        "s-bioinfo",
         "s-soft-vulgarisation",
         "s-soft-mediation",
         "s-soft-gestion-projet",
         "s-soft-dev-projet",
         "s-soft-redaction-financement",
         "s-soft-redaction-rapport",
+        "s-soft-esprit-critique",
+        "s-soft-biblio",
+        "s-soft-comm-orale",
+        "s-soft-comm-poster",
         "s-soft-organisation",
         "s-soft-planification",
         "s-soft-anticipation",
@@ -1757,11 +1757,14 @@
       "location": "",
       "start": "2026",
       "end": null,
-      "description": "Membre du bureau des jeunes chercheurs de la Société des Neurosciences.",
+      "description": "Organisation d'évènements autour d'une question scientifique, en invitant des intervenant.",
       "skills": [
         "s-soft-comm-orale",
-        "s-soft-comm-poster",
-        "s-soft-equipe"
+        "s-soft-organisation",
+        "s-soft-planification",
+        "s-soft-anticipation",
+        "s-soft-equipe",
+        "ski-mpa65lv0-8g1u"
       ]
     },
     {
@@ -1779,10 +1782,12 @@
         "s-soft-vulgarisation",
         "s-soft-mediation",
         "s-soft-comm-orale",
-        "s-soft-comm-poster",
         "s-soft-organisation",
         "s-soft-planification",
-        "s-soft-anticipation"
+        "s-soft-anticipation",
+        "ski-mpa1tz7b-co3e",
+        "ski-mpa1uekh-wgmv",
+        "ski-mpa4fjo9-30pb"
       ]
     },
     {
@@ -1796,7 +1801,10 @@
       "description": "Organisation et présentation d'un atelier durant la Semaine du cerveau, pour scolaires et grand public.",
       "skills": [
         "s-soft-vulgarisation",
-        "s-soft-mediation"
+        "s-soft-mediation",
+        "s-soft-comm-orale",
+        "s-soft-organisation",
+        "s-soft-equipe"
       ]
     },
     {
@@ -1810,7 +1818,12 @@
       "description": "Organisation et présentation d'un atelier durant la Fête de la Science, auprès de lycéens et collégiens.",
       "skills": [
         "s-soft-vulgarisation",
-        "s-soft-mediation"
+        "s-soft-mediation",
+        "s-soft-comm-orale",
+        "s-soft-comm-poster",
+        "s-soft-organisation",
+        "s-soft-planification",
+        "s-soft-equipe"
       ]
     },
     {
@@ -1825,8 +1838,7 @@
       "skills": [
         "s-soft-vulgarisation",
         "s-soft-mediation",
-        "s-soft-comm-orale",
-        "s-soft-comm-poster"
+        "s-soft-comm-orale"
       ]
     }
   ],

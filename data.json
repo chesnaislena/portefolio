@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-19",
-    "version": 20,
+    "version": 21,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -564,6 +564,14 @@
       "category": "soft",
       "level": "Avancé",
       "description": ""
+    },
+    {
+      "id": "ski-mpczhvy6-ucm9",
+      "name": "Tests comportementaux de mémoire",
+      "group": "anim",
+      "category": "hard",
+      "level": "Avancé",
+      "description": "Open-field, Y-maze, Elevated plus maze"
     }
   ],
   "cursus": [
@@ -921,7 +929,7 @@
       "location": "Lille, France",
       "start": "2023-09",
       "end": "2025-09",
-      "description": "De septembre 2023 à septembre 2025, j'ai occupé le post d'ingénieure d'étude sur plusieurs projets d'équipe portant sur la pathologie Tau dans des modèles murins de tauopathies (dont la maladie d'Alzheimer). \nFormation à un large panel de techniques, conduite de projets, encadrement et responsabilités transversales. \nSous la responsabilité scientifique de David Blum.",
+      "description": "De septembre 2023 à septembre 2025, j'ai occupé le post d'ingénieure d'étude sur plusieurs projets d'équipe portant sur la pathologie Tau dans des modèles murins de tauopathies (dont la maladie d'Alzheimer). Les tauopathies sont des maladies neurodégénératives dont la plus\nconnues est la maladie d’Alzheimer (MA).\n \nFormation à un large panel de techniques, conduite de projets, encadrement et responsabilités transversales. \n\nSous la responsabilité scientifique de David Blum.",
       "subItems": [
         {
           "id": "exp-ingenieure-formations-tech",
@@ -931,35 +939,36 @@
           "end": "2024-12",
           "summary": "Acquisition des techniques du laboratoire et de la plateforme d'imagerie, puis de la chirurgie animale.",
           "skills": [
-            "s-lab-ihc",
-            "s-lab-if",
-            "s-lab-pcr",
-            "s-lab-qpcr",
+            "s-anim-chirurgie",
+            "s-anim-perfusion",
+            "s-anim-inj-ip",
+            "s-anim-inj-sc",
+            "s-anim-prelevement",
+            "s-lab-dosage",
             "s-lab-westernblot",
             "s-lab-elisa",
-            "s-lab-arn",
-            "s-lab-proteines",
-            "s-lab-dosage",
             "s-lab-synaptosomes",
+            "s-lab-pcr",
+            "s-lab-qpcr",
+            "s-lab-genotypage",
             "s-lab-cryostat",
             "s-lab-vibratome",
+            "s-lab-ihc",
+            "s-lab-if",
             "s-lab-confocale",
             "s-micro-fluo",
             "s-micro-spinningdisk",
+            "s-soft-ethovision",
+            "s-soft-prism",
             "s-soft-imaris",
-            "s-comp-ymaze",
-            "s-comp-epm",
-            "s-comp-openfield",
-            "s-anim-inj-ip",
-            "s-anim-inj-sc",
-            "s-anim-gavage",
-            "s-anim-contention",
-            "s-anim-prelevement",
-            "s-anim-chirurgie",
-            "s-anim-perfusion",
-            "s-anim-stereotaxie"
+            "s-data-stats",
+            "s-data-analyse",
+            "ski-mpa4ei0r-2qgo",
+            "ski-mpa4v0ck-655g",
+            "ski-mpa65lv0-8g1u",
+            "ski-mpczhvy6-ucm9"
           ],
-          "detail": "Méthodes du laboratoire : immunohistochimie en fluorescence et en coloration visible, qPCR, Western-blot, ELISA, extraction d'ARN et de protéines, extraction de synaptosomes, coupe de cerveaux au cryostat et au vibratome. Plateforme d'imagerie : microscopie confocale (LSM 980 et 710), spinning disk, reconstruction 3D sous Imaris. Déjà titulaire de l'expérimentation animale : formation aux tests comportementaux de mémoire (Y-maze, EPM, Open-Field), manipulation des souris en laboratoire A1 et A2, prélèvement de tissus (notamment hippocampe), injections intrapéritonéales et sous-cutanées, mise en place du plan de travail, dislocation cervicale. En 2024, formation à la chirurgie animale : perfusions intracardiaques et interventions de stéréotaxie chez la souris."
+          "detail": "Dans le cadre de ces projets, j’ai commencé par me former à un large panel de techniques expérimentales. J’ai\nd'abord acquis les méthodes utilisées au sein du laboratoire, notamment l’immunohistochimie en fluorescence et en\ncoloration visibles, la qPCR, le Western-blot, l'ELISA, l'extraction d'ARN et de protéines, l'extraction de synaptosomes\nainsi que la coupe de cerveaux au cryostat et au vibratome. En parallèle, j'ai été formée aux techniques proposées\npar la plateforme d'imagerie, telles que la microscopie confocale (LSM 980 et 710), au spinnig disk et l'utilisation du\nlogiciel Imaris pour la reconstruction 3D. Déjà titulaire de l'expérimentation animale à mon arrivée, j'ai été formée à la réalisation de tests comportementaux de mémoire (Y-maze, EPM, Open-Field), à la manipulation des\nsouris en laboratoire A1 et A2, au prélèvement de tissu (notamment hippocampe), aux injections intrapéritonéal et\nsous-cutanée, à la mise en place du plan de travail et à la dislocation cervicale. Plus récemment, en 2024, j'ai suivi la\nformation à la chirurgie animale, me permettant de réaliser des perfusions intracardiaques ainsi que des interventions\nde stéréotaxie chez la souris."
         },
         {
           "id": "exp-ingenieure-projet1",
@@ -969,19 +978,32 @@
           "end": "2025-09",
           "summary": "Caractérisation phénotypique d'un modèle murin selon la modulation du récepteur A2A neuronal et mise en place d'un test de mémoire à long terme (NOR).",
           "skills": [
-            "s-lab-pcr",
-            "s-lab-qpcr",
+            "s-comp-nor",
+            "s-lab-dosage",
             "s-lab-westernblot",
             "s-lab-elisa",
-            "s-comp-nor",
+            "s-lab-extraction-combinee",
+            "s-lab-pcr",
+            "s-lab-qpcr",
+            "s-lab-genotypage",
+            "s-lab-cryostat",
             "s-soft-prism",
+            "s-data-stats",
+            "s-data-analyse",
+            "s-soft-comm-orale",
+            "s-soft-comm-poster",
             "s-soft-organisation",
             "s-soft-planification",
             "s-soft-anticipation",
-            "s-soft-comm-orale",
-            "s-soft-comm-poster"
+            "s-soft-equipe",
+            "s-soft-rigueur",
+            "s-soft-integrite",
+            "ski-mpa0alw8-2t31",
+            "ski-mpa1tz7b-co3e",
+            "ski-mpa1uekh-wgmv",
+            "ski-mpa4v0ck-655g"
           ],
-          "detail": "Chez les patients atteints de MA, le développement de la pathologie Tau hippocampique s'accompagne d'une augmentation de l'expression des récepteurs A2A neuronaux. Prise en charge de la validation du génotype des souris (PCR), de l'évaluation de la neuroinflammation (qPCR) et de l'analyse de la pathologie Tau (Western-blot, ELISA), avec contribution à l'analyse des résultats — résultats destinés à une publication scientifique. Sur le volet comportemental : responsabilité de la mise en place d'un test de mémoire à long terme (NOR, reconnaissance d'objet nouveau) au sein du centre — choix du matériel, validation des conditions expérimentales, planification, réalisation, suivi du bien-être animal, analyse et présentation des résultats à l'ensemble du centre."
+          "detail": "J’ai intégré un premier projet visant à étudier l’impact de la modulation du récepteur adénosinergique A2A (A2AR)\nneuronal dans un modèle murin de Tauopathie. Chez les patients atteints de MA, le développement de la pathologie\nTau dans l’hippocampe - une structure clé pour la mémoire - s’accompagne d’une augmentation pathologique de\nl’expression des récepteurs A2AR neuronaux. Dans ce contexte, j'ai pris en charge la validation du génotype des\nsouris (par PCR), l'évaluation de la neuroinflammation par qPCR, ainsi que l’analyse de la pathologie Tau via des\nWestern-Blot et des ELISA. J’ai contribué à l’analyse des résultats obtenus. Ces résultats que j’ai présentés à mon\nsupérieur, seront intégrés dans une publication scientifique.\nConcernant la partie comportementale du projet, je suis responsable de la mise en place d'un test de mémoire à long\nterme (NOR, test de reconnaissance d'objet nouveau), au sein du centre de recherche. J’ai assuré le choix du\nmatériel, la validation des conditions expérimentales, la planification et la réalisation des expérimentations, le suivie\ndu bien-être des animaux, ainsi que l’analyse et la présentation des résultats à l’ensemble du centre. Ces premiers\nrésultats ont permis d’identifier les objets les plus adaptés au test mais doivent faire l’objet de validations\nsupplémentaires dans nos modèles."
         },
         {
           "id": "exp-ingenieure-projet2",
@@ -991,16 +1013,27 @@
           "end": "2025-09",
           "summary": "Collaboration avec l'Institut Pasteur de Lille : la neuroinflammation induite par Toxoplasma gondii exacerbe-t-elle la pathologie Tau ?",
           "skills": [
+            "s-anim-perfusion",
             "s-anim-inj-ip",
             "s-anim-inj-sc",
-            "s-anim-gavage",
-            "s-anim-contention",
-            "s-anim-dissection",
+            "s-anim-prelevement",
+            "s-lab-dosage",
             "s-lab-westernblot",
+            "s-lab-extraction-combinee",
+            "s-lab-synaptosomes",
+            "s-lab-qpcr",
+            "s-lab-cryostat",
             "s-lab-ihc",
-            "s-soft-equipe"
+            "s-lab-if",
+            "s-lab-confocale",
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-anticipation",
+            "s-soft-equipe",
+            "ski-mpa1uekh-wgmv",
+            "ski-mpa4fjo9-30pb"
           ],
-          "detail": "Projet mené en collaboration avec l'Institut Pasteur de Lille visant à déterminer si la neuroinflammation induite par Toxoplasma gondii (toxoplasmose) exacerbe la pathologie Tau dans un modèle murin de la MA. Le centre, habilité à manipuler des protéines prion-like telles que Tau, a permis une série d'analyses biochimiques, moléculaires et histologiques. En charge de la caractérisation des effets de l'injection du parasite sur les modèles et de la réalisation des dissections murines."
+          "detail": "Dans un second projet, mené en collaboration avec l’Institut Pasteur de Lille, nous cherchons à déterminer si la\nneuroinflammation induite Toxoplasma gondii (agent pathogène responsable de la toxoplasmose), est capable\nd'exacerber la pathologie Tau dans un modèle murin de la maladie d'Alzheimer.\nNotre centre, habilité à manipuler des protéines prion-like telles que Tau, a permis la réalisation d’une série\nd’analyses biochimiques, moléculaires et histologiques. J’ai été en charge de la caractérisation des effets de\nl’injection du parasite sur nos modèles, ainsi que de la réalisation de dissection murines."
         },
         {
           "id": "exp-ingenieure-projet3",
@@ -1011,17 +1044,21 @@
           "summary": "Rôle de la pathologie Tau et des récepteurs A2A dans les symptômes dépressifs de la maladie d'Alzheimer — projet poursuivi en doctorat.",
           "skills": [
             "s-anim-chirurgie",
-            "s-anim-stereotaxie",
-            "s-comp-suspension",
-            "s-comp-social",
-            "s-comp-sucrose",
+            "s-anim-ethique",
             "s-soft-organisation",
             "s-soft-planification",
             "s-soft-anticipation",
+            "s-soft-adaptabilite",
             "s-soft-rigueur",
-            "s-soft-integrite"
+            "s-soft-integrite",
+            "ski-mpa0alw8-2t31",
+            "ski-mpa1tz7b-co3e",
+            "ski-mpa1uekh-wgmv",
+            "ski-mpa4d93g-dmwb",
+            "ski-mpa4ei0r-2qgo",
+            "ski-mpa4fjo9-30pb"
           ],
-          "detail": "Suivi de la formation à la chirurgie animale (2024) permettant d'effectuer des injections stéréotaxiques pour induire la pathologie Tau ou la surexpression du récepteur A2A, suivi post-opératoire et bien-être des animaux. Mise en place et réalisation de tests comportementaux de dépression (test de suspension par la queue, test d'interaction sociale, test de préférence au sucrose). Sensibilisation continue aux bonnes pratiques et règles éthiques, maintien de l'habilitation à l'expérimentation animale. Les premiers résultats ont permis d'obtenir un financement et de poursuivre ce travail en doctorat à l'Université de Lille (continuité assurée)."
+          "detail": "Le troisième projet dans lequel je suis impliquée vise à comprendre le rôle de la pathologie Tau et des A2AR dans les\nsymptômes dépressifs observés chez les patients atteints de la MA, à l’aide d'un modèle murin.\nDans ce cadre, j'ai suivi la formation à la chirurgie animale en 2024 me permettant d'effectuer des injections\nstéréotaxiques dans notre modèle murin pour induire la pathologie Tau ou la surexpression du récepteurs A2AR. J’ai\nensuite assuré le suivi post-opératoire des animaux et veillé à leur bien-être tout au long de l’expérience.\nPour évaluer le comportement dépressif associés à ces manipulations, j'ai mis en place plusieurs tests\ncomportementaux de dépression (test de suspension par la queue, test d'interaction social et test de préférence au\nsucrose), que j'ai ensuite réalisé sur nos modèles. J’ai su anticiper et m’organiser afin de répondre au mieux aux\ndiverses contraintes d’une expérience in vivo. Afin de respecter la réglementation en vigueur, je continue à suivre\nrégulièrement des formations permettant de maintenir"
         },
         {
           "id": "exp-ingenieure-transversal",
@@ -1031,15 +1068,28 @@
           "end": "2025-09",
           "summary": "Contributions à de nombreuses études de l'équipe et mise au point / correction de protocoles.",
           "skills": [
-            "s-lab-if",
+            "s-anim-chirurgie",
+            "s-anim-perfusion",
+            "s-anim-inj-ip",
+            "s-anim-prelevement",
+            "s-lab-dosage",
+            "s-lab-westernblot",
+            "s-lab-elisa",
+            "s-lab-extraction-combinee",
             "s-lab-pcr",
             "s-lab-qpcr",
-            "s-lab-extraction-combinee",
+            "s-lab-if",
             "s-soft-esprit-critique",
             "s-soft-biblio",
-            "s-soft-equipe"
+            "s-soft-organisation",
+            "s-soft-planification",
+            "s-soft-equipe",
+            "s-soft-rigueur",
+            "ski-mpa09y0j-lwlw",
+            "ski-mpa0k8aj-tih6",
+            "ski-mpa4v0ck-655g"
           ],
-          "detail": "Contribution à de nombreuses études (projets de doctorantes, collaborations) en expérimentation sur modèles murins et en caractérisation biochimique, moléculaire et histologique. Mise au point de marqueurs synaptiques par immunofluorescence pour des comarquages pré- et post-synaptiques. Identification d'un dysfonctionnement du protocole de qPCR, tests pour en déterminer la cause et adaptation du protocole. Développement d'une méthode d'extraction combinée ARN/protéines permettant d'analyser les deux biomolécules à partir d'un même échantillon."
+          "detail": "En parallèle de ces projets, j’ai contribué à de nombreux autres études au sein de l’équipe, tant en expérimentation\nsur les modèles murins, qu'en caractérisation biochimique, moléculaire et histologique. Parmi ces contributions, j’ai\nparticipé à la mise au point de marqueurs synaptiques par immunofluorescence, dans l’objectif de faire des comarquages de ces marqueurs pré et post synaptiques. J’ai également identifié un dysfonctionnement dans le\nprotocole de qPCR et mené plusieurs tests pour en déterminer la cause, ce qui a conduit à l’adaptation du protocole.\nJ’ai développé une méthode d’extraction combinée d’ARN/protéines permettant d’analyser des deux biomolécules à\npartir d’un même échantillon."
         },
         {
           "id": "exp-ingenieure-responsabilites",
@@ -1049,17 +1099,17 @@
           "end": "2025-09",
           "summary": "Responsable du pôle qPCR, bon fonctionnement du laboratoire, transmission des compétences, médiation scientifique.",
           "skills": [
-            "s-lab-pcr",
-            "s-lab-qpcr",
             "s-soft-encadrement",
             "s-soft-formation",
             "s-soft-vulgarisation",
             "s-soft-mediation",
-            "s-soft-organisation",
-            "s-soft-planification",
-            "s-soft-anticipation"
+            "s-soft-equipe",
+            "s-soft-rigueur",
+            "s-soft-integrite",
+            "ski-mpa0k8aj-tih6",
+            "ski-mpa4fjo9-30pb"
           ],
-          "detail": "Responsable du pôle qPCR : gestion du matériel, des consommables et des échanges avec les fournisseurs. Participation au bon fonctionnement du laboratoire (maintenance, nettoyage des équipements, gestion des déchets). Transmission des compétences : formation de membres du personnel et d'étudiants aux techniques de biologie moléculaire, biochimie et histologie. Médiation scientifique : Fête de la science (lycéens et collégiens), Semaine du cerveau, événement « Déclic » (présentation du parcours à des lycéens). Réunions et communication de résultats en anglais."
+          "detail": "Je suis responsable du pôle qPCR : j’assure la gestion du matériel, des consommables et les échanges avec les\nfournisseurs. Je participe également au bon fonctionnement du laboratoire (maintenance, nettoyage des\néquipements, gestion des déchets).\nJe m’investis dans la transmission des compétences au sein de mon laboratoire en formant des membres du\npersonnel et des étudiants aux techniques de biologie moléculaire, biochimie et histologie. Enfin, j’ai eu l’occasion de\nparticiper plusieurs actions de médiation scientifique, telles que la fête de la science, auprès de lycéens et collégiens,\nou encore la semaine du cerveau dans le centre, et à un évènement « Déclic » , durant lequel j’ai présenté mon\nparcours à des lycéens."
         },
         {
           "id": "exp-ingenieure-formations",
@@ -1131,11 +1181,20 @@
         "ski-mpa4ei0r-2qgo",
         "ski-mpa4fjo9-30pb",
         "ski-mpa4v0ck-655g",
-        "ski-mpa65lv0-8g1u"
+        "ski-mpa65lv0-8g1u",
+        "ski-mpczhvy6-ucm9"
       ],
       "linkedItems": [
         "edu-doctorat",
-        "exp-doctorante"
+        "exp-doctorante",
+        "fin-egbsl",
+        "form-chirurgie",
+        "form-gestes",
+        "form-charles-river",
+        "pub-tau22",
+        "ray-fetescience",
+        "ray-declic",
+        "form-isoflurane"
       ]
     },
     {

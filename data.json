@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-19",
-    "version": 22,
+    "version": 23,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -536,8 +536,8 @@
     {
       "id": "ski-mpa4fjo9-30pb",
       "name": "Responsabilités",
-      "group": "logiciel",
-      "category": "hard",
+      "group": "transversal",
+      "category": "soft",
       "level": "Avancé",
       "description": ""
     },

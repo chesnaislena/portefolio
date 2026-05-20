@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-20",
-    "version": 29,
+    "version": 30,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -635,6 +635,16 @@
             "s-soft-anticipation"
           ],
           "detail": "Projet « Caractérisation de la pathologie Tau dans un modèle murin de la maladie d'Alzheimer (souris Thy-Tau22) ». Vulgarisation du projet auprès des élèves, formation à l'expérimentation en laboratoire et aux techniques d'immunofluorescence et de Western-blot, encadrement dans la préparation de leur diaporama pour un symposium (familles, professeurs, encadrants). Communication, planification du programme, anticipation, bienveillance, adaptabilité face aux imprévus (disponibilité des échantillons, IF non concluante, gel de WB cassé) — y compris le choix de montrer les échecs car ils font partie de la recherche."
+        },
+        {
+          "id": "sub-mpeep9fc-uv9w",
+          "title": "Membre du programme Précision Health",
+          "location": "Lille, France",
+          "start": "10-2025",
+          "end": null,
+          "summary": "Il s'agit d'un programme proposant un accompagnement des doctorants vers leur projet professionnel avec des formations à suivre, la participation à une summer school pour présenter nos travaux de recherche, et une mobilité à l'étranger. Faire partie du programme rapporte également des crédits durant le parcours doctoral.",
+          "detail": "",
+          "skills": []
         }
       ],
       "skills": [
@@ -660,7 +670,9 @@
       ],
       "linkedItems": [
         "exp-doctorante",
-        "exp-ingenieure"
+        "exp-ingenieure",
+        "fin-egbsl",
+        "fin-brainns"
       ]
     },
     {
@@ -1879,6 +1891,21 @@
       "amount": "",
       "description": "Réussite au concours des allocations doctorales de l'EGBSL — 8ème sur 89 candidats. Financement permettant la poursuite du projet « dépression » en doctorat.",
       "skills": []
+    },
+    {
+      "id": "fin-mpeezq2j-8jjr",
+      "title": "Obtention du parrainage jeune chercheur",
+      "org": "France Alzheimer",
+      "year": "2025",
+      "amount": "1500€",
+      "description": "Suite à l'envoi d'un dossier comportant une description du projet de recherche, un abstract et un résumé vulgarisé en français, j'ai obtenu une bourse mobilité de 1500€ par an, ainsi qu'une prise en charge de mes frais de scolarité. Je dois participer et présenter aux congrès ou évènements organisés par l'association, et notamment le congrès FAAST.",
+      "skills": [
+        "s-soft-vulgarisation",
+        "s-soft-redaction-financement",
+        "s-soft-comm-orale",
+        "s-soft-comm-poster",
+        "ski-mpa4tskp-vof9"
+      ]
     }
   ],
   "publications": [

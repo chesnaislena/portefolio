@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-20",
-    "version": 27,
+    "version": 28,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -675,17 +675,20 @@
       "subItems": [
         {
           "id": "edu-master-enseignements",
-          "title": "Enseignements",
+          "title": "Enseignements suivis",
           "location": "Rennes, France",
           "start": "2020-09",
           "end": "2022-06",
-          "summary": "Toxicologie, communication cellulaire, biologie cellulaire, génétique, biochimie, bioinformatique, statistique, préparation de l'après-master.",
+          "summary": "Matières : Toxicologie, communication cellulaire, biologie cellulaire, génétique, biochimie, bioinformatique, statistique, préparation de l'après-master.",
           "skills": [
-            "s-bioinfo",
             "s-data-stats",
-            "s-data-analyse"
+            "s-data-analyse",
+            "s-bioinfo",
+            "ski-mpa1tz7b-co3e",
+            "ski-mpa4tskp-vof9",
+            "ski-mpa4v0ck-655g"
           ],
-          "detail": "Matières : toxicologie, bases de la communication cellulaire, biologie cellulaire, génétique, biochimie, bioinformatique, statistique, module « préparer l'après master »."
+          "detail": "Malgré une première année difficile (moyenne de 12/20), j'ai fais preuve de persévérance. J'ai majoré lors du dernier semestre de Master 2 avec une moyenne de 18/20 (stage de Master 2)."
         },
         {
           "id": "edu-master-articles",
@@ -708,12 +711,13 @@
           "location": "Rennes, France",
           "start": "2020-09",
           "end": "2022-06",
-          "summary": "Résumé scientifique vulgarisé d'une page, accompagné d'un schéma de synthèse, sur le rôle de la leptine.",
+          "summary": "Rédaction d'un résumé scientifique vulgarisé d'une page, accompagné d'un schéma de synthèse, sur le rôle de la leptine d'ans l'obésité.",
           "skills": [
             "s-soft-vulgarisation",
-            "s-soft-mediation"
+            "s-soft-mediation",
+            "ski-mpa4tskp-vof9"
           ],
-          "detail": "Rédaction d'un résumé scientifique vulgarisé d'une page avec schéma résumé portant sur le rôle de la leptine."
+          "detail": ""
         },
         {
           "id": "edu-master-projet",
@@ -797,13 +801,13 @@
       "subItems": [
         {
           "id": "edu-licence-enseignements",
-          "title": "Enseignements",
+          "title": "Enseignements suivis",
           "location": "Nouméa, Nouvelle-Calédonie",
           "start": "2018-09",
           "end": "2020-06",
-          "summary": "Biologie des végétaux, biologie animale, biochimie, biologie cellulaire, génétique.",
+          "summary": "Matières : Biologie des végétaux, biologie animale, biochimie, biologie cellulaire, génétique, chimie analytique, bioinformatique, statistiques",
           "skills": [],
-          "detail": "Matières : biologie des végétaux, biologie animale, biochimie, biologie cellulaire, génétique."
+          "detail": ""
         },
         {
           "id": "edu-licence-stage",
@@ -834,7 +838,6 @@
         "s-lab-qpcr"
       ],
       "linkedItems": [
-        "exp-stage-l3",
         "pub-newcal-meta",
         "pub-newcal-flora"
       ]

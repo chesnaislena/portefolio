@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-19",
-    "version": 26,
+    "lastUpdated": "2026-05-20",
+    "version": 27,
     "passwordHash": "1b3dfe6a126bae0ac214e1a70a0895cb73eb45a34c96331601fd1fb4c0102c10"
   },
   "profile": {
@@ -834,7 +834,9 @@
         "s-lab-qpcr"
       ],
       "linkedItems": [
-        "exp-stage-l3"
+        "exp-stage-l3",
+        "pub-newcal-meta",
+        "pub-newcal-flora"
       ]
     }
   ],

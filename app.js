@@ -1077,7 +1077,7 @@ function renderGraph() {
 
   const g = svg.append("g");
 
-  const zoom = d3.zoom().scaleExtent([0.3, 3])
+  const zoom = d3.zoom().scaleExtent([0.15, 3])
     .on("zoom", (e) => g.attr("transform", e.transform));
   svg.call(zoom);
 
@@ -1123,11 +1123,11 @@ function renderGraph() {
   nodes.forEach(n => { n._label = truncate(n.label || "", 26); });
 
   const sim = d3.forceSimulation(nodes)
-    .force("link",   d3.forceLink(links).id(d => d.id).distance(110).strength(.35))
-    .force("charge", d3.forceManyBody().strength(-380))
+    .force("link",   d3.forceLink(links).id(d => d.id).distance(210).strength(.22))
+    .force("charge", d3.forceManyBody().strength(-1100).distanceMax(1400))
     .force("center", d3.forceCenter(w/2, h/2))
-    .force("x",      d3.forceX(w/2).strength(.04))
-    .force("y",      d3.forceY(h/2).strength(.04));
+    .force("x",      d3.forceX(w/2).strength(.025))
+    .force("y",      d3.forceY(h/2).strength(.025));
 
   const link = g.append("g").attr("class", "links")
     .selectAll("line").data(links).join("line")

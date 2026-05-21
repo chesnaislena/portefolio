@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projet professionnel · Portfolio</title>
+<meta name="description" content="Projet professionnel visé et plan d'action pour la suite du parcours." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="siteHeader"></header>
+
+<main id="top">
+  <section class="page-head wrap">
+    <div class="section-label">Perspective</div>
+    <h1 class="page-title">Projet professionnel.</h1>
+    <p class="page-intro">Le cap professionnel visé à l'issue du doctorat, et le plan d'action concret envisagé pour l'atteindre.</p>
+  </section>
+
+  <section class="wrap projet-page">
+    <div class="projet-section">
+      <h2 class="col-title">Le projet</h2>
+      <div class="entries" id="projetProList"></div>
+    </div>
+    <div class="projet-section">
+      <h2 class="col-title">Plan d'action</h2>
+      <div class="entries" id="projetPlanList"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div><span id="footName"></span> — <span id="footYear"></span></div>
+</footer>
+
+<div id="adminUI"></div>
+
+<script>window.__PORTFOLIO_PAGE__ = { active: "projet" };</script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -72,8 +72,8 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .82rem; }
 
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); position: relative; z-index: 2; }
-section { padding: clamp(90px, 13vh, 160px) 0; position: relative; }
-#top > section:not(.hero) { padding: clamp(130px, 19vh, 240px) 0; }
+section { padding: clamp(52px, 8vh, 92px) 0; position: relative; }
+#top > section:not(.hero) { padding: clamp(64px, 10vh, 124px) 0; }
 #top > section + section { border-top: 1px solid var(--line); }
 
 /* ============================================================
@@ -172,8 +172,8 @@ html[data-theme="dark"] .theme-toggle .moon { display: block; }
   color: var(--muted); margin-bottom: 28px;
 }
 .section-label::before { content: ""; width: 40px; height: 1px; background: var(--accent); }
-.section-title { max-width: 24ch; margin-bottom: 48px; }
-.section-intro { max-width: 58ch; color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 48px; margin-top: -24px; }
+.section-title { max-width: 24ch; margin-bottom: 32px; }
+.section-intro { max-width: 58ch; color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 32px; margin-top: -16px; }
 
 /* ============================================================
    À PROPOS
@@ -663,7 +663,7 @@ footer:hover .admin-hint { opacity: .6; }
 /* ============================================================
    PAGES MPA — EN-TÊTE DE PAGE
    ============================================================ */
-.page-head { padding: clamp(60px, 9vh, 110px) 0 clamp(20px, 4vh, 40px); }
+.page-head { padding: clamp(40px, 6vh, 68px) 0 clamp(14px, 3vh, 26px); }
 .page-title {
   font-family: "Fraunces", serif; font-size: clamp(2.4rem, 5.6vw, 4.6rem);
   letter-spacing: -0.02em; line-height: 1.05;
@@ -852,10 +852,38 @@ footer:hover .admin-hint { opacity: .6; }
   display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
 }
 @media (max-width: 900px) { .mediation-grid { grid-template-columns: 1fr; gap: 40px; } }
-.mediation-col .col-title {
+.mediation-col .col-title,
+.projet-section .col-title {
   font-family: "JetBrains Mono", monospace; font-size: .82rem;
   text-transform: uppercase; letter-spacing: .14em; color: var(--muted);
   margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--line);
+}
+
+/* ============================================================
+   PAGE PROJET PROFESSIONNEL
+   ============================================================ */
+.projet-page { display: flex; flex-direction: column; gap: 40px; }
+
+.projet-horizon {
+  display: inline-block; font-family: "JetBrains Mono", monospace;
+  font-size: .68rem; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--accent); margin-bottom: 10px;
+  background: color-mix(in oklab, var(--accent) 9%, transparent);
+  border-radius: 999px; padding: 4px 12px;
+}
+
+.projet-step {
+  display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start;
+}
+.projet-step-num {
+  font-family: "Fraunces", serif; font-style: italic; font-size: 2.2rem;
+  line-height: 1; padding-top: 2px;
+  color: color-mix(in oklab, var(--accent) 50%, var(--line));
+}
+
+@media (max-width: 600px) {
+  .projet-step { grid-template-columns: 1fr; gap: 6px; }
+  .projet-step-num { font-size: 1.5rem; }
 }
 
 /* ============================================================

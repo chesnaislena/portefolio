@@ -18,6 +18,7 @@ const DEFAULT_NAV_LINKS = [
   { href: "mediation.html",    label: "Médiation et Engagements", id: "mediation" },
   { href: "financements.html", label: "Financements",             id: "financements" },
   { href: "travaux.html",      label: "Travaux",                  id: "travaux" },
+  { href: "projet.html",       label: "Projet professionnel",     id: "projet" },
 ];
 
 /* ---------- ÉTAT GLOBAL ---------- */
@@ -156,6 +157,7 @@ function mountAdminUI() {
           <button class="admin-tab" data-tab="mediation">Médiation</button>
           <button class="admin-tab" data-tab="financements">Financements</button>
           <button class="admin-tab" data-tab="publications">Travaux</button>
+          <button class="admin-tab" data-tab="projet">Projet pro</button>
           <button class="admin-tab" data-tab="sync">Synchronisation</button>
         </div>
         <div class="admin-body" id="adminBody"></div>
@@ -298,7 +300,7 @@ function getDefaultData() {
       location: "", email: "", lab: "", orcid: "",
       links: { email: "", github: "", linkedin: "", scholar: "", orcid: "" }
     },
-    skills: [], experiences: [], cursus: [], formations: [], rayonnement: [], financements: [], publications: [],
+    skills: [], experiences: [], cursus: [], formations: [], rayonnement: [], financements: [], publications: [], projet: [],
     meta: { lastUpdated: new Date().toISOString().slice(0,10), version: 1 }
   };
 }
@@ -333,6 +335,7 @@ function renderAll() {
   if ($("#mediationCollective") || $("#mediationGrandPublic")) renderMediationPage();
   if ($("#financementsList"))   renderFinancementsPage();
   if ($("#travauxList"))        renderTravauxPage();
+  if ($("#projetProList") || $("#projetPlanList")) renderProjetPage();
   if ($("#pageCards"))          renderPageCards();
   if ($("#identityCard"))       renderIdentityCard();
   setTimeout(revealOnScroll, 100);
@@ -855,6 +858,45 @@ function renderTravauxPage() {
   bindEntryToggles(container);
 }
 
+/* Page Projet professionnel — projet visé + plan d'action */
+function renderProjetEntry(it, num) {
+  const hasDetail = !!(it.detail && it.detail.trim());
+  return `
+    <article class="entry${num ? " projet-step" : ""}" id="${escapeHtml(it.id)}">
+      ${num ? `<div class="projet-step-num">${String(num).padStart(2, "0")}</div>` : ""}
+      <div class="projet-entry-body">
+        ${it.horizon ? `<div class="projet-horizon">${escapeHtml(it.horizon)}</div>` : ""}
+        <h3 class="entry-title">${escapeHtml(it.title || "")}</h3>
+        ${it.description ? `<p class="entry-desc">${escapeHtml(it.description).replace(/\n/g, "<br>")}</p>` : ""}
+        ${hasDetail ? `
+          <button class="subitem-toggle" type="button" data-detail="${escapeHtml(it.id)}">↓ En savoir plus</button>
+          <div class="subitem-detail" data-subitem-detail="${escapeHtml(it.id)}" hidden>
+            <p>${escapeHtml(it.detail).replace(/\n/g, "<br>")}</p>
+          </div>
+        ` : ""}
+      </div>
+    </article>`;
+}
+
+function renderProjetPage() {
+  const items = DATA.projet || [];
+  const renderList = (cat, asSteps) => {
+    const list = items.filter(it => it.category === cat);
+    if (!list.length) return null;
+    return list.map((it, i) => renderProjetEntry(it, asSteps ? i + 1 : 0)).join("");
+  };
+  if ($("#projetProList")) {
+    $("#projetProList").innerHTML = renderList("projetpro", false)
+      || `<div class="empty-note">Le projet professionnel sera précisé prochainement.</div>`;
+  }
+  if ($("#projetPlanList")) {
+    $("#projetPlanList").innerHTML = renderList("plandaction", true)
+      || `<div class="empty-note">Le plan d'action sera détaillé prochainement.</div>`;
+  }
+  const root = document.querySelector(".projet-page");
+  if (root) bindEntryToggles(root);
+}
+
 /* Page d'accueil — cartes vers les autres pages */
 function renderPageCards() {
   const container = $("#pageCards");
@@ -865,6 +907,7 @@ function renderPageCards() {
     { href: "mediation.html",    label: "Médiation et Engagements", desc: "Implications collectives et actions grand public.",          count: (DATA.rayonnement  || []).length },
     { href: "financements.html", label: "Financements",             desc: "Bourses, prix, appels à projets obtenus.",                   count: (DATA.financements || []).length },
     { href: "travaux.html",      label: "Travaux",                  desc: "Publications, abstracts, communications.",                   count: (DATA.publications || []).length },
+    { href: "projet.html",       label: "Projet professionnel",     desc: "Projet professionnel visé et plan d'action pour la suite.",  count: (DATA.projet       || []).length },
   ];
   container.innerHTML = cards.map((c, i) => `
     <a class="page-card" href="${escapeHtml(c.href)}">
@@ -1288,6 +1331,7 @@ function renderAdminTab() {
     case "mediation":    body.innerHTML = renderEntityList("rayonnement", "Action");     bindEntityList("rayonnement"); break;
     case "financements": body.innerHTML = renderEntityList("financements", "Financement"); bindEntityList("financements"); break;
     case "publications": body.innerHTML = renderEntityList("publications", "Publication"); bindEntityList("publications"); break;
+    case "projet":       body.innerHTML = renderEntityList("projet", "Entrée");          bindEntityList("projet"); break;
     case "sync":         body.innerHTML = renderSyncForm(); bindSyncForm(); break;
   }
 }
@@ -1368,6 +1412,7 @@ function renderEntityList(key, label) {
     if (key === "rayonnement")  return { t: it.title || "(sans titre)", s: `${it.category === "collective" ? "Collectif scientifique" : "Grand public"} — ${fmtDate(it.start)}` };
     if (key === "financements") return { t: it.title || "(sans titre)", s: `${it.org || ""}${it.year ? " — " + it.year : ""}${it.amount ? " — " + it.amount : ""}` };
     if (key === "publications") return { t: it.title || "(sans titre)", s: `${it.year || ""} — ${it.venue || ""}` };
+    if (key === "projet")       return { t: it.title || "(sans titre)", s: `${it.category === "plandaction" ? "Plan d'action" : "Projet professionnel"}${it.horizon ? " — " + it.horizon : ""}` };
     return { t: "?", s: "" };
   };
 
@@ -1556,6 +1601,30 @@ function renderEntityForm(key, item) {
       </div>`;
   }
 
+  if (key === "projet") {
+    const cat = it.category === "plandaction" ? "plandaction" : "projetpro";
+    return `
+      <div class="admin-form">
+        <h3>${item ? "Modifier l'entrée" : "Nouvelle entrée"}</h3>
+        <label>Catégorie
+          <select name="category">
+            <option value="projetpro"   ${cat==="projetpro"   ? "selected" : ""}>Projet professionnel</option>
+            <option value="plandaction" ${cat==="plandaction" ? "selected" : ""}>Plan d'action (étape numérotée)</option>
+          </select>
+        </label>
+        <label>Titre <input type="text" name="title" value="${escapeHtml(it.title)}" required></label>
+        <label>Horizon / Étiquette (optionnel — ex. « Court terme · 0–2 ans », « Vision »)
+          <input type="text" name="horizon" value="${escapeHtml(it.horizon)}">
+        </label>
+        <label>Description courte <textarea name="description" rows="3">${escapeHtml(it.description)}</textarea></label>
+        <label>Détail (optionnel — affiché au clic, peut être long) <textarea name="detail" rows="6">${escapeHtml(it.detail)}</textarea></label>
+        <div style="display:flex; gap:8px; justify-content:flex-end">
+          ${item ? `<button class="btn" id="cancelEdit">Annuler</button>` : ""}
+          <button class="btn primary" id="saveEntity">${item ? "Mettre à jour" : "Ajouter"}</button>
+        </div>
+      </div>`;
+  }
+
   if (key === "publications") {
     const t = it.type || "article";
     return `
@@ -1726,7 +1795,7 @@ function bindEntityForm(key) {
   });
 
   $("#saveEntity")?.addEventListener("click", () => {
-    const idPrefix = key === "rayonnement" ? "ray" : key.slice(0, 3);
+    const idPrefix = key === "rayonnement" ? "ray" : key === "projet" ? "prj" : key.slice(0, 3);
     const obj = editingEntity ? { ...editingEntity } : { id: uid(idPrefix) };
 
     if (key === "skills") {
@@ -1784,6 +1853,14 @@ function bindEntityForm(key) {
       obj.amount = form.querySelector('[name="amount"]').value.trim();
       obj.description = form.querySelector('[name="description"]').value.trim();
       obj.skills = [...form.querySelectorAll('input[name="skill"]:checked')].map(x => x.value);
+      if (!obj.title) { toast("Titre requis", "error"); return; }
+    }
+    if (key === "projet") {
+      obj.category = form.querySelector('[name="category"]').value;
+      obj.title = form.querySelector('[name="title"]').value.trim();
+      obj.horizon = form.querySelector('[name="horizon"]').value.trim();
+      obj.description = form.querySelector('[name="description"]').value.trim();
+      obj.detail = form.querySelector('[name="detail"]').value.trim();
       if (!obj.title) { toast("Titre requis", "error"); return; }
     }
     if (key === "publications") {

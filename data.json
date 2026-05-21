@@ -1964,5 +1964,70 @@
       ]
     }
   ],
-  "projet": []
+  "projet": [
+    {
+      "id": "prj-cap-a",
+      "category": "projetpro",
+      "title": "Ingénieure de recherche en neurosciences dans le secteur public",
+      "horizon": "Plan A",
+      "description": "Exercer comme ingénieure de recherche au sein d'une unité publique (INSERM, CNRS, université), au cœur d'une équipe de neurosciences : conduite des expérimentations, mise au point de méthodes et encadrement.",
+      "detail": "Cette première piste prolonge directement mon environnement actuel. Comme ingénieure de recherche dans un laboratoire public, j'apporterais une expertise technique pointue — expérimentation in vivo, biologie moléculaire, histologie, imagerie — au service des projets de l'équipe.\n\nLe doctorat est le levier qui permet de passer du grade d'ingénieure d'études, que j'ai occupé, à celui d'ingénieure de recherche. L'accès à un poste pérenne se fait par concours (INSERM, CNRS, universités).\n\nCe cadre me permettrait de rester au plus près du geste technique tout en encadrant et en formant étudiants et personnels — deux dimensions qui me tiennent à cœur."
+    },
+    {
+      "id": "prj-cap-b",
+      "category": "projetpro",
+      "title": "Ingénieure de recherche en R&D préclinique dans l'industrie",
+      "horizon": "Plan B",
+      "description": "Exercer comme ingénieure de recherche en R&D préclinique au sein d'une entreprise de biotechnologie ou de l'industrie pharmaceutique, sur des projets en neurosciences.",
+      "detail": "Cette seconde piste mobilise les mêmes savoir-faire dans un cadre industriel : conduite d'études précliniques, pharmacologie in vivo, mise au point de modèles et d'essais comportementaux, encadrement de techniciens.\n\nJe connais déjà cet environnement grâce à mon stage de Master 2 chez Bioprojet Biotech, en pharmacologie. La R&D préclinique offre un fort ancrage technique et des perspectives d'évolution vers la coordination d'études.\n\nÀ ce stade, le choix entre le secteur public et l'industrie n'est pas tranché : ces deux pistes mènent au même métier d'ingénieure de recherche, et le plan d'action ci-dessous prépare l'une comme l'autre."
+    },
+    {
+      "id": "prj-plan-1",
+      "category": "plandaction",
+      "title": "Consolider et élargir mon expertise technique pendant le doctorat",
+      "horizon": "2025 – 2028 · pendant la thèse",
+      "description": "Passer d'une bonne pratique à une véritable expertise sur les techniques in vivo, de biologie moléculaire, d'histologie et d'imagerie mobilisées par le projet de thèse.",
+      "detail": "Mettre à profit les trois années de doctorat pour approfondir et fiabiliser un large panel de techniques : stéréotaxie, chirurgie animale, tests comportementaux, immunohistochimie, Western-blot, qPCR, imagerie confocale.\n\nDocumenter et standardiser les protocoles mis au point — une compétence directement valorisable, que ce soit dans un laboratoire public ou en R&D industrielle."
+    },
+    {
+      "id": "prj-plan-3",
+      "category": "plandaction",
+      "title": "Développer mon expérience d'encadrement et de formation",
+      "horizon": "Dès janvier 2027 · pendant la thèse",
+      "description": "Encadrer, sur une année complète à partir de janvier 2027, une stagiaire de Master 2 en parcours médecine, en plus des actions de formation déjà engagées.",
+      "detail": "Une stagiaire de Master 2, issue d'un parcours de médecine, rejoindra l'équipe en janvier 2027 : je l'encadrerai pendant un an. Ce sera mon premier encadrement long d'une stagiaire de Master, l'occasion d'apprendre à accompagner un projet dans la durée.\n\nCet encadrement s'ajoute aux actions déjà menées — formation de personnels et d'étudiants aux techniques de biologie moléculaire, biochimie et histologie, encadrement de lycéens et de collégiens dans le programme Apprentis chercheurs.\n\nL'encadrement étant au cœur du métier d'ingénieure de recherche, je veux apprendre à transmettre de façon structurée et endosser un rôle de référente technique."
+    },
+    {
+      "id": "prj-plan-conception",
+      "category": "plandaction",
+      "title": "Concevoir des projets et des procédures expérimentales",
+      "horizon": "Pendant la thèse",
+      "description": "M'appuyer sur ma certification à l'expérimentation animale de niveau concepteur pour élaborer des projets et des procédures expérimentales de façon autonome.",
+      "detail": "Ma certification à l'expérimentation animale de niveau concepteur m'habilite à concevoir des procédures expérimentales et des projets sur modèles animaux — et pas seulement à les exécuter.\n\nJe veux pleinement mobiliser cette qualification : participer à l'élaboration des projets de l'équipe, rédiger des demandes d'autorisation de projet (DAP), dimensionner les protocoles dans le respect de la règle des 3R. La conception de projets expérimentaux est une compétence centrale du métier d'ingénieure de recherche."
+    },
+    {
+      "id": "prj-plan-4",
+      "category": "plandaction",
+      "title": "Explorer les pistes post-doctorales et construire mon réseau",
+      "horizon": "Pendant la thèse",
+      "description": "Préparer l'après-thèse tout au long du doctorat : saisir l'opportunité d'un séjour de recherche aux États-Unis et développer mon réseau scientifique en congrès.",
+      "detail": "Le post-doctorat est le passage habituel entre le doctorat et un poste pérenne d'ingénieure de recherche. Je veux préparer ce cap dès maintenant et préciser, en chemin, le choix entre secteur public (plan A) et industrie (plan B).\n\nUne opportunité clé : mon projet de thèse est co-encadré entre Lille et les États-Unis (AJ Robison, Michigan State University). Un séjour de recherche dans ce laboratoire me permettra de me former à l'électrophysiologie, d'élargir mon panel technique, de découvrir un environnement de recherche international et d'approfondir concrètement la piste d'un post-doctorat à l'étranger.\n\nLes congrès sont l'autre levier pour construire mon réseau : le Colloque FAAST à Paris et l'European Purine Meeting à Bordeaux, tous deux prévus en 2026, ainsi que d'autres rencontres scientifiques au cours du doctorat. Autant d'occasions de rencontrer des équipes, de présenter mes travaux et de repérer de futurs laboratoires d'accueil, en France comme à l'étranger."
+    },
+    {
+      "id": "prj-plan-5",
+      "category": "plandaction",
+      "title": "Réaliser un ou plusieurs post-doctorats",
+      "horizon": "Court terme · après la thèse",
+      "description": "Occuper un ou plusieurs contrats post-doctoraux, idéalement dont un à l'étranger, pour consolider l'expertise et élargir le réseau.",
+      "detail": "Effectuer un ou deux post-doctorats orientés méthodes et techniques, en privilégiant un environnement riche en plateaux technologiques.\n\nUne expérience à l'étranger renforcerait nettement le profil, et préparerait aussi bien un futur poste dans le secteur public qu'un recrutement dans l'industrie."
+    },
+    {
+      "id": "prj-plan-6",
+      "category": "plandaction",
+      "title": "Accéder à un poste d'ingénieure de recherche",
+      "horizon": "Moyen terme",
+      "description": "Décrocher un poste d'ingénieure de recherche : par concours dans le secteur public (plan A), ou par recrutement en R&D préclinique (plan B).",
+      "detail": "Selon la piste retenue à ce moment-là :\n\n• Plan A — préparer et présenter les concours externes d'ingénieur de recherche (INSERM, CNRS, universités) pour accéder à un poste pérenne.\n\n• Plan B — candidater sur des postes d'ingénieure de recherche en R&D préclinique, au sein d'une entreprise de biotechnologie ou de l'industrie pharmaceutique.\n\nDans les deux cas, l'objectif reste le même : un métier d'expertise technique, de développement de méthodes et d'encadrement."
+    }
+  ]
 }
